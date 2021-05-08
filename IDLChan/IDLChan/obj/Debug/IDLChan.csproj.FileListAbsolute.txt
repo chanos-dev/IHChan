@@ -1,0 +1,14 @@
+C:\Users\Chanos\Desktop\git\IDLChan\IDLChan\IDLChan\bin\Debug\IDLChan.exe.config
+C:\Users\Chanos\Desktop\git\IDLChan\IDLChan\IDLChan\bin\Debug\IDLChan.exe
+C:\Users\Chanos\Desktop\git\IDLChan\IDLChan\IDLChan\bin\Debug\IDLChan.pdb
+C:\Users\Chanos\Desktop\git\IDLChan\IDLChan\IDLChan\bin\Debug\MetroFramework.Design.dll
+C:\Users\Chanos\Desktop\git\IDLChan\IDLChan\IDLChan\bin\Debug\MetroFramework.dll
+C:\Users\Chanos\Desktop\git\IDLChan\IDLChan\IDLChan\bin\Debug\MetroFramework.Fonts.dll
+C:\Users\Chanos\Desktop\git\IDLChan\IDLChan\IDLChan\obj\Debug\IDLChan.csprojAssemblyReference.cache
+C:\Users\Chanos\Desktop\git\IDLChan\IDLChan\IDLChan\obj\Debug\IDLChan.Properties.Resources.resources
+C:\Users\Chanos\Desktop\git\IDLChan\IDLChan\IDLChan\obj\Debug\IDLChan.csproj.GenerateResource.cache
+C:\Users\Chanos\Desktop\git\IDLChan\IDLChan\IDLChan\obj\Debug\IDLChan.csproj.CoreCompileInputs.cache
+C:\Users\Chanos\Desktop\git\IDLChan\IDLChan\IDLChan\obj\Debug\IDLChan.csproj.CopyComplete
+C:\Users\Chanos\Desktop\git\IDLChan\IDLChan\IDLChan\obj\Debug\IDLChan.exe
+C:\Users\Chanos\Desktop\git\IDLChan\IDLChan\IDLChan\obj\Debug\IDLChan.pdb
+C:\Users\Chanos\Desktop\git\IDLChan\IDLChan\IDLChan\obj\Debug\IDLChan.frm_Main.resources
