@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+	(c) lvcharts.net
+	Map Version 1.0
+	This work is licensed under a Creative Commons
+	Attribution-NonCommercial-ShareAlike 4.0 International License
+	https://creativecommons.org/licenses/by-nc-sa/4.0/
+-->
+<LiveChartsMap xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Height>2592</Height>
+  <Width>4008</Width>
+  <Shapes>
+    <MapShape>
+      <Id>KR</Id>
+      <Name>Korea</Name>
+      <Path>M3433,1377L3442,1394L3445,1403L3445,1419L3441,1426L3431,1429L3422,1435L3412,1436L3411,1428L3413,1418L3408,1404L3416,1401L3408,1389L3409,1388L3414,1389L3418,1382L3426,1382L3431,1381L3433,1377Z</Path>
+    </MapShape>
+  </Shapes>
+</LiveChartsMap>

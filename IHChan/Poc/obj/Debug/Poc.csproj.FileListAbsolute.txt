@@ -19,3 +19,4 @@ C:\Users\Chanos\Desktop\git\IHChan\IHChan\Poc\obj\Debug\Poc.csproj.CoreCompileIn
 C:\Users\Chanos\Desktop\git\IHChan\IHChan\Poc\obj\Debug\Poc.csproj.CopyComplete
 C:\Users\Chanos\Desktop\git\IHChan\IHChan\Poc\obj\Debug\Poc.exe
 C:\Users\Chanos\Desktop\git\IHChan\IHChan\Poc\obj\Debug\Poc.pdb
+C:\Users\Chanos\Desktop\git\IHChan\IHChan\Poc\bin\Debug\World\World2.xml
