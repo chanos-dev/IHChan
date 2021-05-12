@@ -1,4 +1,5 @@
-﻿using MetroFramework.Forms;
+﻿using IHChan.APIs;
+using MetroFramework.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,6 +24,15 @@ namespace IDLChan
         {
             this.StyleManager = ms_Manager;
             ms_Manager.Owner = this;
-        } 
+        }
+
+        private void metroButton1_Click(object sender, EventArgs e)
+        {
+            var covid = new CovidAPI();
+            //covid.Get1();
+
+            ms_Manager.Theme = MetroFramework.MetroThemeStyle.Dark;
+            ms_Manager.Style = MetroFramework.MetroColorStyle.Orange;
+        }
     }
 }

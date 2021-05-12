@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.ms_Manager = new MetroFramework.Components.MetroStyleManager(this.components);
+            this.metroButton1 = new MetroFramework.Controls.MetroButton();
             ((System.ComponentModel.ISupportInitialize)(this.ms_Manager)).BeginInit();
             this.SuspendLayout();
             // 
@@ -37,11 +38,22 @@
             // 
             this.ms_Manager.Owner = null;
             // 
+            // metroButton1
+            // 
+            this.metroButton1.Location = new System.Drawing.Point(23, 63);
+            this.metroButton1.Name = "metroButton1";
+            this.metroButton1.Size = new System.Drawing.Size(137, 45);
+            this.metroButton1.TabIndex = 0;
+            this.metroButton1.Text = "metroButton1";
+            this.metroButton1.UseSelectable = true;
+            this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
+            // 
             // frm_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1029, 528);
+            this.Controls.Add(this.metroButton1);
             this.Name = "frm_Main";
             this.Text = "DashBoard";
             ((System.ComponentModel.ISupportInitialize)(this.ms_Manager)).EndInit();
@@ -52,6 +64,7 @@
         #endregion
 
         private MetroFramework.Components.MetroStyleManager ms_Manager;
+        private MetroFramework.Controls.MetroButton metroButton1;
     }
 }
 
