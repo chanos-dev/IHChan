@@ -60,9 +60,11 @@
   <ItemGroup>
     <Compile Include="APIs\BaseAPI.cs" />
     <Compile Include="APIs\CovidAPI.cs" />
+    <Compile Include="APIs\CovidController.cs" />
     <Compile Include="APIs\Define.cs" />
     <Compile Include="APIs\RequestAPI.cs" />
     <Compile Include="Converter\CovidConverter.cs" />
+    <Compile Include="Converter\XmlConverter.cs" />
     <Compile Include="Environment\CovidEnvironment.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -70,7 +72,9 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\InformationOfCovidInfStateJson.cs" />
+    <Compile Include="Model\InformationOfCovidHomeCountryJson.cs" />
+    <Compile Include="Model\InformationOfCovidOverseasJson.cs" />
+    <Compile Include="Model\InformationOfCovidSidoJson.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="MainForm.resx">

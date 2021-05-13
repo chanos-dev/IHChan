@@ -18,13 +18,15 @@ namespace IHChan.APIs
             {
                 using (HttpClient client = new HttpClient())
                 {
-                    client.DefaultRequestHeaders.Add("Accept", "application/json");
+                    client.DefaultRequestHeaders.Add("Accept", "application/xml");
 
                     // GET TEST-CODE 
                     var response = await client.GetAsync(api.RequestURL);
                     response.EnsureSuccessStatusCode();
 
                     var result = response.Content.ReadAsStringAsync().Result;
+
+                    result = XmlConverter.ConvertXmlToJson(result);
 
                     return JsonConvert.DeserializeObject<T>(result, new CovidConverter<T>());
                 }

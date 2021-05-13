@@ -61,7 +61,7 @@ namespace IHChan.APIs
         /// <summary>
         /// Full path URL
         /// </summary>
-        public string URL
+        protected string URL
         {
             get
             {

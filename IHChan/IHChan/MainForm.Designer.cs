@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.ms_Manager = new MetroFramework.Components.MetroStyleManager(this.components);
             this.metroButton1 = new MetroFramework.Controls.MetroButton();
+            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             ((System.ComponentModel.ISupportInitialize)(this.ms_Manager)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,16 +49,31 @@
             this.metroButton1.UseSelectable = true;
             this.metroButton1.Click += new System.EventHandler(this.metroButton1_Click);
             // 
+            // metroLabel1
+            // 
+            this.metroLabel1.AutoSize = true;
+            this.metroLabel1.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel1.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel1.ForeColor = System.Drawing.Color.Blue;
+            this.metroLabel1.Location = new System.Drawing.Point(184, 83);
+            this.metroLabel1.Name = "metroLabel1";
+            this.metroLabel1.Size = new System.Drawing.Size(63, 25);
+            this.metroLabel1.TabIndex = 1;
+            this.metroLabel1.Text = "533 ▲";
+            this.metroLabel1.UseCustomForeColor = true;
+            // 
             // frm_Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1029, 528);
+            this.Controls.Add(this.metroLabel1);
             this.Controls.Add(this.metroButton1);
             this.Name = "frm_Main";
             this.Text = "DashBoard";
             ((System.ComponentModel.ISupportInitialize)(this.ms_Manager)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -65,6 +81,7 @@
 
         private MetroFramework.Components.MetroStyleManager ms_Manager;
         private MetroFramework.Controls.MetroButton metroButton1;
+        private MetroFramework.Controls.MetroLabel metroLabel1;
     }
 }
 

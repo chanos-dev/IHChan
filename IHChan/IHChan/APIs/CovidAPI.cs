@@ -14,15 +14,19 @@ namespace IHChan.APIs
 
         protected override string[] MiddleURL => new[] { "openapi", "service", "rest", "Covid19" };
 
-        protected override string Accept => "application/json";
+        protected override string Accept => "application/xml";
 
-        protected override string ContentType => "application/json";
+        protected override string ContentType => "application/xml";
 
         protected override string UserAgent => "covid";
 
-        public string GETURL => URL;
-
-        public InformationOfCovidInfStateJson Get1()
+        /// <summary>
+        /// 공공데이터활용지원센터_보건복지부 코로나19 감염 현황
+        /// </summary>
+        /// <param name="start">데이터 생성일 시작범위</param>
+        /// <param name="end">데이터 생성일 종료범위</param>
+        /// <returns></returns>
+        public List<InformationOfCovidHomeCountryJson> GetHomeCountryCovidState(string start, string end)
         {
             APIURL = new[] { "getCovid19InfStateJson" };
 
@@ -31,25 +35,51 @@ namespace IHChan.APIs
                 { "serviceKey", "key" },
                 { "pageNo", "1" },
                 { "numOfRows", "10" },
-                { "startCreateDt", "20210511" },
-                { "endCreateDt", "20210511" }, 
+                { "startCreateDt", $"{start}" },
+                { "endCreateDt", $"{end}" }, 
             };
 
-            return RequestAPI.APICaller<InformationOfCovidInfStateJson>(this, Method.GET).Result; 
+            return RequestAPI.APICaller<List<InformationOfCovidHomeCountryJson>>(this, Method.GET).Result; 
         }
 
-        public string Get2()
+        /// <summary>
+        /// 공공데이터활용지원센터_보건복지부 코로나19 시·도발생 현황
+        /// </summary>
+        /// <returns></returns>
+        public string GetSidoCovidState(string start, string end)
         {
             APIURL = new[] { "getCovid19SidoInfStateJson" };
 
+            RequestParams = new Dictionary<string, string>()
+            {
+                { "serviceKey", "key" },
+                { "pageNo", "1" },
+                { "numOfRows", "10" },
+                { "startCreateDt", $"{start}" },
+                { "endCreateDt", $"{end}" },
+            };
+
             return URL;
         }
 
-        public string Get3()
+        /// <summary>
+        /// 공공데이터활용지원센터_보건복지부 코로나19해외발생 현황
+        /// </summary>
+        /// <returns></returns>
+        public List<InformationOfCovidOverseasJson> GetOverseasCovidState(string start, string end)
         {
             APIURL = new[] { "getCovid19NatInfStateJson" };
 
-            return URL;
+            RequestParams = new Dictionary<string, string>()
+            {
+                { "serviceKey", "key" },
+                { "pageNo", "1" },
+                { "numOfRows", "10" },
+                { "startCreateDt", $"{start}" },
+                { "endCreateDt", $"{end}" },
+            };
+
+            return RequestAPI.APICaller<List<InformationOfCovidOverseasJson>>(this, Method.GET).Result;
         }
     }
 }
