@@ -22,7 +22,7 @@ namespace IHChan.Model
         /// 등록일시분초
         /// </summary>
         [JsonProperty("createDt")]
-        public DateTime CreateDt { get; set; }
+        public string CreateDt { get; set; }
 
         /// <summary>
         /// 사망자 수
@@ -76,7 +76,7 @@ namespace IHChan.Model
         /// 수정일시분초
         /// </summary>
         [JsonProperty("updateDt")]
-        public DateTime UpdateDt { get; set; }
+        public string UpdateDt { get; set; }
 
         /// <summary>
         /// 확진자 수

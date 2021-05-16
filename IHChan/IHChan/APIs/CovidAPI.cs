@@ -45,8 +45,10 @@ namespace IHChan.APIs
         /// <summary>
         /// 공공데이터활용지원센터_보건복지부 코로나19 시·도발생 현황
         /// </summary>
+        /// <param name="start">데이터 생성일 시작범위</param>
+        /// <param name="end">데이터 생성일 종료범위</param>
         /// <returns></returns>
-        public string GetSidoCovidState(string start, string end)
+        public List<InformationOfCovidSidoJson> GetSidoCovidState(string start, string end)
         {
             APIURL = new[] { "getCovid19SidoInfStateJson" };
 
@@ -59,12 +61,14 @@ namespace IHChan.APIs
                 { "endCreateDt", $"{end}" },
             };
 
-            return URL;
+            return RequestAPI.APICaller<List<InformationOfCovidSidoJson>>(this, Method.GET).Result;
         }
 
         /// <summary>
         /// 공공데이터활용지원센터_보건복지부 코로나19해외발생 현황
         /// </summary>
+        /// <param name="start">데이터 생성일 시작범위</param>
+        /// <param name="end">데이터 생성일 종료범위</param>
         /// <returns></returns>
         public List<InformationOfCovidOverseasJson> GetOverseasCovidState(string start, string end)
         {

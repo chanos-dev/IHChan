@@ -82,12 +82,12 @@ namespace IHChan.Model
         /// 등록일시분초
         /// </summary>
         [JsonProperty("creatDt")]
-        public DateTime CreateDt { get; set; }
+        public string CreateDt { get; set; }
 
         /// <summary>
         /// 수정일시분초
         /// </summary>
         [JsonProperty("updateDt")]
-        public DateTime UpdateDt { get; set; }
+        public string UpdateDt { get; set; }
     }
 }
