@@ -24,6 +24,7 @@ namespace IHChan.APIs
         /// <returns></returns>
         public List<InformationOfCovidHomeCountryJson> GetHomeCountryCovidState(string start, string end)
         {
+            start = CheckSameDate(start, end);
             start = start.Replace("-", "");
             end = end.Replace("-", "");
 
@@ -39,6 +40,7 @@ namespace IHChan.APIs
         /// <returns></returns>
         public List<InformationOfCovidSidoJson> GetSidoCovidState(string start, string end)
         {
+            start = CheckSameDate(start, end);
             start = start.Replace("-", "");
             end = end.Replace("-", "");
             
@@ -53,10 +55,24 @@ namespace IHChan.APIs
         /// <returns></returns>
         public List<InformationOfCovidOverseasJson> GetOverseasCovidState(string start, string end)
         {
+            start = CheckSameDate(start, end);
             start = start.Replace("-", "");
             end = end.Replace("-", "");
 
             return CovidAPI.GetOverseasCovidState(start, end);
+        }
+
+        private string CheckSameDate(string start, string end)
+        {
+            if (start.Equals(end))
+            {
+                if (DateTime.TryParse(start, out DateTime result))
+                {
+                    return $"{result.AddDays(-1):d}";
+                }
+            }
+
+            return start;
         }
     }
 }

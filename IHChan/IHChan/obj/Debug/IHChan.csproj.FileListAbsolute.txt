@@ -4,7 +4,6 @@ C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\bin\Debug\IHChan.pdb
 C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\bin\Debug\MetroFramework.Design.dll
 C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\bin\Debug\MetroFramework.dll
 C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\bin\Debug\MetroFramework.Fonts.dll
-C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\obj\Debug\IHChan.csprojAssemblyReference.cache
 C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\obj\Debug\IDLChan.frm_Main.resources
 C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\obj\Debug\IHChan.Properties.Resources.resources
 C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\obj\Debug\IHChan.csproj.GenerateResource.cache
@@ -14,3 +13,7 @@ C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\obj\Debug\IHChan.exe
 C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\obj\Debug\IHChan.pdb
 C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\bin\Debug\Options\Options.yaml
+C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\bin\Debug\YamlDotNet.dll
+C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\bin\Debug\YamlDotNet.xml
+C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\obj\Debug\IHChan.csprojAssemblyReference.cache

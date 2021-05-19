@@ -1,4 +1,6 @@
 ﻿using IHChan.APIs;
+using IHChan.Options;
+using MetroFramework;
 using MetroFramework.Forms;
 using System;
 using System.Collections.Generic;
@@ -13,7 +15,7 @@ using System.Windows.Forms;
 namespace IDLChan
 {
     public partial class frm_Main : MetroForm
-    {
+    {       
         public frm_Main()
         {
             InitializeComponent();
@@ -31,8 +33,8 @@ namespace IDLChan
             var covid = new CovidAPI();
             //covid.Get1();
 
-            ms_Manager.Theme = MetroFramework.MetroThemeStyle.Dark;
-            ms_Manager.Style = MetroFramework.MetroColorStyle.Orange;
+            ms_Manager.Theme = Option.Instance.GetStringToEnumValue<MetroThemeStyle>(Option.Instance.ThemeStyle);
+            ms_Manager.Style = Option.Instance.GetStringToEnumValue<MetroColorStyle>(Option.Instance.ColorStyle);
         }
     }
 }

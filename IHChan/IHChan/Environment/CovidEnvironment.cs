@@ -16,6 +16,6 @@ namespace IHChan.Environment
         /// <summary>
         /// Response Json Node
         /// </summary>
-        internal static string BASE_JSON_TOP_OBJECT => "response/body/items/item";
+        internal static string BASE_JSON_TOP_OBJECT => "response/body/items/item";        
     }
 }

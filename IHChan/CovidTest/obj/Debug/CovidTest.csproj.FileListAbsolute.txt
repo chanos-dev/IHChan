@@ -21,3 +21,6 @@ C:\Users\Chanos\Desktop\git\IHChan\IHChan\CovidTest\obj\Debug\CovidTest.csproj.C
 C:\Users\Chanos\Desktop\git\IHChan\IHChan\CovidTest\obj\Debug\CovidTest.csproj.CopyComplete
 C:\Users\Chanos\Desktop\git\IHChan\IHChan\CovidTest\obj\Debug\CovidTest.dll
 C:\Users\Chanos\Desktop\git\IHChan\IHChan\CovidTest\obj\Debug\CovidTest.pdb
+C:\Users\Chanos\Desktop\git\IHChan\IHChan\CovidTest\bin\Debug\Options\Options.yaml
+C:\Users\Chanos\Desktop\git\IHChan\IHChan\CovidTest\bin\Debug\YamlDotNet.dll
+C:\Users\Chanos\Desktop\git\IHChan\IHChan\CovidTest\bin\Debug\YamlDotNet.xml

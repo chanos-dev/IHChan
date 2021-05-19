@@ -1,5 +1,6 @@
 ﻿using IHChan.Environment;
 using IHChan.Model;
+using IHChan.Options;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,10 +30,10 @@ namespace IHChan.APIs
         public List<InformationOfCovidHomeCountryJson> GetHomeCountryCovidState(string start, string end)
         {
             APIURL = new[] { "getCovid19InfStateJson" };
-
+            
             RequestParams = new Dictionary<string, string>()
             {
-                { "serviceKey", "key" },
+                { "serviceKey", $"{Option.Instance.APIKey}" },
                 { "pageNo", "1" },
                 { "numOfRows", "10" },
                 { "startCreateDt", $"{start}" },
@@ -54,7 +55,7 @@ namespace IHChan.APIs
 
             RequestParams = new Dictionary<string, string>()
             {
-                { "serviceKey", "key" },
+                { "serviceKey", $"{Option.Instance.APIKey}" },
                 { "pageNo", "1" },
                 { "numOfRows", "10" },
                 { "startCreateDt", $"{start}" },
@@ -76,7 +77,7 @@ namespace IHChan.APIs
 
             RequestParams = new Dictionary<string, string>()
             {
-                { "serviceKey", "key" },
+                { "serviceKey", $"{Option.Instance.APIKey}" },
                 { "pageNo", "1" },
                 { "numOfRows", "10" },
                 { "startCreateDt", $"{start}" },
