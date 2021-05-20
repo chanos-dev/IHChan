@@ -35,6 +35,9 @@ namespace IDLChan
 
             ms_Manager.Theme = Option.Instance.GetStringToEnumValue<MetroThemeStyle>(Option.Instance.ThemeStyle);
             ms_Manager.Style = Option.Instance.GetStringToEnumValue<MetroColorStyle>(Option.Instance.ColorStyle);
+            
+            Option.Instance.ThemeStyle = nameof(MetroThemeStyle.Light);
+            Option.Instance.ColorStyle = nameof(MetroColorStyle.Brown);
         }
     }
 }
