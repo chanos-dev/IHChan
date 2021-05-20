@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using YamlDotNet.Serialization;
 
 namespace IHChan.Options
 {
-    internal class Option
+    public class Option
     {
         #region Fields
         /// <summary>
@@ -16,7 +17,7 @@ namespace IHChan.Options
 
         /// <summary>
         /// Option Key
-        /// </summary>
+        /// </summary>        
         private Key _apikey;
 
         /// <summary>
@@ -29,17 +30,41 @@ namespace IHChan.Options
         /// <summary>
         /// Key of Covid API in the data.co.kr
         /// </summary>
-        internal string APIKey => _apikey.API_KEY;
+        internal string APIKey
+        {
+            get => _apikey.API_KEY;
+            set
+            {
+                _apikey.API_KEY = value;
+                Save();
+            }
+        }
 
         /// <summary>
         /// MetroForm ThemeStyle value
         /// </summary>
-        internal string ThemeStyle => _metroStyle.MetroThemeStyle;
+        internal string ThemeStyle
+        {
+            get => _metroStyle.MetroThemeStyle;
+            set
+            {
+                _metroStyle.MetroThemeStyle = value;
+                Save();
+            }
+        }
 
         /// <summary>
         /// MetroForm ColorStyle value
         /// </summary>
-        internal string ColorStyle => _metroStyle.MetroColorStyle;
+        internal string ColorStyle
+        {
+            get => _metroStyle.MetroColorStyle;
+            set
+            {
+                _metroStyle.MetroColorStyle = value;
+                Save();
+            }
+        }
 
         /// <summary>
         /// Singleton Instance
@@ -82,13 +107,36 @@ namespace IHChan.Options
 
             return (T)obj;
         }
+
+        /// <summary>
+        /// Save option instance values
+        /// </summary>
+        internal void Save()
+        {
+            var value = new Dictionary<object, object>()
+            {
+                { "Key", _apikey.GetValues() },
+                { "MetroStyle", _metroStyle.GetValues() },
+            }; 
+
+            YamlController.Serializer(ConfigFilePath, value);
+        }
+
         #endregion
     }
 
     #region Setting Class
     internal class Key
     {
-        internal string API_KEY { get; set; }        
+        internal string API_KEY { get; set; }      
+        
+        public Dictionary<object, object> GetValues()
+        {
+            return new Dictionary<object, object>()
+            {
+                { "API_KEY", API_KEY },
+            };
+        }
     } 
 
     internal class MetroStyle
@@ -96,6 +144,15 @@ namespace IHChan.Options
         internal string MetroThemeStyle { get; set; }
 
         internal string MetroColorStyle { get; set; }
+
+        public Dictionary<object, object> GetValues()
+        {
+            return new Dictionary<object, object>()
+            {
+                { "MetroThemeStyle", MetroThemeStyle },
+                { "MetroColorStyle", MetroColorStyle },
+            };
+        }
     }
     #endregion
 }

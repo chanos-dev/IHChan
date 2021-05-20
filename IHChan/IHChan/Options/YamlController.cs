@@ -36,6 +36,26 @@ namespace IHChan.Options
             }
         }
 
+        public static void Serializer<T>(string path, T value)
+        {
+            if (string.IsNullOrEmpty(path))
+                throw new ArgumentNullException("path is blank.");
+
+            if (value == null)
+                throw new ArgumentNullException("value is null.");
+
+            if (!File.Exists(path))
+                throw new FileNotFoundException($"filePath : {path}\nFile not found.");
+
+            var builder = new SerializerBuilder().Build();
+
+            using (var stream = File.Open(path, FileMode.Create, FileAccess.Write))
+            using (var reader = new StreamWriter(stream))
+            {
+                builder.Serialize(reader, value);
+            }
+        }
+
         private static T CreateInstance<T>(object data)
         {
             if (data is Dictionary<object, object> dics)
