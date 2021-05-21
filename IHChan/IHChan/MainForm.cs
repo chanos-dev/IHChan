@@ -1,7 +1,10 @@
 ﻿using IHChan.APIs;
+using IHChan.Interface;
 using IHChan.Options;
+using IHChan.UserControl;
 using MetroFramework;
 using MetroFramework.Forms;
+using MetroFramework.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,30 +17,126 @@ using System.Windows.Forms;
 
 namespace IDLChan
 {
-    public partial class frm_Main : MetroForm
-    {       
-        public frm_Main()
+    public partial class mfrm_main : MetroForm, IRefresh
+    {   
+        /// <summary>
+        /// 홈
+        /// </summary>
+        private MetroHome MetroHome { get; set; }
+
+        /// <summary>
+        /// 국내
+        /// </summary>
+        private MetroHomeCountry MetroHomeCountry { get; set; }
+
+        /// <summary>
+        /// 해외
+        /// </summary>
+        private MetroOverseas MetroOverseas { get; set; }
+
+        /// <summary>
+        /// 설정
+        /// </summary>
+        private MetroSetting MetroSetting { get; set; }
+
+        private ISetting[] SettingForms { get; set; }
+
+        private UserControlType CurrentType { get; set; }
+
+        public mfrm_main()
         {
             InitializeComponent();
+            InitializeUserControl();
             InitializeControl();
+        }
+
+        private void InitializeUserControl()
+        { 
+            MetroHome = new MetroHome();
+
+            MetroHomeCountry = new MetroHomeCountry();
+
+            MetroOverseas = new MetroOverseas();
+
+            MetroSetting = new MetroSetting();
+
+            SettingForms = new ISetting[] { MetroHome, MetroHomeCountry, MetroOverseas, MetroSetting };
+
+            foreach(var settingForm in SettingForms)
+            {
+                settingForm.Manager = this.ms_Manager;
+                settingForm.Set();
+            }
+        }
+
+        public void StyleRefresh()
+        {
+            ms_Manager.Theme = Option.Instance.GetStringToEnumValue<MetroThemeStyle>(Option.Instance.ThemeStyle);
+            ms_Manager.Style = Option.Instance.GetStringToEnumValue<MetroColorStyle>(Option.Instance.ColorStyle);
         }
 
         private void InitializeControl()
         {
             this.StyleManager = ms_Manager;
             ms_Manager.Owner = this;
-        }
 
-        private void metroButton1_Click(object sender, EventArgs e)
+            Option.Instance.Forms.Add(this); 
+
+            // 최초 실행
+            StyleRefresh();
+
+            // default
+            ChangeUserControl(UserControlType.Home);
+        } 
+
+        private void ChangeUserControl(UserControlType type)
         {
-            var covid = new CovidAPI();
-            //covid.Get1();
+            CurrentType = type;
 
-            ms_Manager.Theme = Option.Instance.GetStringToEnumValue<MetroThemeStyle>(Option.Instance.ThemeStyle);
-            ms_Manager.Style = Option.Instance.GetStringToEnumValue<MetroColorStyle>(Option.Instance.ColorStyle);
-            
-            Option.Instance.ThemeStyle = nameof(MetroThemeStyle.Light);
-            Option.Instance.ColorStyle = nameof(MetroColorStyle.Brown);
+            mpnl_main.Controls.Clear();
+
+            switch(type)
+            {
+                case UserControlType.Home:
+                    mpnl_main.Controls.Add(MetroHome);
+                    break;
+                case UserControlType.HomeCountry:
+                    mpnl_main.Controls.Add(MetroHomeCountry);
+                    break;
+                case UserControlType.Overseas:
+                    mpnl_main.Controls.Add(MetroOverseas);
+                    break;
+                case UserControlType.Setting:
+                    mpnl_main.Controls.Add(MetroSetting);
+                    break;
+            }
         }
+
+        private void mtile_Click(object sender, EventArgs e)
+        {
+            if (sender is Control control)
+            {
+                // 설정창에서 벗어날 때
+                if (CurrentType == UserControlType.Setting &&
+                    control.Name != nameof(mtile_setting))
+                MetroSetting.Cancel();
+
+                switch(control.Name)
+                {
+                    case nameof(mtile_home):
+                        ChangeUserControl(UserControlType.Home);
+                        break;
+                    case nameof(mtile_homecountry):
+                        ChangeUserControl(UserControlType.HomeCountry);
+                        break;
+                    case nameof(mtile_overseas):
+                        ChangeUserControl(UserControlType.Overseas);
+                        break;
+                    case nameof(mtile_setting):
+                        ChangeUserControl(UserControlType.Setting);
+                        break;
+                }
+            }
+        } 
     }
 }

@@ -4,7 +4,6 @@ C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\bin\Debug\IHChan.pdb
 C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\bin\Debug\MetroFramework.Design.dll
 C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\bin\Debug\MetroFramework.dll
 C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\bin\Debug\MetroFramework.Fonts.dll
-C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\obj\Debug\IDLChan.frm_Main.resources
 C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\obj\Debug\IHChan.Properties.Resources.resources
 C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\obj\Debug\IHChan.csproj.GenerateResource.cache
 C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\obj\Debug\IHChan.csproj.CoreCompileInputs.cache
@@ -17,3 +16,8 @@ C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\bin\Debug\Options\Options.yaml
 C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\bin\Debug\YamlDotNet.dll
 C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\bin\Debug\YamlDotNet.xml
 C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\obj\Debug\IHChan.csprojAssemblyReference.cache
+C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\obj\Debug\IHChan.UserControl.MetroSetting.resources
+C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\obj\Debug\IDLChan.mfrm_main.resources
+C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\obj\Debug\IHChan.UserControl.MetroOverseas.resources
+C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\obj\Debug\IHChan.UserControl.MetroHomeCountry.resources
+C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\obj\Debug\IHChan.UserControl.MetroHome.resources

@@ -1,5 +1,5 @@
-﻿Key:
-    API_KEY : key
+Key:
+  API_KEY: key
 MetroStyle:
-    MetroThemeStyle : Default
-    MetroColorStyle : Default
+  MetroThemeStyle: Dark
+  MetroColorStyle: Red
