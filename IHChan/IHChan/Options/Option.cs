@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IHChan.Interface;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -66,6 +67,8 @@ namespace IHChan.Options
             }
         }
 
+        internal List<IRefresh> Forms { get; set; } = new List<IRefresh>();
+
         /// <summary>
         /// Singleton Instance
         /// </summary>
@@ -111,7 +114,7 @@ namespace IHChan.Options
         /// <summary>
         /// Save option instance values
         /// </summary>
-        internal void Save()
+        private void Save()
         {
             var value = new Dictionary<object, object>()
             {
@@ -119,8 +122,11 @@ namespace IHChan.Options
                 { "MetroStyle", _metroStyle.GetValues() },
             }; 
 
-            YamlController.Serializer(ConfigFilePath, value);
-        }
+            YamlController.Serializer(ConfigFilePath, value); 
+
+            // refresh form style after save.
+            Forms.ForEach(form => form.StyleRefresh());
+        } 
 
         #endregion
     }
