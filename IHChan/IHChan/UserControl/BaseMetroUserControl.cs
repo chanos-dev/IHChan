@@ -1,4 +1,5 @@
 ﻿using IHChan.Interface;
+using MetroFramework;
 using MetroFramework.Components;
 using MetroFramework.Controls;
 using MetroFramework.Interfaces;
@@ -15,22 +16,60 @@ namespace IHChan.UserControl
     {
         protected List<IMetroControl> MetroControls { get; set; }
 
+        protected List<IMetroControl> DirectControls { get; set; }
+
+        private MetroThemeStyle _baseThemeStyle;
+        public MetroThemeStyle BaseThemeStyle
+        {
+            get => _baseThemeStyle;
+            set
+            {
+                Manager.Theme = value;
+                DirectSet();
+            }
+        }
+
+        private MetroColorStyle _baseColorStyle;
+        public MetroColorStyle BaseColorStyle
+        {
+            get => _baseColorStyle;
+            set
+            {
+                Manager.Style = value;
+                DirectSet();
+            }
+        }
+
+
         public MetroStyleManager Manager { get; set; }
 
         protected BaseMetroUserControl()
         {
-            MetroControls = new List<IMetroControl>();
+            MetroControls = new List<IMetroControl>();            
         }
 
         public void Set()
         {
             foreach(var control in MetroControls)
             {
-                control.StyleManager = Manager;
+                control.UseSelectable = false; 
+                control.StyleManager = Manager; 
             }
         }
 
-        protected void InitializeControl(Control parent)
+        public void DirectSet()
+        {
+            if (DirectControls is null)
+                return; 
+
+            foreach(var control in DirectControls)
+            {
+                control.Theme = Manager.Theme;
+                control.Style = Manager.Style;
+            }
+        }
+
+        protected void InitializeBaseControl(Control parent)
         {
             if (parent is IMetroControl metro)
             {                
@@ -44,8 +83,7 @@ namespace IHChan.UserControl
             foreach (Control control in parent.Controls)
             {
                 if (control is IMetroControl metro)
-                {
-                    metro.UseSelectable = false;
+                { 
                     MetroControls.Add(metro);
                 }
 

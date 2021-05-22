@@ -21,3 +21,14 @@ C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\obj\Debug\IDLChan.mfrm_main.res
 C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\obj\Debug\IHChan.UserControl.MetroOverseas.resources
 C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\obj\Debug\IHChan.UserControl.MetroHomeCountry.resources
 C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\obj\Debug\IHChan.UserControl.MetroHome.resources
+C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\bin\Debug\World\World.xml
+C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\bin\Debug\LiveCharts.dll
+C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\bin\Debug\LiveCharts.WinForms.dll
+C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\bin\Debug\LiveCharts.Wpf.dll
+C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\bin\Debug\LiveCharts.pdb
+C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\bin\Debug\LiveCharts.xml
+C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\bin\Debug\LiveCharts.WinForms.pdb
+C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\bin\Debug\LiveCharts.WinForms.xml
+C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\bin\Debug\LiveCharts.Wpf.pdb
+C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\bin\Debug\LiveCharts.Wpf.xml
+C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\bin\Debug\World\covid.json

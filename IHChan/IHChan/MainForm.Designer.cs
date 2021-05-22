@@ -67,7 +67,7 @@
             this.metroPanel1.HorizontalScrollbarSize = 10;
             this.metroPanel1.Location = new System.Drawing.Point(20, 60);
             this.metroPanel1.Name = "metroPanel1";
-            this.metroPanel1.Size = new System.Drawing.Size(1251, 70);
+            this.metroPanel1.Size = new System.Drawing.Size(1305, 50);
             this.metroPanel1.TabIndex = 4;
             this.metroPanel1.VerticalScrollbarBarColor = true;
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
@@ -79,7 +79,7 @@
             this.mtile_setting.Dock = System.Windows.Forms.DockStyle.Left;
             this.mtile_setting.Location = new System.Drawing.Point(636, 0);
             this.mtile_setting.Name = "mtile_setting";
-            this.mtile_setting.Size = new System.Drawing.Size(192, 70);
+            this.mtile_setting.Size = new System.Drawing.Size(192, 50);
             this.mtile_setting.TabIndex = 8;
             this.mtile_setting.Text = "설정";
             this.mtile_setting.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -95,7 +95,7 @@
             this.mpnl_temp3.HorizontalScrollbarSize = 10;
             this.mpnl_temp3.Location = new System.Drawing.Point(616, 0);
             this.mpnl_temp3.Name = "mpnl_temp3";
-            this.mpnl_temp3.Size = new System.Drawing.Size(20, 70);
+            this.mpnl_temp3.Size = new System.Drawing.Size(20, 50);
             this.mpnl_temp3.TabIndex = 7;
             this.mpnl_temp3.VerticalScrollbarBarColor = true;
             this.mpnl_temp3.VerticalScrollbarHighlightOnWheel = false;
@@ -107,7 +107,7 @@
             this.mtile_overseas.Dock = System.Windows.Forms.DockStyle.Left;
             this.mtile_overseas.Location = new System.Drawing.Point(424, 0);
             this.mtile_overseas.Name = "mtile_overseas";
-            this.mtile_overseas.Size = new System.Drawing.Size(192, 70);
+            this.mtile_overseas.Size = new System.Drawing.Size(192, 50);
             this.mtile_overseas.TabIndex = 6;
             this.mtile_overseas.Text = "해외";
             this.mtile_overseas.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -123,7 +123,7 @@
             this.mpnl_temp2.HorizontalScrollbarSize = 10;
             this.mpnl_temp2.Location = new System.Drawing.Point(404, 0);
             this.mpnl_temp2.Name = "mpnl_temp2";
-            this.mpnl_temp2.Size = new System.Drawing.Size(20, 70);
+            this.mpnl_temp2.Size = new System.Drawing.Size(20, 50);
             this.mpnl_temp2.TabIndex = 5;
             this.mpnl_temp2.VerticalScrollbarBarColor = true;
             this.mpnl_temp2.VerticalScrollbarHighlightOnWheel = false;
@@ -135,7 +135,7 @@
             this.mtile_homecountry.Dock = System.Windows.Forms.DockStyle.Left;
             this.mtile_homecountry.Location = new System.Drawing.Point(212, 0);
             this.mtile_homecountry.Name = "mtile_homecountry";
-            this.mtile_homecountry.Size = new System.Drawing.Size(192, 70);
+            this.mtile_homecountry.Size = new System.Drawing.Size(192, 50);
             this.mtile_homecountry.TabIndex = 4;
             this.mtile_homecountry.Text = "국내";
             this.mtile_homecountry.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -151,7 +151,7 @@
             this.mpnl_temp1.HorizontalScrollbarSize = 10;
             this.mpnl_temp1.Location = new System.Drawing.Point(192, 0);
             this.mpnl_temp1.Name = "mpnl_temp1";
-            this.mpnl_temp1.Size = new System.Drawing.Size(20, 70);
+            this.mpnl_temp1.Size = new System.Drawing.Size(20, 50);
             this.mpnl_temp1.TabIndex = 3;
             this.mpnl_temp1.VerticalScrollbarBarColor = true;
             this.mpnl_temp1.VerticalScrollbarHighlightOnWheel = false;
@@ -163,7 +163,7 @@
             this.mtile_home.Dock = System.Windows.Forms.DockStyle.Left;
             this.mtile_home.Location = new System.Drawing.Point(0, 0);
             this.mtile_home.Name = "mtile_home";
-            this.mtile_home.Size = new System.Drawing.Size(192, 70);
+            this.mtile_home.Size = new System.Drawing.Size(192, 50);
             this.mtile_home.TabIndex = 2;
             this.mtile_home.Text = "홈";
             this.mtile_home.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -220,9 +220,9 @@
             this.mpnl_main.HorizontalScrollbarBarColor = true;
             this.mpnl_main.HorizontalScrollbarHighlightOnWheel = false;
             this.mpnl_main.HorizontalScrollbarSize = 10;
-            this.mpnl_main.Location = new System.Drawing.Point(20, 130);
+            this.mpnl_main.Location = new System.Drawing.Point(20, 110);
             this.mpnl_main.Name = "mpnl_main";
-            this.mpnl_main.Size = new System.Drawing.Size(1251, 670);
+            this.mpnl_main.Size = new System.Drawing.Size(1305, 752);
             this.mpnl_main.TabIndex = 12;
             this.mpnl_main.VerticalScrollbarBarColor = true;
             this.mpnl_main.VerticalScrollbarHighlightOnWheel = false;
@@ -232,7 +232,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1291, 820);
+            this.ClientSize = new System.Drawing.Size(1345, 882);
             this.Controls.Add(this.mpnl_main);
             this.Controls.Add(this.mpnl_logomain);
             this.Controls.Add(this.metroPanel1);

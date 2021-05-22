@@ -37,17 +37,15 @@ namespace IDLChan
         /// <summary>
         /// 설정
         /// </summary>
-        private MetroSetting MetroSetting { get; set; }
-
-        private ISetting[] SettingForms { get; set; }
+        private MetroSetting MetroSetting { get; set; } 
 
         private UserControlType CurrentType { get; set; }
 
         public mfrm_main()
         {
             InitializeComponent();
-            InitializeUserControl();
             InitializeControl();
+            InitializeUserControl();
         }
 
         private void InitializeUserControl()
@@ -60,12 +58,13 @@ namespace IDLChan
 
             MetroSetting = new MetroSetting();
 
-            SettingForms = new ISetting[] { MetroHome, MetroHomeCountry, MetroOverseas, MetroSetting };
+            Option.Instance.UnitForms.AddRange(new ISetting[] { MetroHome, MetroHomeCountry, MetroOverseas, MetroSetting }); 
 
-            foreach(var settingForm in SettingForms)
+            foreach(var form in Option.Instance.UnitForms)
             {
-                settingForm.Manager = this.ms_Manager;
-                settingForm.Set();
+                form.Manager = ms_Manager;
+                form.Set();
+                form.DirectSet();
             }
         }
 
