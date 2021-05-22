@@ -19,9 +19,15 @@ namespace IHChan.UserControl
         public MetroSetting()
         {
             InitializeComponent();
-            InitializeControl(this);
+            InitializeBaseControl(this);
             InitializeComboboxTheme();
             InitializeComboboxColor();
+            InitializeTextBox();
+        }
+
+        private void InitializeTextBox()
+        {
+            mtb_key.Text = Option.Instance.APIKey;
         }
 
         private void InitializeComboboxColor()
@@ -66,7 +72,8 @@ namespace IHChan.UserControl
             if (Manager is null)
                 return;
 
-            Manager.Theme = (MetroThemeStyle)mcb_theme.SelectedIndex+1;            
+            //Manager.Theme = (MetroThemeStyle)mcb_theme.SelectedIndex + 1;            
+            BaseThemeStyle = (MetroThemeStyle)mcb_theme.SelectedIndex + 1;            
         } 
 
         private void mcb_color_SelectedIndexChanged(object sender, EventArgs e)
@@ -74,22 +81,28 @@ namespace IHChan.UserControl
             if (Manager is null)
                 return;
 
-            Manager.Style = (MetroColorStyle)mcb_color.SelectedIndex + 1;
+            //Manager.Style = (MetroColorStyle)mcb_color.SelectedIndex + 1;
+            BaseColorStyle = (MetroColorStyle)mcb_color.SelectedIndex + 1;
         }
 
         private void mbtn_OK_Click(object sender, EventArgs e)
         {
             Option.Instance.ThemeStyle = mcb_theme.Text;
-            Option.Instance.ColorStyle = mcb_color.Text;            
+            Option.Instance.ColorStyle = mcb_color.Text;
+            Option.Instance.APIKey = mtb_key.Text;
         }
 
         private void mbtn_cancel_Click(object sender, EventArgs e)
         {
-            Manager.Theme = Option.Instance.GetStringToEnumValue<MetroThemeStyle>(Option.Instance.ThemeStyle);
-            Manager.Style = Option.Instance.GetStringToEnumValue<MetroColorStyle>(Option.Instance.ColorStyle);
+            //Manager.Theme = Option.Instance.GetStringToEnumValue<MetroThemeStyle>(Option.Instance.ThemeStyle);
+            //Manager.Style = Option.Instance.GetStringToEnumValue<MetroColorStyle>(Option.Instance.ColorStyle);
+
+            BaseThemeStyle = Option.Instance.GetStringToEnumValue<MetroThemeStyle>(Option.Instance.ThemeStyle);
+            BaseColorStyle = Option.Instance.GetStringToEnumValue<MetroColorStyle>(Option.Instance.ColorStyle);
 
             mcb_theme.Text = Option.Instance.ThemeStyle;
             mcb_color.Text = Option.Instance.ColorStyle;
+            mtb_key.Text = Option.Instance.APIKey;
         }
 
         public void Cancel() => mbtn_cancel_Click(mbtn_cancel, null);

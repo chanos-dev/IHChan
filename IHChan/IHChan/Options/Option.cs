@@ -69,6 +69,8 @@ namespace IHChan.Options
 
         internal List<IRefresh> Forms { get; set; } = new List<IRefresh>();
 
+        internal List<ISetting> UnitForms { get; set; } = new List<ISetting>();
+
         /// <summary>
         /// Singleton Instance
         /// </summary>
@@ -126,6 +128,7 @@ namespace IHChan.Options
 
             // refresh form style after save.
             Forms.ForEach(form => form.StyleRefresh());
+            UnitForms.ForEach(unit => unit.DirectSet());
         } 
 
         #endregion

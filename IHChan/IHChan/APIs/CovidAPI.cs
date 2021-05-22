@@ -40,7 +40,7 @@ namespace IHChan.APIs
                 { "endCreateDt", $"{end}" }, 
             };
 
-            return RequestAPI.APICaller<List<InformationOfCovidHomeCountryJson>>(this, Method.GET).Result; 
+            return RequestAPI.APICaller<List<InformationOfCovidHomeCountryJson>>(this, Method.GET);
         }
 
         /// <summary>
@@ -62,7 +62,7 @@ namespace IHChan.APIs
                 { "endCreateDt", $"{end}" },
             };
 
-            return RequestAPI.APICaller<List<InformationOfCovidSidoJson>>(this, Method.GET).Result;
+            return RequestAPI.APICaller<List<InformationOfCovidSidoJson>>(this, Method.GET);
         }
 
         /// <summary>
@@ -84,7 +84,15 @@ namespace IHChan.APIs
                 { "endCreateDt", $"{end}" },
             };
 
-            return RequestAPI.APICaller<List<InformationOfCovidOverseasJson>>(this, Method.GET).Result;
+            try
+            {
+                return RequestAPI.APICaller<List<InformationOfCovidOverseasJson>>(this, Method.GET);
+            }
+            catch(Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+                return null;
+            }
         }
     }
 }

@@ -17,7 +17,7 @@ namespace IHChan.UserControl
         public MetroHome() : base()
         {
             InitializeComponent();
-            InitializeControl(this);
+            InitializeBaseControl(this);
         } 
     }
 }
