@@ -30,12 +30,14 @@
         {
             this.mpnl_temp = new MetroFramework.Controls.MetroPanel();
             this.mpnl_main = new MetroFramework.Controls.MetroPanel();
-            this.mlb_theme = new MetroFramework.Controls.MetroLabel();
-            this.mcb_theme = new MetroFramework.Controls.MetroComboBox();
+            this.mbtn_cancel = new MetroFramework.Controls.MetroButton();
+            this.mbtn_OK = new MetroFramework.Controls.MetroButton();
             this.mlb_color = new MetroFramework.Controls.MetroLabel();
             this.mcb_color = new MetroFramework.Controls.MetroComboBox();
-            this.mbtn_OK = new MetroFramework.Controls.MetroButton();
-            this.mbtn_cancel = new MetroFramework.Controls.MetroButton();
+            this.mlb_theme = new MetroFramework.Controls.MetroLabel();
+            this.mcb_theme = new MetroFramework.Controls.MetroComboBox();
+            this.mlb_key = new MetroFramework.Controls.MetroLabel();
+            this.mtb_key = new MetroFramework.Controls.MetroTextBox();
             this.mpnl_main.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,7 +49,7 @@
             this.mpnl_temp.HorizontalScrollbarSize = 10;
             this.mpnl_temp.Location = new System.Drawing.Point(0, 0);
             this.mpnl_temp.Name = "mpnl_temp";
-            this.mpnl_temp.Size = new System.Drawing.Size(1251, 15);
+            this.mpnl_temp.Size = new System.Drawing.Size(1305, 15);
             this.mpnl_temp.TabIndex = 2;
             this.mpnl_temp.VerticalScrollbarBarColor = true;
             this.mpnl_temp.VerticalScrollbarHighlightOnWheel = false;
@@ -55,6 +57,8 @@
             // 
             // mpnl_main
             // 
+            this.mpnl_main.Controls.Add(this.mtb_key);
+            this.mpnl_main.Controls.Add(this.mlb_key);
             this.mpnl_main.Controls.Add(this.mbtn_cancel);
             this.mpnl_main.Controls.Add(this.mbtn_OK);
             this.mpnl_main.Controls.Add(this.mlb_color);
@@ -67,33 +71,35 @@
             this.mpnl_main.HorizontalScrollbarSize = 10;
             this.mpnl_main.Location = new System.Drawing.Point(0, 15);
             this.mpnl_main.Name = "mpnl_main";
-            this.mpnl_main.Size = new System.Drawing.Size(1251, 655);
+            this.mpnl_main.Size = new System.Drawing.Size(1305, 737);
             this.mpnl_main.TabIndex = 3;
             this.mpnl_main.VerticalScrollbarBarColor = true;
             this.mpnl_main.VerticalScrollbarHighlightOnWheel = false;
             this.mpnl_main.VerticalScrollbarSize = 10;
             // 
-            // mlb_theme
+            // mbtn_cancel
             // 
-            this.mlb_theme.AutoSize = true;
-            this.mlb_theme.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.mlb_theme.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.mlb_theme.Location = new System.Drawing.Point(3, 3);
-            this.mlb_theme.Name = "mlb_theme";
-            this.mlb_theme.Size = new System.Drawing.Size(79, 25);
-            this.mlb_theme.TabIndex = 3;
-            this.mlb_theme.Text = "Theme : ";
+            this.mbtn_cancel.FontSize = MetroFramework.MetroButtonSize.Tall;
+            this.mbtn_cancel.Location = new System.Drawing.Point(1158, 671);
+            this.mbtn_cancel.Name = "mbtn_cancel";
+            this.mbtn_cancel.Size = new System.Drawing.Size(135, 54);
+            this.mbtn_cancel.TabIndex = 7;
+            this.mbtn_cancel.Text = "취소";
+            this.mbtn_cancel.UseSelectable = true;
+            this.mbtn_cancel.UseStyleColors = true;
+            this.mbtn_cancel.Click += new System.EventHandler(this.mbtn_cancel_Click);
             // 
-            // mcb_theme
+            // mbtn_OK
             // 
-            this.mcb_theme.FormattingEnabled = true;
-            this.mcb_theme.ItemHeight = 23;
-            this.mcb_theme.Location = new System.Drawing.Point(88, 3);
-            this.mcb_theme.Name = "mcb_theme";
-            this.mcb_theme.Size = new System.Drawing.Size(170, 29);
-            this.mcb_theme.TabIndex = 2;
-            this.mcb_theme.UseSelectable = true;
-            this.mcb_theme.SelectedIndexChanged += new System.EventHandler(this.mcb_theme_SelectedIndexChanged);
+            this.mbtn_OK.FontSize = MetroFramework.MetroButtonSize.Tall;
+            this.mbtn_OK.Location = new System.Drawing.Point(1007, 671);
+            this.mbtn_OK.Name = "mbtn_OK";
+            this.mbtn_OK.Size = new System.Drawing.Size(135, 54);
+            this.mbtn_OK.TabIndex = 6;
+            this.mbtn_OK.Text = "적용";
+            this.mbtn_OK.UseSelectable = true;
+            this.mbtn_OK.UseStyleColors = true;
+            this.mbtn_OK.Click += new System.EventHandler(this.mbtn_OK_Click);
             // 
             // mlb_color
             // 
@@ -117,29 +123,70 @@
             this.mcb_color.UseSelectable = true;
             this.mcb_color.SelectedIndexChanged += new System.EventHandler(this.mcb_color_SelectedIndexChanged);
             // 
-            // mbtn_OK
+            // mlb_theme
             // 
-            this.mbtn_OK.FontSize = MetroFramework.MetroButtonSize.Tall;
-            this.mbtn_OK.Location = new System.Drawing.Point(953, 598);
-            this.mbtn_OK.Name = "mbtn_OK";
-            this.mbtn_OK.Size = new System.Drawing.Size(135, 54);
-            this.mbtn_OK.TabIndex = 6;
-            this.mbtn_OK.Text = "적용";
-            this.mbtn_OK.UseSelectable = true;
-            this.mbtn_OK.UseStyleColors = true;
-            this.mbtn_OK.Click += new System.EventHandler(this.mbtn_OK_Click);
+            this.mlb_theme.AutoSize = true;
+            this.mlb_theme.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.mlb_theme.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.mlb_theme.Location = new System.Drawing.Point(3, 3);
+            this.mlb_theme.Name = "mlb_theme";
+            this.mlb_theme.Size = new System.Drawing.Size(79, 25);
+            this.mlb_theme.TabIndex = 3;
+            this.mlb_theme.Text = "Theme : ";
             // 
-            // mbtn_cancel
+            // mcb_theme
             // 
-            this.mbtn_cancel.FontSize = MetroFramework.MetroButtonSize.Tall;
-            this.mbtn_cancel.Location = new System.Drawing.Point(1104, 598);
-            this.mbtn_cancel.Name = "mbtn_cancel";
-            this.mbtn_cancel.Size = new System.Drawing.Size(135, 54);
-            this.mbtn_cancel.TabIndex = 7;
-            this.mbtn_cancel.Text = "취소";
-            this.mbtn_cancel.UseSelectable = true;
-            this.mbtn_cancel.UseStyleColors = true;
-            this.mbtn_cancel.Click += new System.EventHandler(this.mbtn_cancel_Click);
+            this.mcb_theme.FormattingEnabled = true;
+            this.mcb_theme.ItemHeight = 23;
+            this.mcb_theme.Location = new System.Drawing.Point(88, 3);
+            this.mcb_theme.Name = "mcb_theme";
+            this.mcb_theme.Size = new System.Drawing.Size(170, 29);
+            this.mcb_theme.TabIndex = 2;
+            this.mcb_theme.UseSelectable = true;
+            this.mcb_theme.SelectedIndexChanged += new System.EventHandler(this.mcb_theme_SelectedIndexChanged);
+            // 
+            // mlb_key
+            // 
+            this.mlb_key.AutoSize = true;
+            this.mlb_key.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.mlb_key.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.mlb_key.Location = new System.Drawing.Point(3, 143);
+            this.mlb_key.Name = "mlb_key";
+            this.mlb_key.Size = new System.Drawing.Size(54, 25);
+            this.mlb_key.TabIndex = 8;
+            this.mlb_key.Text = "Key : ";
+            // 
+            // mtb_key
+            // 
+            // 
+            // 
+            // 
+            this.mtb_key.CustomButton.Font = new System.Drawing.Font("굴림", 9F);
+            this.mtb_key.CustomButton.Image = null;
+            this.mtb_key.CustomButton.Location = new System.Drawing.Point(1119, 2);
+            this.mtb_key.CustomButton.Name = "";
+            this.mtb_key.CustomButton.Size = new System.Drawing.Size(29, 29);
+            this.mtb_key.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.mtb_key.CustomButton.TabIndex = 1;
+            this.mtb_key.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.mtb_key.CustomButton.UseSelectable = true;
+            this.mtb_key.CustomButton.Visible = false;
+            this.mtb_key.FontSize = MetroFramework.MetroTextBoxSize.Medium;
+            this.mtb_key.Lines = new string[0];
+            this.mtb_key.Location = new System.Drawing.Point(88, 144);
+            this.mtb_key.MaxLength = 32767;
+            this.mtb_key.Name = "mtb_key";
+            this.mtb_key.PasswordChar = '\0';
+            this.mtb_key.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.mtb_key.SelectedText = "";
+            this.mtb_key.SelectionLength = 0;
+            this.mtb_key.SelectionStart = 0;
+            this.mtb_key.ShortcutsEnabled = true;
+            this.mtb_key.Size = new System.Drawing.Size(1151, 29);
+            this.mtb_key.TabIndex = 9;
+            this.mtb_key.UseSelectable = true;
+            this.mtb_key.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.mtb_key.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // MetroSetting
             // 
@@ -148,7 +195,7 @@
             this.Controls.Add(this.mpnl_main);
             this.Controls.Add(this.mpnl_temp);
             this.Name = "MetroSetting";
-            this.Size = new System.Drawing.Size(1251, 670);
+            this.Size = new System.Drawing.Size(1305, 752);
             this.mpnl_main.ResumeLayout(false);
             this.mpnl_main.PerformLayout();
             this.ResumeLayout(false);
@@ -165,5 +212,7 @@
         private MetroFramework.Controls.MetroComboBox mcb_color;
         private MetroFramework.Controls.MetroButton mbtn_OK;
         private MetroFramework.Controls.MetroButton mbtn_cancel;
+        private MetroFramework.Controls.MetroLabel mlb_key;
+        private MetroFramework.Controls.MetroTextBox mtb_key;
     }
 }

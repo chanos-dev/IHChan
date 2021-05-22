@@ -10,6 +10,7 @@ namespace IHChan.Interface
     internal interface ISetting
     {
         void Set();
+        void DirectSet();
         MetroStyleManager Manager { get; set; }
     }
 }

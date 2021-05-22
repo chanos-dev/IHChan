@@ -17,7 +17,7 @@ namespace IHChan.UserControl
         public MetroHomeCountry()
         { 
             InitializeComponent();
-            InitializeControl(this);
+            InitializeBaseControl(this);
         } 
     }
 }

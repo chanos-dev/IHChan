@@ -11,7 +11,7 @@ namespace IHChan.APIs
 {
     internal class RequestAPI
     {
-        internal static async Task<T> APICaller<T>(BaseAPI api, Method method)
+        internal static T APICaller<T>(BaseAPI api, Method method)
             where T : class
         {
             try
@@ -20,8 +20,9 @@ namespace IHChan.APIs
                 {
                     client.DefaultRequestHeaders.Add("Accept", "application/xml");
 
-                    // GET TEST-CODE 
-                    var response = await client.GetAsync(api.RequestURL);
+                    // GET TEST-CODE         
+                    
+                    var response = client.GetAsync(api.RequestURL).Result;
                     response.EnsureSuccessStatusCode();
 
                     var result = response.Content.ReadAsStringAsync().Result;

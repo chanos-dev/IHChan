@@ -19,7 +19,7 @@ namespace IHChan.Converter
         {
             if (JToken.ReadFrom(reader) is JToken token)
             {
-                var clearObject = GetChildObject(token);
+                var clearObject = GetChildObject(token); 
 
                 return clearObject.ToObject<T>();
             }
@@ -33,7 +33,7 @@ namespace IHChan.Converter
         }
 
         private JToken GetChildObject(JToken token)
-        {
+        { 
             var parentItems = CovidEnvironment.BASE_JSON_TOP_OBJECT.Split('/');
 
             foreach(var p in parentItems)
