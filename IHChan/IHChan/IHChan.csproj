@@ -167,7 +167,9 @@
     <None Include="World\covid.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="World\ISO3166.csv" />
+    <None Include="World\ISO3166.csv">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

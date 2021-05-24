@@ -28,29 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.mpnl_list = new MetroFramework.Controls.MetroPanel();
+            this.mps_process = new MetroFramework.Controls.MetroProgressSpinner();
             this.mgr_covidList = new MetroFramework.Controls.MetroGrid();
             this.col_name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col_count = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
+            this.mbtn_refresh = new MetroFramework.Controls.MetroButton();
             this.mdt_date = new MetroFramework.Controls.MetroDateTime();
             this.mpnl_temp2 = new MetroFramework.Controls.MetroPanel();
             this.mpnl_state = new MetroFramework.Controls.MetroPanel();
+            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.mpnl_map = new MetroFramework.Controls.MetroPanel();
             this.mpnl_temp = new MetroFramework.Controls.MetroPanel();
-            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.mpnl_list.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mgr_covidList)).BeginInit();
+            this.metroPanel1.SuspendLayout();
             this.mpnl_state.SuspendLayout();
             this.SuspendLayout();
             // 
             // mpnl_list
             // 
+            this.mpnl_list.Controls.Add(this.mps_process);
             this.mpnl_list.Controls.Add(this.mgr_covidList);
-            this.mpnl_list.Controls.Add(this.mdt_date);
+            this.mpnl_list.Controls.Add(this.metroPanel1);
             this.mpnl_list.Controls.Add(this.mpnl_temp2);
             this.mpnl_list.Dock = System.Windows.Forms.DockStyle.Right;
             this.mpnl_list.HorizontalScrollbarBarColor = true;
@@ -64,6 +69,16 @@
             this.mpnl_list.VerticalScrollbarHighlightOnWheel = false;
             this.mpnl_list.VerticalScrollbarSize = 10;
             // 
+            // mps_process
+            // 
+            this.mps_process.Location = new System.Drawing.Point(90, 303);
+            this.mps_process.Maximum = 100;
+            this.mps_process.Name = "mps_process";
+            this.mps_process.Size = new System.Drawing.Size(95, 95);
+            this.mps_process.TabIndex = 10;
+            this.mps_process.UseSelectable = true;
+            this.mps_process.Visible = false;
+            // 
             // mgr_covidList
             // 
             this.mgr_covidList.AllowUserToAddRows = false;
@@ -75,26 +90,26 @@
             this.mgr_covidList.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.mgr_covidList.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.mgr_covidList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.mgr_covidList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.mgr_covidList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.mgr_covidList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.mgr_covidList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.col_name,
             this.col_count});
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.mgr_covidList.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(136)))), ((int)(((byte)(136)))), ((int)(((byte)(136)))));
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.mgr_covidList.DefaultCellStyle = dataGridViewCellStyle3;
             this.mgr_covidList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mgr_covidList.EnableHeadersVisualStyles = false;
             this.mgr_covidList.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
@@ -103,14 +118,14 @@
             this.mgr_covidList.MultiSelect = false;
             this.mgr_covidList.Name = "mgr_covidList";
             this.mgr_covidList.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.mgr_covidList.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(174)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(198)))), ((int)(((byte)(247)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(17)))), ((int)(((byte)(17)))));
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.mgr_covidList.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.mgr_covidList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.mgr_covidList.RowTemplate.Height = 23;
             this.mgr_covidList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -125,21 +140,48 @@
             // 
             // col_count
             // 
-            dataGridViewCellStyle6.Format = "N0";
-            dataGridViewCellStyle6.NullValue = null;
-            this.col_count.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Format = "N0";
+            dataGridViewCellStyle2.NullValue = null;
+            this.col_count.DefaultCellStyle = dataGridViewCellStyle2;
             this.col_count.HeaderText = "확진자 수";
             this.col_count.Name = "col_count";
             this.col_count.ReadOnly = true;
             // 
+            // metroPanel1
+            // 
+            this.metroPanel1.Controls.Add(this.mbtn_refresh);
+            this.metroPanel1.Controls.Add(this.mdt_date);
+            this.metroPanel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.metroPanel1.HorizontalScrollbarBarColor = true;
+            this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel1.HorizontalScrollbarSize = 10;
+            this.metroPanel1.Location = new System.Drawing.Point(10, 0);
+            this.metroPanel1.Name = "metroPanel1";
+            this.metroPanel1.Size = new System.Drawing.Size(260, 29);
+            this.metroPanel1.TabIndex = 9;
+            this.metroPanel1.VerticalScrollbarBarColor = true;
+            this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel1.VerticalScrollbarSize = 10;
+            // 
+            // mbtn_refresh
+            // 
+            this.mbtn_refresh.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mbtn_refresh.Location = new System.Drawing.Point(241, 0);
+            this.mbtn_refresh.Name = "mbtn_refresh";
+            this.mbtn_refresh.Size = new System.Drawing.Size(19, 29);
+            this.mbtn_refresh.TabIndex = 9;
+            this.mbtn_refresh.Text = "R";
+            this.mbtn_refresh.UseSelectable = true;
+            this.mbtn_refresh.Click += new System.EventHandler(this.mbtn_refresh_Click);
+            // 
             // mdt_date
             // 
-            this.mdt_date.Dock = System.Windows.Forms.DockStyle.Top;
-            this.mdt_date.Location = new System.Drawing.Point(10, 0);
+            this.mdt_date.Dock = System.Windows.Forms.DockStyle.Left;
+            this.mdt_date.Location = new System.Drawing.Point(0, 0);
             this.mdt_date.MinimumSize = new System.Drawing.Size(0, 29);
             this.mdt_date.Name = "mdt_date";
-            this.mdt_date.Size = new System.Drawing.Size(260, 29);
-            this.mdt_date.TabIndex = 7;
+            this.mdt_date.Size = new System.Drawing.Size(241, 29);
+            this.mdt_date.TabIndex = 8;
             this.mdt_date.ValueChanged += new System.EventHandler(this.mdt_date_ValueChanged);
             // 
             // mpnl_temp2
@@ -171,6 +213,15 @@
             this.mpnl_state.VerticalScrollbarHighlightOnWheel = false;
             this.mpnl_state.VerticalScrollbarSize = 10;
             // 
+            // metroLabel1
+            // 
+            this.metroLabel1.AutoSize = true;
+            this.metroLabel1.Location = new System.Drawing.Point(430, 79);
+            this.metroLabel1.Name = "metroLabel1";
+            this.metroLabel1.Size = new System.Drawing.Size(183, 19);
+            this.metroLabel1.TabIndex = 2;
+            this.metroLabel1.Text = "covid status of selected nation";
+            // 
             // mpnl_map
             // 
             this.mpnl_map.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -199,15 +250,6 @@
             this.mpnl_temp.VerticalScrollbarHighlightOnWheel = false;
             this.mpnl_temp.VerticalScrollbarSize = 10;
             // 
-            // metroLabel1
-            // 
-            this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(430, 79);
-            this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(183, 19);
-            this.metroLabel1.TabIndex = 2;
-            this.metroLabel1.Text = "covid status of selected nation";
-            // 
             // MetroOverseas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -220,6 +262,7 @@
             this.Size = new System.Drawing.Size(1305, 737);
             this.mpnl_list.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.mgr_covidList)).EndInit();
+            this.metroPanel1.ResumeLayout(false);
             this.mpnl_state.ResumeLayout(false);
             this.mpnl_state.PerformLayout();
             this.ResumeLayout(false);
@@ -233,10 +276,13 @@
         private MetroFramework.Controls.MetroPanel mpnl_map;
         private MetroFramework.Controls.MetroPanel mpnl_temp;
         private MetroFramework.Controls.MetroPanel mpnl_temp2;
-        private MetroFramework.Controls.MetroDateTime mdt_date;
         private MetroFramework.Controls.MetroGrid mgr_covidList;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_count;
         private MetroFramework.Controls.MetroLabel metroLabel1;
+        private MetroFramework.Controls.MetroPanel metroPanel1;
+        private MetroFramework.Controls.MetroDateTime mdt_date;
+        private MetroFramework.Controls.MetroButton mbtn_refresh;
+        private MetroFramework.Controls.MetroProgressSpinner mps_process;
     }
 }
