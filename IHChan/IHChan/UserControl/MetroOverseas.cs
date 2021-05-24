@@ -24,12 +24,61 @@ namespace IHChan.UserControl
     /// </summary>
     internal partial class MetroOverseas : BaseMetroUserControl
     {
+        #region inner class
+        // 국가 코드
+        internal class ISO3166
+        {
+            private const string CsvPath = @"World/ISO3166.csv";
+
+            internal string EName { get; set; }
+
+            internal string KName { get; set; }
+
+            internal string Code { get; set; }
+
+            public ISO3166()
+            {
+
+            }
+
+            public static List<ISO3166> GetISOCodeData()
+            {
+                var datas = new List<ISO3166>();
+
+                // 한글 - euc-kr 인코딩
+                using (var sr = new StreamReader(CsvPath, Encoding.GetEncoding("euc-kr")))
+                {
+                    while (!sr.EndOfStream)
+                    {
+                        string data = sr.ReadLine();
+                        var splitData = data.Split(',');
+
+                        datas.Add(new ISO3166()
+                        {
+                            EName = splitData[0],
+                            KName = splitData[1],
+                            Code = splitData[2],
+                        });
+                    }
+                }
+
+                return datas;
+            }
+        }
+        #endregion
+
+        private object _thislock { get; set; } = new object();
+
         private readonly string WorldPath = @"World/World.xml";
         private GeoMap GeoMap { get; set; }
 
         private List<InformationOfCovidOverseasJson> OverseasData { get; set; }
 
+        private List<ISO3166> ISO3166s { get; set; }
+
         private string SelectedDate { get; set; } = $"{DateTime.Now:d}";
+
+        private BackgroundWorker Worker { get; set; }
 
         public MetroOverseas()
         {
@@ -38,6 +87,8 @@ namespace IHChan.UserControl
             InitializeBaseControl(this);
             InitializeGrid();
             InitializeMap();
+
+            CovidRefresh();
         }
 
         private void InitializeGrid()
@@ -64,6 +115,13 @@ namespace IHChan.UserControl
             DirectControls = new List<IMetroControl>();
 
             DirectControls.Add(mgr_covidList);
+
+            ISO3166s = ISO3166.GetISOCodeData();
+
+            Worker = new BackgroundWorker();
+
+            Worker.DoWork += Worker_DoWork;
+            Worker.RunWorkerCompleted += Worker_RunWorkerCompleted;
         }
 
         private void InitializeMap()
@@ -96,40 +154,92 @@ namespace IHChan.UserControl
                 new GradientStop(System.Windows.Media.Color.FromRgb(113,0,0), 1.00),
             };
 
-            OverseasData = CovidController.Instance.GetOverseasCovidState(SelectedDate, SelectedDate);
+            GeoMap.LandClick += GeoMap_LandClick;
+        }
 
-            foreach (var oversea in OverseasData.Where(sea => $"{sea.CreateDt:d}" == $"{DateTime.Now:d}"))
-            { 
-                mgr_covidList.Rows.Add(oversea.NationNm, oversea.NatDefCnt);
-            }
+        private void GeoMap_LandClick(object arg1, LiveCharts.Maps.MapData arg2)
+        {
+            MessageBox.Show("Test");
+        }
 
-            // TEST Values
-            var values = new Dictionary<string, double>();
-
-            values["MX"] = 1;
-            values["CA"] = 1290000;
-            values["US"] = 33479348;
-            values["IN"] = 22940516;
-            values["BR"] = 15184790;
-            values["KR"] = 127772;
-            values["RU"] = 4888727;
-
-            GeoMap.HeatMap = values;
-        } 
-
+        // RunWorkerCompleted Method is UI Thread
         private void Worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             if (e.Result is List<InformationOfCovidOverseasJson> overseas)
             {
-                
+                lock (_thislock)
+                {
+                    try
+                    {
+                        OverseasData = overseas;
+                        var mapValues = new Dictionary<string, double>();
+
+                        var todayOverseas = OverseasData.Where(sea => $"{sea.CreateDt:d}" == SelectedDate);
+
+                        if (todayOverseas.Count() == 0)
+                            return;
+
+                        mps_process.Maximum = todayOverseas.Count();
+
+                        foreach (var oversea in todayOverseas)
+                        {
+                            mgr_covidList.Rows.Add(oversea.NationNm, oversea.NatDefCnt);
+
+                            // find iso code
+                            var iso = ISO3166s.Where(ISO3166 =>
+                            {
+                                return ISO3166.KName == oversea.NationNm;
+                            }).FirstOrDefault();
+
+                            if (iso != null)
+                            {
+                                mapValues.Add(iso.Code, oversea.NatDefCnt);
+                            }
+
+                            ++mps_process.Value;
+                        }
+
+                        if (mapValues.Count != 0)
+                            GeoMap.HeatMap = mapValues;
+
+                        mgr_covidList.Sort(mgr_covidList.Columns["col_count"], ListSortDirection.Descending);
+
+                        mgr_covidList.FirstDisplayedScrollingRowIndex = 1;
+                        mgr_covidList.FirstDisplayedScrollingRowIndex = 0;                        
+                    }
+                    finally
+                    {
+                        mps_process.Visible = false;
+                    }
+                }
             }
         }
 
         private void Worker_DoWork(object sender, DoWorkEventArgs e)
         {
-            e.Result = CovidController.Instance.GetOverseasCovidState("2021-05-21", "2021-05-21");
+            e.Result = CovidController.Instance.GetOverseasCovidState(SelectedDate, SelectedDate);
         }
 
-        private void mdt_date_ValueChanged(object sender, EventArgs e) => SelectedDate = $"{mdt_date.Value:d}";
+        private void mdt_date_ValueChanged(object sender, EventArgs e)
+        {
+            SelectedDate = $"{mdt_date.Value:d}";
+            CovidRefresh();
+        }
+
+        private void mbtn_refresh_Click(object sender, EventArgs e) => CovidRefresh();
+
+        private void CovidRefresh()
+        {
+            // refresh overseas covid
+            if (!Worker.IsBusy)
+            {
+                // clear
+                mps_process.Value = 0;
+                mps_process.Visible = true;
+                mgr_covidList.Rows.Clear();
+
+                Worker.RunWorkerAsync();
+            }
+        }
     } 
 }

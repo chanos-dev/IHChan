@@ -32,3 +32,4 @@ C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\bin\Debug\LiveCharts.WinForms.x
 C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\bin\Debug\LiveCharts.Wpf.pdb
 C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\bin\Debug\LiveCharts.Wpf.xml
 C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\bin\Debug\World\covid.json
+C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\bin\Debug\World\ISO3166.csv
