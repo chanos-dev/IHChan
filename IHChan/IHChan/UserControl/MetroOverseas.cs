@@ -27,23 +27,47 @@ namespace IHChan.UserControl
         private readonly string WorldPath = @"World/World.xml";
         private GeoMap GeoMap { get; set; }
 
+        private List<InformationOfCovidOverseasJson> OverseasData { get; set; }
+
+        private string SelectedDate { get; set; } = $"{DateTime.Now:d}";
+
         public MetroOverseas()
         {
             InitializeComponent();
             InitializeControl();
-            InitializeBaseControl(this);            
+            InitializeBaseControl(this);
+            InitializeGrid();
             InitializeMap();
+        }
+
+        private void InitializeGrid()
+        {
+            // header font
+            mgr_covidList.ColumnHeadersDefaultCellStyle.Font = new Font("Aria", 12);
+
+            // cell font
+            mgr_covidList.DefaultCellStyle.Font = new Font("Aria", 12);
+
+            mgr_covidList.MultiSelect = false;
+
+            mgr_covidList.AllowUserToAddRows = false;
+
+            mgr_covidList.AllowUserToDeleteRows = false;
+
+            mgr_covidList.AllowUserToResizeColumns = false;
+
+            mgr_covidList.AllowUserToOrderColumns = true;
         }
 
         private void InitializeControl()
         {
             DirectControls = new List<IMetroControl>();
 
-            DirectControls.Add(metroGrid1);
+            DirectControls.Add(mgr_covidList);
         }
 
         private void InitializeMap()
-        {
+        { 
             GeoMap = new GeoMap();
 
             GeoMap.Source = WorldPath;
@@ -58,7 +82,7 @@ namespace IHChan.UserControl
 
             GeoMap.Base.Background = new SolidColorBrush(System.Windows.Media.Color.FromRgb(128, 128, 128));
 
-            metroPanel3.Controls.Add(GeoMap);
+            mpnl_map.Controls.Add(GeoMap);
             GeoMap.Dock = DockStyle.Fill;            
 
             GeoMap.LandStroke = new SolidColorBrush(Colors.Black);
@@ -72,7 +96,12 @@ namespace IHChan.UserControl
                 new GradientStop(System.Windows.Media.Color.FromRgb(113,0,0), 1.00),
             };
 
-            var overseas = CovidController.Instance.GetOverseasCovidState("2021-05-21",  "2021-05-21");
+            OverseasData = CovidController.Instance.GetOverseasCovidState(SelectedDate, SelectedDate);
+
+            foreach (var oversea in OverseasData.Where(sea => $"{sea.CreateDt:d}" == $"{DateTime.Now:d}"))
+            { 
+                mgr_covidList.Rows.Add(oversea.NationNm, oversea.NatDefCnt);
+            }
 
             // TEST Values
             var values = new Dictionary<string, double>();
@@ -99,6 +128,8 @@ namespace IHChan.UserControl
         private void Worker_DoWork(object sender, DoWorkEventArgs e)
         {
             e.Result = CovidController.Instance.GetOverseasCovidState("2021-05-21", "2021-05-21");
-        } 
+        }
+
+        private void mdt_date_ValueChanged(object sender, EventArgs e) => SelectedDate = $"{mdt_date.Value:d}";
     } 
 }
