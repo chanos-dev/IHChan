@@ -76,6 +76,9 @@ namespace IDLChan
 
         private void InitializeControl()
         {
+            // max버튼 비활성화 
+            this.MaximizeBox = false;
+
             this.StyleManager = ms_Manager;
             ms_Manager.Owner = this;
 

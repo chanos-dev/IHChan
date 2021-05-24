@@ -64,7 +64,7 @@ namespace IHChan.Model
         /// 국가별 확진자 수
         /// </summary>
         [JsonProperty("natDefCnt")]
-        public string NatDefCnt { get; set; }
+        public double NatDefCnt { get; set; }
 
         /// <summary>
         /// 국가별 사망자 수
@@ -81,8 +81,8 @@ namespace IHChan.Model
         /// <summary>
         /// 등록일시분초
         /// </summary>
-        [JsonProperty("creatDt")]
-        public string CreateDt { get; set; }
+        [JsonProperty("createDt")]
+        public DateTime CreateDt { get; set; }
 
         /// <summary>
         /// 수정일시분초
