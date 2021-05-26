@@ -34,11 +34,8 @@ namespace IHChan.APIs
             }
             catch
             {
-
-            }
-            
-
-            return default(T);
+                return null;
+            } 
         }
     }
 }
