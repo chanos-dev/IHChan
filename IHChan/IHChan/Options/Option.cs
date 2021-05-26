@@ -105,6 +105,9 @@ namespace IHChan.Options
         /// <returns>Enum value</returns>
         internal T GetStringToEnumValue<T>(string value)
         {
+            if (string.IsNullOrEmpty(value))
+                return default(T);
+
             var obj = Enum.Parse(typeof(T), value);
 
             if (obj is null)

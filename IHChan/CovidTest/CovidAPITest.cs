@@ -7,7 +7,8 @@ namespace CovidTest
     [TestClass]
     public class CovidAPITest
     {
-        private CovidController covid { get; set; } = new CovidController();
+        private CovidController covid { get; set; } = CovidController.Instance;
+
         [TestMethod]
         public void GetHomeCountryCovidState()
         { 

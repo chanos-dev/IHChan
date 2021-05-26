@@ -42,7 +42,7 @@
             this.mdt_date = new MetroFramework.Controls.MetroDateTime();
             this.mpnl_temp2 = new MetroFramework.Controls.MetroPanel();
             this.mpnl_state = new MetroFramework.Controls.MetroPanel();
-            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.circleGraph1 = new IHChan.UserControl.CircleGraph();
             this.mpnl_map = new MetroFramework.Controls.MetroPanel();
             this.mpnl_temp = new MetroFramework.Controls.MetroPanel();
             this.mpnl_list.SuspendLayout();
@@ -200,7 +200,7 @@
             // 
             // mpnl_state
             // 
-            this.mpnl_state.Controls.Add(this.metroLabel1);
+            this.mpnl_state.Controls.Add(this.circleGraph1);
             this.mpnl_state.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.mpnl_state.HorizontalScrollbarBarColor = true;
             this.mpnl_state.HorizontalScrollbarHighlightOnWheel = false;
@@ -213,14 +213,24 @@
             this.mpnl_state.VerticalScrollbarHighlightOnWheel = false;
             this.mpnl_state.VerticalScrollbarSize = 10;
             // 
-            // metroLabel1
+            // circleGraph1
             // 
-            this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(430, 79);
-            this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(183, 19);
-            this.metroLabel1.TabIndex = 2;
-            this.metroLabel1.Text = "covid status of selected nation";
+            this.circleGraph1.Alignment = System.Drawing.StringAlignment.Center;
+            this.circleGraph1.BackCircleColor = System.Drawing.Color.Gray;
+            this.circleGraph1.CirCleText = "Hello!";
+            this.circleGraph1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.circleGraph1.ForeCircleColor = System.Drawing.Color.Blue;
+            this.circleGraph1.ForeColor = System.Drawing.Color.Crimson;
+            this.circleGraph1.InCircleRate = 0.5D;
+            this.circleGraph1.Location = new System.Drawing.Point(34, 15);
+            this.circleGraph1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.circleGraph1.MaxValue = 100;
+            this.circleGraph1.Name = "circleGraph1";
+            this.circleGraph1.Size = new System.Drawing.Size(150, 150);
+            this.circleGraph1.TabIndex = 2;
+            this.circleGraph1.TextColor = System.Drawing.Color.Red;
+            this.circleGraph1.UseSelectable = true;
+            this.circleGraph1.Value = 0;
             // 
             // mpnl_map
             // 
@@ -264,7 +274,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.mgr_covidList)).EndInit();
             this.metroPanel1.ResumeLayout(false);
             this.mpnl_state.ResumeLayout(false);
-            this.mpnl_state.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -279,10 +288,10 @@
         private MetroFramework.Controls.MetroGrid mgr_covidList;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_name;
         private System.Windows.Forms.DataGridViewTextBoxColumn col_count;
-        private MetroFramework.Controls.MetroLabel metroLabel1;
         private MetroFramework.Controls.MetroPanel metroPanel1;
         private MetroFramework.Controls.MetroDateTime mdt_date;
         private MetroFramework.Controls.MetroButton mbtn_refresh;
         private MetroFramework.Controls.MetroProgressSpinner mps_process;
+        private CircleGraph circleGraph1;
     }
 }

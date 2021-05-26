@@ -101,6 +101,12 @@
     <Compile Include="UserControl\BaseMetroUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="UserControl\CircleGraph.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl\CircleGraph.Designer.cs">
+      <DependentUpon>CircleGraph.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\MetroOverseas.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -139,6 +145,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UserControl\CircleGraph.resx">
+      <DependentUpon>CircleGraph.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControl\MetroOverseas.resx">
       <DependentUpon>MetroOverseas.cs</DependentUpon>
     </EmbeddedResource>
