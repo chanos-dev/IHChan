@@ -84,15 +84,7 @@ namespace IHChan.APIs
                 { "endCreateDt", $"{end}" },
             };
 
-            try
-            {
-                return RequestAPI.APICaller<List<InformationOfCovidOverseasJson>>(this, Method.GET);
-            }
-            catch(Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-                return null;
-            }
+            return RequestAPI.APICaller<List<InformationOfCovidOverseasJson>>(this, Method.GET);
         }
     }
 }

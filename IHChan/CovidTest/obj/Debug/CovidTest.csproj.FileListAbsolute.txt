@@ -24,3 +24,15 @@ C:\Users\Chanos\Desktop\git\IHChan\IHChan\CovidTest\obj\Debug\CovidTest.pdb
 C:\Users\Chanos\Desktop\git\IHChan\IHChan\CovidTest\bin\Debug\Options\Options.yaml
 C:\Users\Chanos\Desktop\git\IHChan\IHChan\CovidTest\bin\Debug\YamlDotNet.dll
 C:\Users\Chanos\Desktop\git\IHChan\IHChan\CovidTest\bin\Debug\YamlDotNet.xml
+C:\Users\Chanos\Desktop\git\IHChan\IHChan\CovidTest\bin\Debug\World\World.xml
+C:\Users\Chanos\Desktop\git\IHChan\IHChan\CovidTest\bin\Debug\World\covid.json
+C:\Users\Chanos\Desktop\git\IHChan\IHChan\CovidTest\bin\Debug\World\ISO3166.csv
+C:\Users\Chanos\Desktop\git\IHChan\IHChan\CovidTest\bin\Debug\LiveCharts.WinForms.dll
+C:\Users\Chanos\Desktop\git\IHChan\IHChan\CovidTest\bin\Debug\LiveCharts.dll
+C:\Users\Chanos\Desktop\git\IHChan\IHChan\CovidTest\bin\Debug\LiveCharts.Wpf.dll
+C:\Users\Chanos\Desktop\git\IHChan\IHChan\CovidTest\bin\Debug\LiveCharts.WinForms.pdb
+C:\Users\Chanos\Desktop\git\IHChan\IHChan\CovidTest\bin\Debug\LiveCharts.WinForms.xml
+C:\Users\Chanos\Desktop\git\IHChan\IHChan\CovidTest\bin\Debug\LiveCharts.pdb
+C:\Users\Chanos\Desktop\git\IHChan\IHChan\CovidTest\bin\Debug\LiveCharts.xml
+C:\Users\Chanos\Desktop\git\IHChan\IHChan\CovidTest\bin\Debug\LiveCharts.Wpf.pdb
+C:\Users\Chanos\Desktop\git\IHChan\IHChan\CovidTest\bin\Debug\LiveCharts.Wpf.xml

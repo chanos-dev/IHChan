@@ -21,7 +21,7 @@ namespace IHChan.Converter
             {
                 var clearObject = GetChildObject(token); 
 
-                return clearObject.ToObject<T>();
+                return clearObject?.ToObject<T>();
             }
 
             return null;
@@ -33,12 +33,30 @@ namespace IHChan.Converter
         }
 
         private JToken GetChildObject(JToken token)
-        { 
-            var parentItems = CovidEnvironment.BASE_JSON_TOP_OBJECT.Split('/');
-
-            foreach(var p in parentItems)
+        {
+            try
             {
-                token = token[p];
+                var parentItems = CovidEnvironment.BASE_JSON_TOP_OBJECT.Split('/');
+                var headerItems = CovidEnvironment.HEADER_JSON_OBJECT.Split('/');
+
+                var temp = token.DeepClone();
+
+                foreach (var p in headerItems)
+                {
+                    temp = temp[p];
+                }
+
+                if ($"{temp.Values().FirstOrDefault()}" != "00")
+                    return null;
+
+                foreach (var p in parentItems)
+                {
+                    token = token[p];
+                }
+            }
+            catch
+            {
+                throw;
             }
 
             return token;

@@ -11,7 +11,7 @@ namespace IHChan.APIs
     {
         private CovidAPI CovidAPI { get; set; }
 
-        internal static CovidController Instance { get; }
+        public static CovidController Instance { get; }
 
         protected CovidController()
         {

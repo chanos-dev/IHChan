@@ -165,11 +165,11 @@ namespace IHChan.UserControl
         // RunWorkerCompleted Method is UI Thread
         private void Worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            if (e.Result is List<InformationOfCovidOverseasJson> overseas)
+            try
             {
-                lock (_thislock)
+                if (e.Result is List<InformationOfCovidOverseasJson> overseas)
                 {
-                    try
+                    lock (_thislock)
                     {
                         OverseasData = overseas;
                         var mapValues = new Dictionary<string, double>();
@@ -204,14 +204,15 @@ namespace IHChan.UserControl
 
                         mgr_covidList.Sort(mgr_covidList.Columns["col_count"], ListSortDirection.Descending);
 
+                        // grid scroll bar position
                         mgr_covidList.FirstDisplayedScrollingRowIndex = 1;
                         mgr_covidList.FirstDisplayedScrollingRowIndex = 0;                        
                     }
-                    finally
-                    {
-                        mps_process.Visible = false;
-                    }
                 }
+            }
+            finally
+            {
+                mps_process.Visible = false;
             }
         }
 
