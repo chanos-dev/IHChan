@@ -224,13 +224,13 @@
             this.circleGraph1.InCircleRate = 0.5D;
             this.circleGraph1.Location = new System.Drawing.Point(34, 15);
             this.circleGraph1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.circleGraph1.MaxValue = 100;
+            this.circleGraph1.MaxValue = 1000;
             this.circleGraph1.Name = "circleGraph1";
             this.circleGraph1.Size = new System.Drawing.Size(150, 150);
             this.circleGraph1.TabIndex = 2;
             this.circleGraph1.TextColor = System.Drawing.Color.Red;
             this.circleGraph1.UseSelectable = true;
-            this.circleGraph1.Value = 0;
+            this.circleGraph1.Value = 700;
             // 
             // mpnl_map
             // 

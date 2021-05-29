@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mfrm_main));
             this.ms_Manager = new MetroFramework.Components.MetroStyleManager(this.components);
-            this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
+            this.mpnl_header = new MetroFramework.Controls.MetroPanel();
             this.mtile_setting = new MetroFramework.Controls.MetroTile();
             this.mpnl_temp3 = new MetroFramework.Controls.MetroPanel();
             this.mtile_overseas = new MetroFramework.Controls.MetroTile();
@@ -43,35 +43,39 @@
             this.mlb_title = new MetroFramework.Controls.MetroLabel();
             this.mpnl_logo = new MetroFramework.Controls.MetroPanel();
             this.mpnl_main = new MetroFramework.Controls.MetroPanel();
+            this.mpnl_mainstick = new MetroFramework.Controls.MetroPanel();
+            this.mtile_stick = new MetroFramework.Controls.MetroTile();
+            this.mpnl_temp = new MetroFramework.Controls.MetroPanel();
             ((System.ComponentModel.ISupportInitialize)(this.ms_Manager)).BeginInit();
-            this.metroPanel1.SuspendLayout();
+            this.mpnl_header.SuspendLayout();
             this.mpnl_logomain.SuspendLayout();
+            this.mpnl_mainstick.SuspendLayout();
             this.SuspendLayout();
             // 
             // ms_Manager
             // 
             this.ms_Manager.Owner = null;
             // 
-            // metroPanel1
+            // mpnl_header
             // 
-            this.metroPanel1.Controls.Add(this.mtile_setting);
-            this.metroPanel1.Controls.Add(this.mpnl_temp3);
-            this.metroPanel1.Controls.Add(this.mtile_overseas);
-            this.metroPanel1.Controls.Add(this.mpnl_temp2);
-            this.metroPanel1.Controls.Add(this.mtile_homecountry);
-            this.metroPanel1.Controls.Add(this.mpnl_temp1);
-            this.metroPanel1.Controls.Add(this.mtile_home);
-            this.metroPanel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.metroPanel1.HorizontalScrollbarBarColor = true;
-            this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroPanel1.HorizontalScrollbarSize = 10;
-            this.metroPanel1.Location = new System.Drawing.Point(20, 60);
-            this.metroPanel1.Name = "metroPanel1";
-            this.metroPanel1.Size = new System.Drawing.Size(1305, 50);
-            this.metroPanel1.TabIndex = 4;
-            this.metroPanel1.VerticalScrollbarBarColor = true;
-            this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
-            this.metroPanel1.VerticalScrollbarSize = 10;
+            this.mpnl_header.Controls.Add(this.mtile_setting);
+            this.mpnl_header.Controls.Add(this.mpnl_temp3);
+            this.mpnl_header.Controls.Add(this.mtile_overseas);
+            this.mpnl_header.Controls.Add(this.mpnl_temp2);
+            this.mpnl_header.Controls.Add(this.mtile_homecountry);
+            this.mpnl_header.Controls.Add(this.mpnl_temp1);
+            this.mpnl_header.Controls.Add(this.mtile_home);
+            this.mpnl_header.Dock = System.Windows.Forms.DockStyle.Top;
+            this.mpnl_header.HorizontalScrollbarBarColor = true;
+            this.mpnl_header.HorizontalScrollbarHighlightOnWheel = false;
+            this.mpnl_header.HorizontalScrollbarSize = 10;
+            this.mpnl_header.Location = new System.Drawing.Point(20, 60);
+            this.mpnl_header.Name = "mpnl_header";
+            this.mpnl_header.Size = new System.Drawing.Size(1305, 50);
+            this.mpnl_header.TabIndex = 4;
+            this.mpnl_header.VerticalScrollbarBarColor = true;
+            this.mpnl_header.VerticalScrollbarHighlightOnWheel = false;
+            this.mpnl_header.VerticalScrollbarSize = 10;
             // 
             // mtile_setting
             // 
@@ -220,13 +224,52 @@
             this.mpnl_main.HorizontalScrollbarBarColor = true;
             this.mpnl_main.HorizontalScrollbarHighlightOnWheel = false;
             this.mpnl_main.HorizontalScrollbarSize = 10;
-            this.mpnl_main.Location = new System.Drawing.Point(20, 110);
+            this.mpnl_main.Location = new System.Drawing.Point(20, 115);
             this.mpnl_main.Name = "mpnl_main";
-            this.mpnl_main.Size = new System.Drawing.Size(1305, 752);
+            this.mpnl_main.Size = new System.Drawing.Size(1305, 747);
             this.mpnl_main.TabIndex = 12;
             this.mpnl_main.VerticalScrollbarBarColor = true;
             this.mpnl_main.VerticalScrollbarHighlightOnWheel = false;
             this.mpnl_main.VerticalScrollbarSize = 10;
+            // 
+            // mpnl_mainstick
+            // 
+            this.mpnl_mainstick.Controls.Add(this.mtile_stick);
+            this.mpnl_mainstick.Dock = System.Windows.Forms.DockStyle.Top;
+            this.mpnl_mainstick.HorizontalScrollbarBarColor = true;
+            this.mpnl_mainstick.HorizontalScrollbarHighlightOnWheel = false;
+            this.mpnl_mainstick.HorizontalScrollbarSize = 10;
+            this.mpnl_mainstick.Location = new System.Drawing.Point(20, 110);
+            this.mpnl_mainstick.Name = "mpnl_mainstick";
+            this.mpnl_mainstick.Size = new System.Drawing.Size(1305, 5);
+            this.mpnl_mainstick.TabIndex = 13;
+            this.mpnl_mainstick.VerticalScrollbarBarColor = true;
+            this.mpnl_mainstick.VerticalScrollbarHighlightOnWheel = false;
+            this.mpnl_mainstick.VerticalScrollbarSize = 10;
+            // 
+            // mtile_stick
+            // 
+            this.mtile_stick.ActiveControl = null;
+            this.mtile_stick.Enabled = false;
+            this.mtile_stick.Location = new System.Drawing.Point(0, 0);
+            this.mtile_stick.Name = "mtile_stick";
+            this.mtile_stick.Size = new System.Drawing.Size(192, 5);
+            this.mtile_stick.TabIndex = 2;
+            this.mtile_stick.UseSelectable = true;
+            // 
+            // mpnl_temp
+            // 
+            this.mpnl_temp.Dock = System.Windows.Forms.DockStyle.Top;
+            this.mpnl_temp.HorizontalScrollbarBarColor = true;
+            this.mpnl_temp.HorizontalScrollbarHighlightOnWheel = false;
+            this.mpnl_temp.HorizontalScrollbarSize = 10;
+            this.mpnl_temp.Location = new System.Drawing.Point(20, 115);
+            this.mpnl_temp.Name = "mpnl_temp";
+            this.mpnl_temp.Size = new System.Drawing.Size(1305, 5);
+            this.mpnl_temp.TabIndex = 14;
+            this.mpnl_temp.VerticalScrollbarBarColor = true;
+            this.mpnl_temp.VerticalScrollbarHighlightOnWheel = false;
+            this.mpnl_temp.VerticalScrollbarSize = 10;
             // 
             // mfrm_main
             // 
@@ -234,15 +277,18 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1345, 882);
             this.Controls.Add(this.mpnl_main);
+            this.Controls.Add(this.mpnl_mainstick);
+            this.Controls.Add(this.mpnl_temp);
             this.Controls.Add(this.mpnl_logomain);
-            this.Controls.Add(this.metroPanel1);
+            this.Controls.Add(this.mpnl_header);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "mfrm_main";
             this.Resizable = false;
             ((System.ComponentModel.ISupportInitialize)(this.ms_Manager)).EndInit();
-            this.metroPanel1.ResumeLayout(false);
+            this.mpnl_header.ResumeLayout(false);
             this.mpnl_logomain.ResumeLayout(false);
             this.mpnl_logomain.PerformLayout();
+            this.mpnl_mainstick.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -250,7 +296,7 @@
         #endregion
 
         private MetroFramework.Components.MetroStyleManager ms_Manager;
-        private MetroFramework.Controls.MetroPanel metroPanel1;
+        private MetroFramework.Controls.MetroPanel mpnl_header;
         private MetroFramework.Controls.MetroTile mtile_home;
         private MetroFramework.Controls.MetroTile mtile_homecountry;
         private MetroFramework.Controls.MetroPanel mpnl_temp1;
@@ -262,6 +308,9 @@
         private MetroFramework.Controls.MetroPanel mpnl_logo;
         private MetroFramework.Controls.MetroLabel mlb_title;
         private MetroFramework.Controls.MetroPanel mpnl_main;
+        private MetroFramework.Controls.MetroPanel mpnl_mainstick;
+        private MetroFramework.Controls.MetroTile mtile_stick;
+        private MetroFramework.Controls.MetroPanel mpnl_temp;
     }
 }
 

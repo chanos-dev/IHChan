@@ -76,6 +76,11 @@ namespace IDLChan
 
         private void InitializeControl()
         {
+            mtile_home.UseSelectable = false;
+            mtile_homecountry.UseSelectable = false;
+            mtile_overseas.UseSelectable = false;
+            mtile_setting.UseSelectable = false; 
+
             // max버튼 비활성화 
             this.MaximizeBox = false;
 
@@ -114,6 +119,8 @@ namespace IDLChan
             }
         }
 
+        private void MoveStick(int x) => mtile_stick.Location = new Point(x, mtile_stick.Location.Y);
+
         private void mtile_Click(object sender, EventArgs e)
         {
             if (sender is Control control)
@@ -126,7 +133,7 @@ namespace IDLChan
                 switch(control.Name)
                 {
                     case nameof(mtile_home):
-                        ChangeUserControl(UserControlType.Home);
+                        ChangeUserControl(UserControlType.Home);                        
                         break;
                     case nameof(mtile_homecountry):
                         ChangeUserControl(UserControlType.HomeCountry);
@@ -138,6 +145,8 @@ namespace IDLChan
                         ChangeUserControl(UserControlType.Setting);
                         break;
                 }
+
+                MoveStick(control.Location.X);
             }
         } 
     }
