@@ -16,9 +16,19 @@ using System.Threading;
 using IHChan.Model;
 using IHChan.Converter;
 using System.IO;
+using IHChan.Options;
+using IDLChan;
+using IHChan.Environment;
 
 namespace IHChan.UserControl
 {
+    enum ColType
+    {
+        Nation = 0,
+        NatDefCnt,
+        NatDeathCnt,
+        NatDeathRate,
+    }
     /// <summary>
     /// 21.05.22 Issuse : MetroGrid Style이 적용이 안됨
     /// </summary>
@@ -68,27 +78,43 @@ namespace IHChan.UserControl
         #endregion
 
         private object _thislock { get; set; } = new object();
-
         private readonly string WorldPath = @"World/World.xml";
+
+        private mfrm_main Main { get; set; }
         private GeoMap GeoMap { get; set; }
-
         private List<InformationOfCovidOverseasJson> OverseasData { get; set; }
-
         private List<ISO3166> ISO3166s { get; set; }
-
         private string SelectedDate { get; set; } = $"{DateTime.Now:d}";
-
         private BackgroundWorker Worker { get; set; }
 
-        public MetroOverseas()
+        private int MaxDefCnt { get; set; } = default(int);
+
+        public MetroOverseas(mfrm_main main)
         {
+            this.Main = main;
+            this.Main.NoramlControlColorSetHandler += InitializeGraph;
+
             InitializeComponent();
             InitializeControl();
             InitializeBaseControl(this);
             InitializeGrid();
             InitializeMap();
+            InitializeGraph();
 
             CovidRefresh();
+        }
+
+        private void InitializeGraph()
+        {
+            ChangeGraghColor(cg_total);
+            ChangeGraghColor(cg_death);
+            ChangeGraghColor(cg_deathrate);            
+        }
+
+        private void ChangeGraghColor(CircleGraph graph)
+        {
+            graph.TextColor = ColorSet.GetMetroColorToSystemColor(Main.Style);
+            graph.ForeCircleColor = ColorSet.GetMetroColorToSystemColor(Main.Style);
         }
 
         private void InitializeGrid()
@@ -107,14 +133,14 @@ namespace IHChan.UserControl
 
             mgr_covidList.AllowUserToResizeColumns = false;
 
-            mgr_covidList.AllowUserToOrderColumns = true;
+            mgr_covidList.AllowUserToOrderColumns = true;            
         }
 
         private void InitializeControl()
         {
             DirectControls = new List<IMetroControl>();
 
-            DirectControls.Add(mgr_covidList);
+            DirectControls.Add(mgr_covidList); 
 
             ISO3166s = ISO3166.GetISOCodeData();
 
@@ -155,12 +181,7 @@ namespace IHChan.UserControl
             };
 
             GeoMap.LandClick += GeoMap_LandClick;
-        }
-
-        private void GeoMap_LandClick(object arg1, LiveCharts.Maps.MapData arg2)
-        {
-            MessageBox.Show("Test");
-        }
+        } 
 
         // RunWorkerCompleted Method is UI Thread
         private void Worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -181,9 +202,10 @@ namespace IHChan.UserControl
 
                         mps_process.Maximum = todayOverseas.Count();
 
+                        MaxDefCnt = (int)todayOverseas.Max(cnt => cnt.NatDefCnt);
+
                         foreach (var oversea in todayOverseas)
-                        {
-                            mgr_covidList.Rows.Add(oversea.NationNm, oversea.NatDefCnt);
+                        {  
 
                             // find iso code
                             var iso = ISO3166s.Where(ISO3166 =>
@@ -193,6 +215,7 @@ namespace IHChan.UserControl
 
                             if (iso != null)
                             {
+                                mgr_covidList.Rows.Add(oversea.NationNm, oversea.NatDefCnt, oversea.NatDeathCnt, oversea.NatDeathRate, iso.Code);
                                 mapValues.Add(iso.Code, oversea.NatDefCnt);
                             }
 
@@ -202,17 +225,19 @@ namespace IHChan.UserControl
                         if (mapValues.Count != 0)
                             GeoMap.HeatMap = mapValues;
 
-                        mgr_covidList.Sort(mgr_covidList.Columns["col_count"], ListSortDirection.Descending);
-
                         // grid scroll bar position
                         mgr_covidList.FirstDisplayedScrollingRowIndex = 1;
-                        mgr_covidList.FirstDisplayedScrollingRowIndex = 0;                        
+                        mgr_covidList.FirstDisplayedScrollingRowIndex = 0; 
+
+                        mgr_covidList.Sort(mgr_covidList.Columns["col_count"], ListSortDirection.Descending);
+                        mgr_covidList.Rows[0].Selected = true;
+                        mgr_covidList_CellClick(null, null);
                     }
                 }
             }
             finally
             {
-                mps_process.Visible = false;
+                mps_process.Visible = false; 
             }
         }
 
@@ -241,6 +266,80 @@ namespace IHChan.UserControl
 
                 Worker.RunWorkerAsync();
             }
+        } 
+
+        private void mgr_covidList_CellClick(object sender, DataGridViewCellEventArgs e)
+        { 
+            for(int idx = 0; idx < mgr_covidList.ColumnCount; idx++)
+            { 
+                SetGraph((ColType)idx, mgr_covidList.SelectedCells[idx].Value);
+            }            
         }
+
+        private void GeoMap_LandClick(object arg1, LiveCharts.Maps.MapData arg2)
+        {
+            var nation = arg2.Id;
+
+            // todo - refactoring
+            for (int idxr = 0; idxr < mgr_covidList.RowCount; idxr++)
+            {
+                if (mgr_covidList.Rows[idxr].Cells["col_nation"].Value.ToString() == nation)
+                {
+                    for (int idxc = 0; idxc < mgr_covidList.ColumnCount; idxc++)
+                    {
+                        SetGraph((ColType)idxc, mgr_covidList.Rows[idxr].Cells[idxc].Value);
+                    }
+
+                    mgr_covidList.FirstDisplayedScrollingRowIndex = idxr;
+                    mgr_covidList.Rows[idxr].Selected = true;
+                    break;
+                }
+            }
+        } 
+
+        private void SetGraph(ColType type, object value)
+        {
+            switch (type)
+            { 
+                // 확진자 수
+                case ColType.NatDefCnt:
+                    if (value is double def)
+                    {
+                        ClearCircleProperty(cg_total);
+                        cg_total.MaxValue = MaxDefCnt;
+                        cg_total.Value = (int)def;
+                        cg_total.CirCleText = $"{cg_total.Value:#,##0} / {cg_total.MaxValue:#,##0}";
+                    }
+                    break;
+                // 사망자 수
+                case ColType.NatDeathCnt:
+                    if (value is double death)
+                    {
+                        ClearCircleProperty(cg_death);
+                        cg_death.MaxValue = cg_total.Value;
+                        cg_death.Value = (int)death;
+                        cg_death.CirCleText = $"{cg_death.Value:#,##0} / {cg_death.MaxValue:#,##0}";
+                    }
+                    break;
+                // 사망자 비율
+                case ColType.NatDeathRate:
+                    if (value is double rate)
+                    {
+                        ClearCircleProperty(cg_deathrate);
+                        cg_deathrate.MaxValue = 100;
+                        cg_deathrate.Value = (int)Math.Round(rate);
+                        cg_deathrate.CirCleText = $"{Math.Round(rate,2)} / {cg_deathrate.MaxValue}";
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void ClearCircleProperty(CircleGraph graph)
+        {
+            graph.Value = 0;
+            graph.MaxValue = 100;
+        }  
     } 
 }

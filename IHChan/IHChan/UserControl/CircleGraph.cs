@@ -100,8 +100,8 @@ namespace IHChan.UserControl
             {
                 if (value < Value)
                     throw new Exception("The MaxValue Property has to be high than the Value.");
-
-                _maxValue = value;
+                
+                _maxValue = value;                
                 this.Refresh();
             }
         }
