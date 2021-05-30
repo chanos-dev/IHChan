@@ -70,13 +70,13 @@ namespace IHChan.Model
         /// 국가별 사망자 수
         /// </summary>
         [JsonProperty("natDeathCnt")]
-        public string NatDeathCnt { get; set; }
+        public double NatDeathCnt { get; set; }
 
         /// <summary>
         /// 확진률 대비 사망률
         /// </summary>
         [JsonProperty("natDeathRate")]
-        public string NatDeathRate { get; set; }
+        public double NatDeathRate { get; set; }
 
         /// <summary>
         /// 등록일시분초
