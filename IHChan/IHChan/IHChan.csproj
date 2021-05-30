@@ -82,6 +82,7 @@
     <Compile Include="APIs\RequestAPI.cs" />
     <Compile Include="Converter\CovidConverter.cs" />
     <Compile Include="Converter\XmlConverter.cs" />
+    <Compile Include="Environment\ColorSet.cs" />
     <Compile Include="Environment\CovidEnvironment.cs" />
     <Compile Include="Interface\IRefresh.cs" />
     <Compile Include="Interface\ISetting.cs" />

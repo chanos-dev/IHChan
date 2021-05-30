@@ -18,7 +18,7 @@ using System.Windows.Forms;
 namespace IDLChan
 {
     public partial class mfrm_main : MetroForm, IRefresh
-    {   
+    {
         /// <summary>
         /// 홈
         /// </summary>
@@ -37,9 +37,12 @@ namespace IDLChan
         /// <summary>
         /// 설정
         /// </summary>
-        private MetroSetting MetroSetting { get; set; } 
+        private MetroSetting MetroSetting { get; set; }
 
         private UserControlType CurrentType { get; set; }
+
+        public delegate void NoramlControlColorSet();
+        public event NoramlControlColorSet NoramlControlColorSetHandler;
 
         public mfrm_main()
         {
@@ -54,7 +57,7 @@ namespace IDLChan
 
             MetroHomeCountry = new MetroHomeCountry();
 
-            MetroOverseas = new MetroOverseas();
+            MetroOverseas = new MetroOverseas(this);
 
             MetroSetting = new MetroSetting();
 
@@ -64,7 +67,7 @@ namespace IDLChan
             {
                 form.Manager = ms_Manager;
                 form.Set();
-                form.DirectSet();
+                form.DirectSet(); 
             }
         }
 
@@ -72,6 +75,8 @@ namespace IDLChan
         {
             ms_Manager.Theme = Option.Instance.GetStringToEnumValue<MetroThemeStyle>(Option.Instance.ThemeStyle);
             ms_Manager.Style = Option.Instance.GetStringToEnumValue<MetroColorStyle>(Option.Instance.ColorStyle);
+
+            NoramlControlColorSetHandler?.Invoke();
         }
 
         private void InitializeControl()
