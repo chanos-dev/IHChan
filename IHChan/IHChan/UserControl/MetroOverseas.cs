@@ -133,8 +133,10 @@ namespace IHChan.UserControl
 
             mgr_covidList.AllowUserToResizeColumns = false;
 
-            mgr_covidList.AllowUserToOrderColumns = true;            
-        }
+            mgr_covidList.AllowUserToOrderColumns = true;
+
+            mgr_covidList.ScrollBars = ScrollBars.Horizontal;
+        } 
 
         private void InitializeControl()
         {
@@ -198,7 +200,9 @@ namespace IHChan.UserControl
                         var todayOverseas = OverseasData.Where(sea => $"{sea.CreateDt:d}" == SelectedDate);
 
                         if (todayOverseas.Count() == 0)
+                        {
                             return;
+                        }
 
                         mps_process.Maximum = todayOverseas.Count();
 
@@ -223,7 +227,9 @@ namespace IHChan.UserControl
                         }
 
                         if (mapValues.Count != 0)
+                        {
                             GeoMap.HeatMap = mapValues;
+                        }
 
                         // grid scroll bar position
                         mgr_covidList.FirstDisplayedScrollingRowIndex = 1;
@@ -233,11 +239,11 @@ namespace IHChan.UserControl
                         mgr_covidList.Rows[0].Selected = true;
                         mgr_covidList_CellClick(null, null);
                     }
-                }
+                } 
             }
             finally
             {
-                mps_process.Visible = false; 
+                mps_process.Visible = false;                
             }
         }
 
@@ -255,21 +261,26 @@ namespace IHChan.UserControl
         private void mbtn_refresh_Click(object sender, EventArgs e) => CovidRefresh();
 
         private void CovidRefresh()
-        {
+        { 
             // refresh overseas covid
             if (!Worker.IsBusy)
             {
                 // clear
                 mps_process.Value = 0;
                 mps_process.Visible = true;
-                mgr_covidList.Rows.Clear();
+                mgr_covidList.Rows.Clear();                
 
-                Worker.RunWorkerAsync();
+                Worker.RunWorkerAsync(); 
             }
         } 
 
         private void mgr_covidList_CellClick(object sender, DataGridViewCellEventArgs e)
-        { 
+        {
+            if (mgr_covidList.Rows.Count < 1)
+            {
+                return;
+            }
+
             for(int idx = 0; idx < mgr_covidList.ColumnCount; idx++)
             { 
                 SetGraph((ColType)idx, mgr_covidList.SelectedCells[idx].Value);
@@ -340,6 +351,6 @@ namespace IHChan.UserControl
         {
             graph.Value = 0;
             graph.MaxValue = 100;
-        }  
+        } 
     } 
 }

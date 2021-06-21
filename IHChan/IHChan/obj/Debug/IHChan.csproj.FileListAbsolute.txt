@@ -23,6 +23,7 @@ C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\bin\Debug\YamlDotNet.xml
 C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\obj\Debug\IDLChan.mfrm_main.resources
 C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\obj\Debug\IHChan.Properties.Resources.resources
+C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\obj\Debug\IHChan.UserControl.DashBoard.resources
 C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\obj\Debug\IHChan.UserControl.CircleGraph.resources
 C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\obj\Debug\IHChan.UserControl.MetroOverseas.resources
 C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\obj\Debug\IHChan.UserControl.MetroHomeCountry.resources
