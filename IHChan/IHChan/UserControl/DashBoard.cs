@@ -15,7 +15,7 @@ using MetroFramework;
 
 namespace IHChan.UserControl
 {
-    internal partial class CircleGraph : MetroUserControl
+    internal partial class DashBoard : MetroUserControl
     {
         #region Fields
         private Color _backColor = Color.Gray;
@@ -142,7 +142,7 @@ namespace IHChan.UserControl
         #endregion
 
         #region Constructor
-        public CircleGraph()
+        public DashBoard()
         {
             InitializeComponent(); 
         }
@@ -150,47 +150,16 @@ namespace IHChan.UserControl
 
         #region Methods
         protected override void OnPaint(PaintEventArgs e)
-        {
-            e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
-
-            var mainCir = new Rectangle(0, 0, this.Width, this.Height);            
-
-            int inCirWidth = (int)Math.Round(this.Width * InCircleRate);
-            int inCirHeight = (int)Math.Round(this.Width * InCircleRate);
-            var inX = (int)Math.Round((this.Width / 2.0) - (inCirWidth / 2.0));
-            var inY = (int)Math.Round((this.Height / 2.0) - (inCirHeight / 2.0)) + (HalfCircle ? 1 : 0);
-            //var inY = (int)Math.Round((this.Height / 2.0) - (inCirHeight / 2.0)) + 1;
-
-            var inCir = new Rectangle(inX, inY, inCirWidth, inCirHeight);            
-
-            e.Graphics.FillPie(new SolidBrush(BackCircleColor), mainCir, 180, HalfCircle ? 180 : 360);
-            //e.Graphics.FillPie(new SolidBrush(BackCircleColor), mainCir, 180, 180);
-
-            if (Value > 0)
-            { 
-                e.Graphics.FillPie(new SolidBrush(ForeCircleColor), mainCir, 180, (int)Math.Round((180.0 / MaxValue) * Value));
-            }
-
-            switch(base.Theme)
-            {
-                case MetroThemeStyle.Dark:
-                    e.Graphics.FillPie(new SolidBrush(Color.FromArgb(17, 17, 17)), inCir, 180, HalfCircle ? 180 : 360);
-                    //e.Graphics.FillPie(new SolidBrush(Color.FromArgb(17, 17, 17)), inCir, 180, 180);
-                    break;
-                case MetroThemeStyle.Default:
-                case MetroThemeStyle.Light:
-                    e.Graphics.FillPie(new SolidBrush(Color.FromArgb(255, 255, 255)), inCir, 180, HalfCircle ? 180 : 360);
-                    //e.Graphics.FillPie(new SolidBrush(Color.FromArgb(255, 255, 255)), inCir, 180, 180);
-                    break;
-            }
-
+        {  
             // Draw Text
-            var textRect = new Rectangle(1, (this.Height / 2) + 10, this.Width, this.Height/2);
+            var textRect = new Rectangle(10, (this.Height / 2), this.Width, this.Height/2);
 
             var format = new StringFormat();
             format.Alignment = Alignment;
 
-            e.Graphics.DrawString(this.CirCleText, this.Font, new SolidBrush(TextColor), textRect, format);
+            var font = new Font("굴림", 12);
+
+            e.Graphics.DrawString(this.CirCleText, font, new SolidBrush(TextColor), textRect, format);
         }
         #endregion
     }

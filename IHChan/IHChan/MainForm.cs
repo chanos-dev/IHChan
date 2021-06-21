@@ -49,6 +49,9 @@ namespace IDLChan
             InitializeComponent();
             InitializeControl();
             InitializeUserControl();
+
+            // default
+            ChangeUserControl(UserControlType.Home);
         }
 
         private void InitializeUserControl()
@@ -95,10 +98,7 @@ namespace IDLChan
             Option.Instance.Forms.Add(this); 
 
             // 최초 실행
-            StyleRefresh();
-
-            // default
-            ChangeUserControl(UserControlType.Home);
+            StyleRefresh(); 
         } 
 
         private void ChangeUserControl(UserControlType type)

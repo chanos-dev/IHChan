@@ -294,7 +294,8 @@
             this.cg_deathrate.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.cg_deathrate.ForeCircleColor = System.Drawing.Color.Blue;
             this.cg_deathrate.ForeColor = System.Drawing.Color.Crimson;
-            this.cg_deathrate.InCircleRate = 0.5D;
+            this.cg_deathrate.HalfCircle = true;
+            this.cg_deathrate.InCircleRate = 0.65D;
             this.cg_deathrate.Location = new System.Drawing.Point(755, 39);
             this.cg_deathrate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cg_deathrate.MaxValue = 100;
@@ -313,7 +314,8 @@
             this.cg_death.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.cg_death.ForeCircleColor = System.Drawing.Color.Blue;
             this.cg_death.ForeColor = System.Drawing.Color.Crimson;
-            this.cg_death.InCircleRate = 0.5D;
+            this.cg_death.HalfCircle = true;
+            this.cg_death.InCircleRate = 0.65D;
             this.cg_death.Location = new System.Drawing.Point(405, 39);
             this.cg_death.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cg_death.MaxValue = 100;
@@ -332,7 +334,8 @@
             this.cg_total.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.cg_total.ForeCircleColor = System.Drawing.Color.Blue;
             this.cg_total.ForeColor = System.Drawing.Color.Crimson;
-            this.cg_total.InCircleRate = 0.5D;
+            this.cg_total.HalfCircle = true;
+            this.cg_total.InCircleRate = 0.65D;
             this.cg_total.Location = new System.Drawing.Point(55, 39);
             this.cg_total.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cg_total.MaxValue = 100;
