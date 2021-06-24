@@ -58,7 +58,7 @@ namespace IDLChan
         { 
             MetroHome = new MetroHome();
 
-            MetroHomeCountry = new MetroHomeCountry();
+            MetroHomeCountry = new MetroHomeCountry(this);
 
             MetroOverseas = new MetroOverseas(this);
 
