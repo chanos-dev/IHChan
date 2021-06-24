@@ -27,6 +27,7 @@ namespace IHChan.UserControl
 
         private Color _textColor = Color.Black;
         private string _text = string.Empty;
+        private string _inText = string.Empty;
         private StringAlignment _alignment = StringAlignment.Near;
         #endregion
 
@@ -112,7 +113,20 @@ namespace IHChan.UserControl
             get => _text;
             set
             {
+                _inText = string.Empty;
                 _text = value;
+                this.Refresh();
+            }
+        }
+
+        [Category("CircleGraph Properties")]
+        public string CircleTextIn
+        {
+            get => _inText;
+            set
+            {
+                _text = string.Empty;
+                _inText = value;
                 this.Refresh();
             }
         }
@@ -166,9 +180,12 @@ namespace IHChan.UserControl
             e.Graphics.FillPie(new SolidBrush(BackCircleColor), mainCir, 180, HalfCircle ? 180 : 360);
             //e.Graphics.FillPie(new SolidBrush(BackCircleColor), mainCir, 180, 180);
 
+            // start angle
+            int start = HalfCircle ? 180 : 270;
+
             if (Value > 0)
             { 
-                e.Graphics.FillPie(new SolidBrush(ForeCircleColor), mainCir, 180, (int)Math.Round((180.0 / MaxValue) * Value));
+                e.Graphics.FillPie(new SolidBrush(ForeCircleColor), mainCir, start, (int)Math.Round(((HalfCircle ? 180.0 : 360.0) / MaxValue) * Value));
             }
 
             switch(base.Theme)
@@ -185,12 +202,27 @@ namespace IHChan.UserControl
             }
 
             // Draw Text
-            var textRect = new Rectangle(1, (this.Height / 2) + 10, this.Width, this.Height/2);
-
             var format = new StringFormat();
             format.Alignment = Alignment;
 
-            e.Graphics.DrawString(this.CirCleText, this.Font, new SolidBrush(TextColor), textRect, format);
+
+            int addHeight = -2;
+            string text = string.Empty;
+
+            // half text
+            if (!string.IsNullOrEmpty(CirCleText))
+            {
+                addHeight = 10;
+                text = CirCleText;
+            }
+            else
+            {
+                text = CircleTextIn;
+            }
+
+            var textRect = new Rectangle(1, (this.Height / 2) + addHeight, this.Width, this.Height / 2);
+
+            e.Graphics.DrawString(text, this.Font, new SolidBrush(TextColor), textRect, format);
         }
         #endregion
     }
