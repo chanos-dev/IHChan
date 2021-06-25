@@ -31,15 +31,17 @@
             this.mpnl_temp = new MetroFramework.Controls.MetroPanel();
             this.mpnl_main = new MetroFramework.Controls.MetroPanel();
             this.mpnl_bottom = new MetroFramework.Controls.MetroPanel();
-            this.cg_def = new IHChan.UserControl.CircleGraph();
-            this.mdt_date = new MetroFramework.Controls.MetroDateTime();
-            this.cg_isollng = new IHChan.UserControl.CircleGraph();
-            this.cg_death = new IHChan.UserControl.CircleGraph();
-            this.cg_isolclear = new IHChan.UserControl.CircleGraph();
-            this.mlb_defcnt = new MetroFramework.Controls.MetroLabel();
-            this.mlb_deathcnt = new MetroFramework.Controls.MetroLabel();
             this.mlb_isolclearcnt = new MetroFramework.Controls.MetroLabel();
             this.mlb_isollngcnt = new MetroFramework.Controls.MetroLabel();
+            this.mlb_deathcnt = new MetroFramework.Controls.MetroLabel();
+            this.mlb_defcnt = new MetroFramework.Controls.MetroLabel();
+            this.cg_isolclear = new IHChan.UserControl.CircleGraph();
+            this.cg_death = new IHChan.UserControl.CircleGraph();
+            this.cg_isollng = new IHChan.UserControl.CircleGraph();
+            this.mdt_date = new MetroFramework.Controls.MetroDateTime();
+            this.cg_def = new IHChan.UserControl.CircleGraph();
+            this.mlb_location = new MetroFramework.Controls.MetroLabel();
+            this.mcb_location = new MetroFramework.Controls.MetroComboBox();
             this.mpnl_main.SuspendLayout();
             this.mpnl_bottom.SuspendLayout();
             this.SuspendLayout();
@@ -75,6 +77,8 @@
             // 
             // mpnl_bottom
             // 
+            this.mpnl_bottom.Controls.Add(this.mcb_location);
+            this.mpnl_bottom.Controls.Add(this.mlb_location);
             this.mpnl_bottom.Controls.Add(this.mlb_isolclearcnt);
             this.mpnl_bottom.Controls.Add(this.mlb_isollngcnt);
             this.mpnl_bottom.Controls.Add(this.mlb_deathcnt);
@@ -96,115 +100,10 @@
             this.mpnl_bottom.VerticalScrollbarHighlightOnWheel = false;
             this.mpnl_bottom.VerticalScrollbarSize = 10;
             // 
-            // cg_def
-            // 
-            this.cg_def.Alignment = System.Drawing.StringAlignment.Center;
-            this.cg_def.BackCircleColor = System.Drawing.Color.Gray;
-            this.cg_def.CirCleText = "";
-            this.cg_def.CircleTextIn = "5,000 ▲";
-            this.cg_def.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
-            this.cg_def.ForeCircleColor = System.Drawing.Color.Green;
-            this.cg_def.HalfCircle = false;
-            this.cg_def.InCircleRate = 0.8D;
-            this.cg_def.Location = new System.Drawing.Point(3, 108);
-            this.cg_def.MaxValue = 100;
-            this.cg_def.Name = "cg_def";
-            this.cg_def.Size = new System.Drawing.Size(250, 250);
-            this.cg_def.TabIndex = 2;
-            this.cg_def.TextColor = System.Drawing.Color.Black;
-            this.cg_def.UseSelectable = true;
-            this.cg_def.Value = 0;
-            // 
-            // mdt_date
-            // 
-            this.mdt_date.Dock = System.Windows.Forms.DockStyle.Left;
-            this.mdt_date.Location = new System.Drawing.Point(0, 0);
-            this.mdt_date.MinimumSize = new System.Drawing.Size(0, 29);
-            this.mdt_date.Name = "mdt_date";
-            this.mdt_date.Size = new System.Drawing.Size(241, 29);
-            this.mdt_date.TabIndex = 9;
-            // 
-            // cg_isollng
-            // 
-            this.cg_isollng.Alignment = System.Drawing.StringAlignment.Center;
-            this.cg_isollng.BackCircleColor = System.Drawing.Color.Gray;
-            this.cg_isollng.CirCleText = "";
-            this.cg_isollng.CircleTextIn = "5,000 ▲";
-            this.cg_isollng.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
-            this.cg_isollng.ForeCircleColor = System.Drawing.Color.Green;
-            this.cg_isollng.HalfCircle = false;
-            this.cg_isollng.InCircleRate = 0.8D;
-            this.cg_isollng.Location = new System.Drawing.Point(3, 405);
-            this.cg_isollng.MaxValue = 100;
-            this.cg_isollng.Name = "cg_isollng";
-            this.cg_isollng.Size = new System.Drawing.Size(250, 250);
-            this.cg_isollng.TabIndex = 10;
-            this.cg_isollng.TextColor = System.Drawing.Color.Black;
-            this.cg_isollng.UseSelectable = true;
-            this.cg_isollng.Value = 0;
-            // 
-            // cg_death
-            // 
-            this.cg_death.Alignment = System.Drawing.StringAlignment.Center;
-            this.cg_death.BackCircleColor = System.Drawing.Color.Gray;
-            this.cg_death.CirCleText = "";
-            this.cg_death.CircleTextIn = "5,000 ▲";
-            this.cg_death.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
-            this.cg_death.ForeCircleColor = System.Drawing.Color.Green;
-            this.cg_death.HalfCircle = false;
-            this.cg_death.InCircleRate = 0.8D;
-            this.cg_death.Location = new System.Drawing.Point(306, 108);
-            this.cg_death.MaxValue = 100;
-            this.cg_death.Name = "cg_death";
-            this.cg_death.Size = new System.Drawing.Size(250, 250);
-            this.cg_death.TabIndex = 11;
-            this.cg_death.TextColor = System.Drawing.Color.Black;
-            this.cg_death.UseSelectable = true;
-            this.cg_death.Value = 0;
-            // 
-            // cg_isolclear
-            // 
-            this.cg_isolclear.Alignment = System.Drawing.StringAlignment.Center;
-            this.cg_isolclear.BackCircleColor = System.Drawing.Color.Gray;
-            this.cg_isolclear.CirCleText = "";
-            this.cg_isolclear.CircleTextIn = "5,000 ▲";
-            this.cg_isolclear.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
-            this.cg_isolclear.ForeCircleColor = System.Drawing.Color.Green;
-            this.cg_isolclear.HalfCircle = false;
-            this.cg_isolclear.InCircleRate = 0.8D;
-            this.cg_isolclear.Location = new System.Drawing.Point(306, 405);
-            this.cg_isolclear.MaxValue = 100;
-            this.cg_isolclear.Name = "cg_isolclear";
-            this.cg_isolclear.Size = new System.Drawing.Size(250, 250);
-            this.cg_isolclear.TabIndex = 12;
-            this.cg_isolclear.TextColor = System.Drawing.Color.Black;
-            this.cg_isolclear.UseSelectable = true;
-            this.cg_isolclear.Value = 0;
-            // 
-            // mlb_defcnt
-            // 
-            this.mlb_defcnt.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.mlb_defcnt.Location = new System.Drawing.Point(3, 78);
-            this.mlb_defcnt.Name = "mlb_defcnt";
-            this.mlb_defcnt.Size = new System.Drawing.Size(250, 23);
-            this.mlb_defcnt.TabIndex = 13;
-            this.mlb_defcnt.Text = "확진자 수";
-            this.mlb_defcnt.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // mlb_deathcnt
-            // 
-            this.mlb_deathcnt.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.mlb_deathcnt.Location = new System.Drawing.Point(306, 78);
-            this.mlb_deathcnt.Name = "mlb_deathcnt";
-            this.mlb_deathcnt.Size = new System.Drawing.Size(250, 23);
-            this.mlb_deathcnt.TabIndex = 14;
-            this.mlb_deathcnt.Text = "사망자 수";
-            this.mlb_deathcnt.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // mlb_isolclearcnt
             // 
             this.mlb_isolclearcnt.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.mlb_isolclearcnt.Location = new System.Drawing.Point(306, 375);
+            this.mlb_isolclearcnt.Location = new System.Drawing.Point(372, 78);
             this.mlb_isolclearcnt.Name = "mlb_isolclearcnt";
             this.mlb_isolclearcnt.Size = new System.Drawing.Size(250, 23);
             this.mlb_isolclearcnt.TabIndex = 16;
@@ -214,12 +113,145 @@
             // mlb_isollngcnt
             // 
             this.mlb_isollngcnt.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.mlb_isollngcnt.Location = new System.Drawing.Point(3, 375);
+            this.mlb_isollngcnt.Location = new System.Drawing.Point(992, 78);
             this.mlb_isollngcnt.Name = "mlb_isollngcnt";
             this.mlb_isollngcnt.Size = new System.Drawing.Size(250, 23);
             this.mlb_isollngcnt.TabIndex = 15;
             this.mlb_isollngcnt.Text = "격리 중 환자 수";
             this.mlb_isollngcnt.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // mlb_deathcnt
+            // 
+            this.mlb_deathcnt.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.mlb_deathcnt.Location = new System.Drawing.Point(682, 78);
+            this.mlb_deathcnt.Name = "mlb_deathcnt";
+            this.mlb_deathcnt.Size = new System.Drawing.Size(250, 23);
+            this.mlb_deathcnt.TabIndex = 14;
+            this.mlb_deathcnt.Text = "사망자 수";
+            this.mlb_deathcnt.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // mlb_defcnt
+            // 
+            this.mlb_defcnt.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.mlb_defcnt.Location = new System.Drawing.Point(62, 78);
+            this.mlb_defcnt.Name = "mlb_defcnt";
+            this.mlb_defcnt.Size = new System.Drawing.Size(250, 23);
+            this.mlb_defcnt.TabIndex = 13;
+            this.mlb_defcnt.Text = "확진자 수";
+            this.mlb_defcnt.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // cg_isolclear
+            // 
+            this.cg_isolclear.Alignment = System.Drawing.StringAlignment.Center;
+            this.cg_isolclear.BackCircleColor = System.Drawing.Color.Gray;
+            this.cg_isolclear.CirCleText = "";
+            this.cg_isolclear.CircleTextIn = "-";
+            this.cg_isolclear.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold);
+            this.cg_isolclear.ForeCircleColor = System.Drawing.Color.Green;
+            this.cg_isolclear.HalfCircle = false;
+            this.cg_isolclear.InCircleRate = 0.8D;
+            this.cg_isolclear.Location = new System.Drawing.Point(372, 113);
+            this.cg_isolclear.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cg_isolclear.MaxValue = 100;
+            this.cg_isolclear.Name = "cg_isolclear";
+            this.cg_isolclear.Size = new System.Drawing.Size(250, 250);
+            this.cg_isolclear.TabIndex = 12;
+            this.cg_isolclear.TextColor = System.Drawing.Color.Black;
+            this.cg_isolclear.UseSelectable = true;
+            this.cg_isolclear.Value = 0;
+            // 
+            // cg_death
+            // 
+            this.cg_death.Alignment = System.Drawing.StringAlignment.Center;
+            this.cg_death.BackCircleColor = System.Drawing.Color.Gray;
+            this.cg_death.CirCleText = "";
+            this.cg_death.CircleTextIn = "-";
+            this.cg_death.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold);
+            this.cg_death.ForeCircleColor = System.Drawing.Color.Green;
+            this.cg_death.HalfCircle = false;
+            this.cg_death.InCircleRate = 0.8D;
+            this.cg_death.Location = new System.Drawing.Point(682, 113);
+            this.cg_death.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cg_death.MaxValue = 100;
+            this.cg_death.Name = "cg_death";
+            this.cg_death.Size = new System.Drawing.Size(250, 250);
+            this.cg_death.TabIndex = 11;
+            this.cg_death.TextColor = System.Drawing.Color.Black;
+            this.cg_death.UseSelectable = true;
+            this.cg_death.Value = 0;
+            // 
+            // cg_isollng
+            // 
+            this.cg_isollng.Alignment = System.Drawing.StringAlignment.Center;
+            this.cg_isollng.BackCircleColor = System.Drawing.Color.Gray;
+            this.cg_isollng.CirCleText = "";
+            this.cg_isollng.CircleTextIn = "-";
+            this.cg_isollng.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold);
+            this.cg_isollng.ForeCircleColor = System.Drawing.Color.Green;
+            this.cg_isollng.HalfCircle = false;
+            this.cg_isollng.InCircleRate = 0.8D;
+            this.cg_isollng.Location = new System.Drawing.Point(992, 113);
+            this.cg_isollng.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cg_isollng.MaxValue = 100;
+            this.cg_isollng.Name = "cg_isollng";
+            this.cg_isollng.Size = new System.Drawing.Size(250, 250);
+            this.cg_isollng.TabIndex = 10;
+            this.cg_isollng.TextColor = System.Drawing.Color.Black;
+            this.cg_isollng.UseSelectable = true;
+            this.cg_isollng.Value = 0;
+            // 
+            // mdt_date
+            // 
+            this.mdt_date.Dock = System.Windows.Forms.DockStyle.Left;
+            this.mdt_date.Location = new System.Drawing.Point(0, 0);
+            this.mdt_date.MinimumSize = new System.Drawing.Size(0, 29);
+            this.mdt_date.Name = "mdt_date";
+            this.mdt_date.Size = new System.Drawing.Size(241, 29);
+            this.mdt_date.TabIndex = 9;
+            this.mdt_date.ValueChanged += new System.EventHandler(this.mdt_date_ValueChanged);
+            // 
+            // cg_def
+            // 
+            this.cg_def.Alignment = System.Drawing.StringAlignment.Center;
+            this.cg_def.BackCircleColor = System.Drawing.Color.Gray;
+            this.cg_def.CirCleText = "";
+            this.cg_def.CircleTextIn = "-";
+            this.cg_def.Font = new System.Drawing.Font("Arial", 15F, System.Drawing.FontStyle.Bold);
+            this.cg_def.ForeCircleColor = System.Drawing.Color.Green;
+            this.cg_def.HalfCircle = false;
+            this.cg_def.InCircleRate = 0.8D;
+            this.cg_def.Location = new System.Drawing.Point(62, 113);
+            this.cg_def.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cg_def.MaxValue = 100;
+            this.cg_def.Name = "cg_def";
+            this.cg_def.Size = new System.Drawing.Size(250, 250);
+            this.cg_def.TabIndex = 2;
+            this.cg_def.TextColor = System.Drawing.Color.Black;
+            this.cg_def.UseSelectable = true;
+            this.cg_def.Value = 0;
+            // 
+            // mlb_location
+            // 
+            this.mlb_location.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.mlb_location.Location = new System.Drawing.Point(1009, 6);
+            this.mlb_location.Name = "mlb_location";
+            this.mlb_location.Size = new System.Drawing.Size(55, 23);
+            this.mlb_location.TabIndex = 17;
+            this.mlb_location.Text = "지역";
+            this.mlb_location.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // mcb_location
+            // 
+            this.mcb_location.FontSize = MetroFramework.MetroComboBoxSize.Tall;
+            this.mcb_location.FontWeight = MetroFramework.MetroComboBoxWeight.Light;
+            this.mcb_location.FormattingEnabled = true;
+            this.mcb_location.ItemHeight = 29;
+            this.mcb_location.Location = new System.Drawing.Point(1067, 0);
+            this.mcb_location.Name = "mcb_location";
+            this.mcb_location.Size = new System.Drawing.Size(238, 35);
+            this.mcb_location.TabIndex = 18;
+            this.mcb_location.UseSelectable = true;
+            this.mcb_location.SelectedIndexChanged += new System.EventHandler(this.mcb_location_SelectedIndexChanged);
             // 
             // MetroHomeCountry
             // 
@@ -248,5 +280,7 @@
         private MetroFramework.Controls.MetroLabel mlb_defcnt;
         private MetroFramework.Controls.MetroLabel mlb_isolclearcnt;
         private MetroFramework.Controls.MetroLabel mlb_isollngcnt;
+        private MetroFramework.Controls.MetroComboBox mcb_location;
+        private MetroFramework.Controls.MetroLabel mlb_location;
     }
 }
