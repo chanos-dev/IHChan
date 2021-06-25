@@ -84,6 +84,7 @@
     <Compile Include="Converter\XmlConverter.cs" />
     <Compile Include="Environment\ColorSet.cs" />
     <Compile Include="Environment\CovidEnvironment.cs" />
+    <Compile Include="Extentions\ExtentionsString.cs" />
     <Compile Include="Interface\IRefresh.cs" />
     <Compile Include="Interface\ISetting.cs" />
     <Compile Include="MainForm.cs">

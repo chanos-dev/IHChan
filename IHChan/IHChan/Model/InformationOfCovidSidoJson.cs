@@ -22,7 +22,7 @@ namespace IHChan.Model
         /// 등록일시분초
         /// </summary>
         [JsonProperty("createDt")]
-        public string CreateDt { get; set; }
+        public DateTime CreateDt { get; set; }
 
         /// <summary>
         /// 사망자 수
