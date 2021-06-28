@@ -12,129 +12,125 @@ using MetroFramework.Interfaces;
 using System.Drawing.Drawing2D;
 using IHChan.Options;
 using MetroFramework;
+using System.Reflection;
+using System.Diagnostics;
+using IHChan.Environment;
 
 namespace IHChan.UserControl
 {
     internal partial class DashBoard : MetroUserControl
     {
-        #region Fields
-        private Color _backColor = Color.Gray;
-        private Color _foreColor = Color.Green;
-        private double _inCircleRate = 0.5;
-        private bool _halfCircle = true;
-        private int _value = 0;
-        private int _maxValue = 100;
+        #region Fields 
+        // 타이틀
+        private string _title = "합계";
 
-        private Color _textColor = Color.Black;
-        private string _text = string.Empty;
-        private StringAlignment _alignment = StringAlignment.Near;
+        // 지역 사이트
+        private string _url;
+
+        // 확진자
+        private string _defcnt = "-";
+
+        // 사망자
+        private string _deathcnt = "-";
+
+        // 격리 해제
+        private string _isolclear = "-";
+
+        // 격리 중
+        private string _isoling = "-";
+
+        // 발생률
+        private string _rate = "-";
+
         #endregion
 
-        #region Properties
-        [Category("CircleGraph Properties")]
-        public Color BackCircleColor
+
+        #region Properties 
+        [Category("DashBoard Properties")]
+        public string Title
         {
-            get => _backColor;
+            get => _title;
             set
-            {
-                _backColor = value;
+            { 
+                _title = value;
+                mlb_Title.Text = Title;
                 this.Refresh();
             }
         }
 
-        [Category("CircleGraph Properties")]
-        public Color ForeCircleColor
+        [Category("DashBoard Properties")]
+        public string URL
         {
-            get => _foreColor;
+            get => _url;
             set
-            {
-                _foreColor = value;
+            { 
+                _url = value;
                 this.Refresh();
             }
         }
 
-        [Category("CircleGraph Properties")]
-        public double InCircleRate
+        [Category("DashBoard Properties")]
+        public string DefCnt
         {
-            get => _inCircleRate;
+            get => _defcnt;
             set
             {
-                if (value < 0.1 || value > 0.9)
-                    throw new Exception("The rate range from 0.1 to 0.9.");
+                _defcnt = value;
+                mlb_deathvalue.Text = _defcnt;
 
-                _inCircleRate = value;
                 this.Refresh();
             }
         }
 
-        [Category("CircleGraph Properties")]
-        public bool HalfCircle
+        [Category("DashBoard Properties")]
+        public string DeathCnt
         {
-            get => _halfCircle;
+            get => _deathcnt;
             set
             {
-                _halfCircle = value;
+                _deathcnt = value;
+                mlb_deathvalue.Text = _deathcnt;
+
                 this.Refresh();
             }
         }
 
-        [Category("CircleGraph Properties")]
-        public int Value
+
+        [Category("DashBoard Properties")]
+        public string IsolClear
         {
-            get => _value;
+            get => _isolclear;
             set
             {
-                if (value < 0 || value > MaxValue)
-                    throw new Exception("The Value Property has to be low than MaxValue or high than zero.");
+                _isolclear = value;
+                mlb_isolclearvalue.Text = _isolclear;
 
-                _value = value;
                 this.Refresh();
             }
         }
 
-        [Category("CircleGraph Properties")]
-        public int MaxValue
+        [Category("DashBoard Properties")]
+        public string Isoling
         {
-            get => _maxValue;
+            get => _isoling;
             set
             {
-                if (value < Value)
-                    throw new Exception("The MaxValue Property has to be high than the Value.");
-                
-                _maxValue = value;                
+                _isoling = value;
+                mlb_isoingvalue.Text = _isoling;
+
                 this.Refresh();
             }
         }
 
-        [Category("CircleGraph Properties")]
-        public string CirCleText
+        [Category("DashBoard Properties")]
+        public string Rate
         {
-            get => _text;
+            get => _rate;
             set
-            {
-                _text = value;
-                this.Refresh();
-            }
-        }
+            { 
+                _rate = value;
+                mlb_ratevalue.Text = _rate;
 
-        [Category("CircleGraph Properties")]
-        public StringAlignment Alignment
-        {
-            get => _alignment;
-            set
-            {
-                _alignment = value;
-                this.Refresh();
-            }
-        }
-
-        [Category("CircleGraph Properties")]
-        public Color TextColor
-        {
-            get => _textColor;
-            set
-            {
-                _textColor = value;
                 this.Refresh();
             }
         }
@@ -144,23 +140,41 @@ namespace IHChan.UserControl
         #region Constructor
         public DashBoard()
         {
-            InitializeComponent(); 
+            InitializeComponent();
+            InitializeControl();
         }
+
+        private void InitializeControl()
+        {
+            mlb_defcntvalue.UseCustomForeColor = true;
+            mlb_defcntvalue.ForeColor = ColorSet.GetMetroColorToSystemColor(MetroColorStyle.Orange);
+            mlb_defcntvalue.FontWeight = MetroLabelWeight.Bold;
+
+            mlb_isolclearvalue.UseCustomForeColor = true;
+            mlb_isolclearvalue.ForeColor = ColorSet.GetMetroColorToSystemColor(MetroColorStyle.Green);
+            mlb_isolclearvalue.FontWeight = MetroLabelWeight.Bold;
+
+            mlb_deathvalue.UseCustomForeColor = true;
+            mlb_deathvalue.ForeColor = ColorSet.GetMetroColorToSystemColor(MetroColorStyle.Red);
+            mlb_deathvalue.FontWeight = MetroLabelWeight.Bold;
+
+            mlb_isoingvalue.UseCustomForeColor = true;
+            mlb_isoingvalue.ForeColor = ColorSet.GetMetroColorToSystemColor(MetroColorStyle.Blue);
+            mlb_isoingvalue.FontWeight = MetroLabelWeight.Bold;
+
+            mlb_ratevalue.UseCustomForeColor = true;
+            mlb_ratevalue.ForeColor = ColorSet.GetMetroColorToSystemColor(MetroColorStyle.Purple);
+            mlb_ratevalue.FontWeight = MetroLabelWeight.Bold;
+        }
+
         #endregion
 
-        #region Methods
-        protected override void OnPaint(PaintEventArgs e)
-        {  
-            // Draw Text
-            var textRect = new Rectangle(10, (this.Height / 2), this.Width, this.Height/2);
+        private void mlk_link_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(URL))
+                return;
 
-            var format = new StringFormat();
-            format.Alignment = Alignment;
-
-            var font = new Font("굴림", 12);
-
-            e.Graphics.DrawString(this.CirCleText, font, new SolidBrush(TextColor), textRect, format);
+            Process.Start(URL);
         }
-        #endregion
     }
 }
