@@ -31,6 +31,8 @@
             this.mpnl_temp = new MetroFramework.Controls.MetroPanel();
             this.mpnl_main = new MetroFramework.Controls.MetroPanel();
             this.mpnl_bottom = new MetroFramework.Controls.MetroPanel();
+            this.mcb_location = new MetroFramework.Controls.MetroComboBox();
+            this.mlb_location = new MetroFramework.Controls.MetroLabel();
             this.mlb_isolclearcnt = new MetroFramework.Controls.MetroLabel();
             this.mlb_isollngcnt = new MetroFramework.Controls.MetroLabel();
             this.mlb_deathcnt = new MetroFramework.Controls.MetroLabel();
@@ -40,8 +42,6 @@
             this.cg_isollng = new IHChan.UserControl.CircleGraph();
             this.mdt_date = new MetroFramework.Controls.MetroDateTime();
             this.cg_def = new IHChan.UserControl.CircleGraph();
-            this.mlb_location = new MetroFramework.Controls.MetroLabel();
-            this.mcb_location = new MetroFramework.Controls.MetroComboBox();
             this.mpnl_main.SuspendLayout();
             this.mpnl_bottom.SuspendLayout();
             this.SuspendLayout();
@@ -99,6 +99,29 @@
             this.mpnl_bottom.VerticalScrollbarBarColor = true;
             this.mpnl_bottom.VerticalScrollbarHighlightOnWheel = false;
             this.mpnl_bottom.VerticalScrollbarSize = 10;
+            // 
+            // mcb_location
+            // 
+            this.mcb_location.FontSize = MetroFramework.MetroComboBoxSize.Tall;
+            this.mcb_location.FontWeight = MetroFramework.MetroComboBoxWeight.Light;
+            this.mcb_location.FormattingEnabled = true;
+            this.mcb_location.ItemHeight = 29;
+            this.mcb_location.Location = new System.Drawing.Point(1067, 0);
+            this.mcb_location.Name = "mcb_location";
+            this.mcb_location.Size = new System.Drawing.Size(238, 35);
+            this.mcb_location.TabIndex = 18;
+            this.mcb_location.UseSelectable = true;
+            this.mcb_location.SelectedIndexChanged += new System.EventHandler(this.mcb_location_SelectedIndexChanged);
+            // 
+            // mlb_location
+            // 
+            this.mlb_location.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.mlb_location.Location = new System.Drawing.Point(1009, 6);
+            this.mlb_location.Name = "mlb_location";
+            this.mlb_location.Size = new System.Drawing.Size(55, 23);
+            this.mlb_location.TabIndex = 17;
+            this.mlb_location.Text = "지역";
+            this.mlb_location.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // mlb_isolclearcnt
             // 
@@ -229,29 +252,6 @@
             this.cg_def.TextColor = System.Drawing.Color.Black;
             this.cg_def.UseSelectable = true;
             this.cg_def.Value = 0;
-            // 
-            // mlb_location
-            // 
-            this.mlb_location.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.mlb_location.Location = new System.Drawing.Point(1009, 6);
-            this.mlb_location.Name = "mlb_location";
-            this.mlb_location.Size = new System.Drawing.Size(55, 23);
-            this.mlb_location.TabIndex = 17;
-            this.mlb_location.Text = "지역";
-            this.mlb_location.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // mcb_location
-            // 
-            this.mcb_location.FontSize = MetroFramework.MetroComboBoxSize.Tall;
-            this.mcb_location.FontWeight = MetroFramework.MetroComboBoxWeight.Light;
-            this.mcb_location.FormattingEnabled = true;
-            this.mcb_location.ItemHeight = 29;
-            this.mcb_location.Location = new System.Drawing.Point(1067, 0);
-            this.mcb_location.Name = "mcb_location";
-            this.mcb_location.Size = new System.Drawing.Size(238, 35);
-            this.mcb_location.TabIndex = 18;
-            this.mcb_location.UseSelectable = true;
-            this.mcb_location.SelectedIndexChanged += new System.EventHandler(this.mcb_location_SelectedIndexChanged);
             // 
             // MetroHomeCountry
             // 

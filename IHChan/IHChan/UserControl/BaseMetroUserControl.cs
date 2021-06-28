@@ -14,6 +14,10 @@ namespace IHChan.UserControl
 {
     internal class BaseMetroUserControl : MetroUserControl, ISetting
     {
+        protected bool ChangeTheme { get; set; } = true;
+
+        protected bool ChangeStyle { get; set; } = true;
+
         protected List<IMetroControl> MetroControls { get; set; }
 
         protected List<IMetroControl> DirectControls { get; set; }
@@ -64,8 +68,11 @@ namespace IHChan.UserControl
 
             foreach(var control in DirectControls)
             {
-                control.Theme = Manager.Theme;
-                control.Style = Manager.Style;
+                if (ChangeTheme)
+                    control.Theme = Manager.Theme;
+
+                if (ChangeStyle)
+                    control.Style = Manager.Style;
             }
         }
 
