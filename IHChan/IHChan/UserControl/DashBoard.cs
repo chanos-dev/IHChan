@@ -76,7 +76,7 @@ namespace IHChan.UserControl
             set
             {
                 _defcnt = value;
-                mlb_deathvalue.Text = _defcnt;
+                mlb_defcntvalue.Text = _defcnt;
 
                 this.Refresh();
             }
