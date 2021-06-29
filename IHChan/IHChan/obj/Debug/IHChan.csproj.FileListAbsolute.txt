@@ -34,3 +34,4 @@ C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\obj\Debug\IHChan.csproj.CoreCom
 C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\obj\Debug\IHChan.csproj.CopyComplete
 C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\obj\Debug\IHChan.exe
 C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\obj\Debug\IHChan.pdb
+C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\obj\Debug\IHChan.csprojAssemblyReference.cache

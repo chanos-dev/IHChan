@@ -31,6 +31,8 @@
             this.mpnl_temp = new MetroFramework.Controls.MetroPanel();
             this.mpnl_main = new MetroFramework.Controls.MetroPanel();
             this.mpnl_bottom = new MetroFramework.Controls.MetroPanel();
+            this.db_location = new IHChan.UserControl.DashBoard();
+            this.db_total = new IHChan.UserControl.DashBoard();
             this.mcb_location = new MetroFramework.Controls.MetroComboBox();
             this.mlb_location = new MetroFramework.Controls.MetroLabel();
             this.mlb_isolclearcnt = new MetroFramework.Controls.MetroLabel();
@@ -77,6 +79,8 @@
             // 
             // mpnl_bottom
             // 
+            this.mpnl_bottom.Controls.Add(this.db_location);
+            this.mpnl_bottom.Controls.Add(this.db_total);
             this.mpnl_bottom.Controls.Add(this.mcb_location);
             this.mpnl_bottom.Controls.Add(this.mlb_location);
             this.mpnl_bottom.Controls.Add(this.mlb_isolclearcnt);
@@ -99,6 +103,36 @@
             this.mpnl_bottom.VerticalScrollbarBarColor = true;
             this.mpnl_bottom.VerticalScrollbarHighlightOnWheel = false;
             this.mpnl_bottom.VerticalScrollbarSize = 10;
+            // 
+            // db_location
+            // 
+            this.db_location.DeathCnt = "-";
+            this.db_location.DefCnt = "-";
+            this.db_location.IsolClear = "-";
+            this.db_location.Isoling = "-";
+            this.db_location.Location = new System.Drawing.Point(682, 458);
+            this.db_location.Name = "db_location";
+            this.db_location.Rate = "-";
+            this.db_location.Size = new System.Drawing.Size(292, 214);
+            this.db_location.TabIndex = 20;
+            this.db_location.Title = "합계";
+            this.db_location.URL = null;
+            this.db_location.UseSelectable = true;
+            // 
+            // db_total
+            // 
+            this.db_total.DeathCnt = "-";
+            this.db_total.DefCnt = "-";
+            this.db_total.IsolClear = "-";
+            this.db_total.Isoling = "-";
+            this.db_total.Location = new System.Drawing.Point(62, 458);
+            this.db_total.Name = "db_total";
+            this.db_total.Rate = "-";
+            this.db_total.Size = new System.Drawing.Size(292, 214);
+            this.db_total.TabIndex = 19;
+            this.db_total.Title = "합계";
+            this.db_total.URL = null;
+            this.db_total.UseSelectable = true;
             // 
             // mcb_location
             // 
@@ -282,5 +316,7 @@
         private MetroFramework.Controls.MetroLabel mlb_isollngcnt;
         private MetroFramework.Controls.MetroComboBox mcb_location;
         private MetroFramework.Controls.MetroLabel mlb_location;
+        private DashBoard db_location;
+        private DashBoard db_total;
     }
 }

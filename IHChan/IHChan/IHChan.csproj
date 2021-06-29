@@ -80,10 +80,14 @@
     <Compile Include="APIs\CovidController.cs" />
     <Compile Include="APIs\Define.cs" />
     <Compile Include="APIs\RequestAPI.cs" />
+    <Compile Include="Attributes\CovidLocationAttribute.cs" />
     <Compile Include="Converter\CovidConverter.cs" />
     <Compile Include="Converter\XmlConverter.cs" />
     <Compile Include="Environment\ColorSet.cs" />
+    <Compile Include="Environment\CovidDateFormat.cs" />
     <Compile Include="Environment\CovidEnvironment.cs" />
+    <Compile Include="Environment\Define.cs" />
+    <Compile Include="Extentions\ExtentionsCollection.cs" />
     <Compile Include="Extentions\ExtentionsString.cs" />
     <Compile Include="Interface\IRefresh.cs" />
     <Compile Include="Interface\ISetting.cs" />
@@ -93,6 +97,7 @@
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\CovidData.cs" />
     <Compile Include="Model\InformationOfCovidHomeCountryJson.cs" />
     <Compile Include="Model\InformationOfCovidOverseasJson.cs" />
     <Compile Include="Model\InformationOfCovidSidoJson.cs" />

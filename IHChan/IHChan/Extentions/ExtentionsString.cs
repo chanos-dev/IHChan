@@ -15,5 +15,13 @@ namespace IHChan.Extentions
 
             return -1;
         }
+        
+        public static double ConvertToDouble(this string str)
+        {
+            if (double.TryParse(str, out double result))
+                return result;
+
+            return -1;
+        }
     }
 }

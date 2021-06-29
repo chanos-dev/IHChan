@@ -20,8 +20,6 @@ namespace IHChan.APIs
                 {
                     client.DefaultRequestHeaders.Add("Accept", "application/xml");
 
-                    // GET TEST-CODE         
-                    
                     var response = client.GetAsync(api.RequestURL).Result;
                     response.EnsureSuccessStatusCode();
 
