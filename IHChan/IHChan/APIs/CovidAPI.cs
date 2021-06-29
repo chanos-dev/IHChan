@@ -33,11 +33,11 @@ namespace IHChan.APIs
             
             RequestParams = new Dictionary<string, string>()
             {
-                { "serviceKey", $"{Option.Instance.APIKey}" },
+                { "serviceKey", Option.Instance.APIKey },
                 { "pageNo", "1" },
                 { "numOfRows", "10" },
-                { "startCreateDt", $"{start}" },
-                { "endCreateDt", $"{end}" }, 
+                { "startCreateDt", start },
+                { "endCreateDt", end }
             };
 
             return RequestAPI.APICaller<List<InformationOfCovidHomeCountryJson>>(this, Method.GET);
@@ -55,11 +55,11 @@ namespace IHChan.APIs
 
             RequestParams = new Dictionary<string, string>()
             {
-                { "serviceKey", $"{Option.Instance.APIKey}" },
+                { "serviceKey", Option.Instance.APIKey },
                 { "pageNo", "1" },
                 { "numOfRows", "10" },
-                { "startCreateDt", $"{start}" },
-                { "endCreateDt", $"{end}" },
+                { "startCreateDt", start },
+                { "endCreateDt", end }
             };
 
             return RequestAPI.APICaller<List<InformationOfCovidSidoJson>>(this, Method.GET);
@@ -77,11 +77,11 @@ namespace IHChan.APIs
 
             RequestParams = new Dictionary<string, string>()
             {
-                { "serviceKey", $"{Option.Instance.APIKey}" },
+                { "serviceKey", Option.Instance.APIKey },
                 { "pageNo", "1" },
                 { "numOfRows", "10" },
-                { "startCreateDt", $"{start}" },
-                { "endCreateDt", $"{end}" },
+                { "startCreateDt", start },
+                { "endCreateDt", end }
             };
 
             return RequestAPI.APICaller<List<InformationOfCovidOverseasJson>>(this, Method.GET);
