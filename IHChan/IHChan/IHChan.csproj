@@ -217,8 +217,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Images\cure.png" />
+    <None Include="Images\home.png" />
     <Content Include="Images\mankinds.png" />
     <None Include="Images\rip.png" />
+    <None Include="Images\oversea.png" />
     <Content Include="Images\shield.png" />
     <Content Include="World\World.xml">
       <SubType>Designer</SubType>
