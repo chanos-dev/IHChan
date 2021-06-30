@@ -18,6 +18,12 @@ namespace IHChan.UserControl
         {
             InitializeComponent();
             InitializeBaseControl(this);
-        } 
+            InitializeControl();
+        }
+
+        private void InitializeControl()
+        {
+            this.mlb_date.Text = $"Today : {DateTime.Now:d}";
+        }
     }
 }
