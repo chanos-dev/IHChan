@@ -23,7 +23,6 @@ C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\bin\Debug\YamlDotNet.xml
 C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\obj\Debug\IDLChan.mfrm_main.resources
 C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\obj\Debug\IHChan.Properties.Resources.resources
-C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\obj\Debug\IHChan.UserControl.DashBoard.resources
 C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\obj\Debug\IHChan.UserControl.CircleGraph.resources
 C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\obj\Debug\IHChan.UserControl.MetroOverseas.resources
 C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\obj\Debug\IHChan.UserControl.MetroHomeCountry.resources
@@ -34,4 +33,5 @@ C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\obj\Debug\IHChan.csproj.CoreCom
 C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\obj\Debug\IHChan.csproj.CopyComplete
 C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\obj\Debug\IHChan.exe
 C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\obj\Debug\IHChan.pdb
-C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\obj\Debug\IHChan.csprojAssemblyReference.cache
+C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\obj\Debug\IHChan.UserControl.DashBoardDetail.resources
+C:\Users\Chanos\Desktop\git\IHChan\IHChan\IHChan\obj\Debug\IHChan.UserControl.DashBoard.resources

@@ -30,13 +30,13 @@
         {
             this.mpnl_temp = new MetroFramework.Controls.MetroPanel();
             this.mpnl_main = new MetroFramework.Controls.MetroPanel();
-            this.mpnl_overseas = new MetroFramework.Controls.MetroPanel();
-            this.mpnl_overseas1 = new MetroFramework.Controls.MetroPanel();
-            this.mpnl_home = new MetroFramework.Controls.MetroPanel();
-            this.mpnl_home1 = new MetroFramework.Controls.MetroPanel();
+            this.mpnl_date = new MetroFramework.Controls.MetroPanel();
+            this.mlb_date = new MetroFramework.Controls.MetroLabel();
+            this.mpnl_left = new MetroFramework.Controls.MetroPanel();
+            this.mpnl_right = new MetroFramework.Controls.MetroPanel(); 
             this.mpnl_main.SuspendLayout();
-            this.mpnl_overseas.SuspendLayout();
-            this.mpnl_home.SuspendLayout();
+            this.mpnl_date.SuspendLayout();
+            this.mpnl_right.SuspendLayout();
             this.SuspendLayout();
             // 
             // mpnl_temp
@@ -55,8 +55,9 @@
             // 
             // mpnl_main
             // 
-            this.mpnl_main.Controls.Add(this.mpnl_overseas);
-            this.mpnl_main.Controls.Add(this.mpnl_home);
+            this.mpnl_main.Controls.Add(this.mpnl_right);
+            this.mpnl_main.Controls.Add(this.mpnl_left);
+            this.mpnl_main.Controls.Add(this.mpnl_date);
             this.mpnl_main.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mpnl_main.HorizontalScrollbarBarColor = true;
             this.mpnl_main.HorizontalScrollbarHighlightOnWheel = false;
@@ -69,63 +70,59 @@
             this.mpnl_main.VerticalScrollbarHighlightOnWheel = false;
             this.mpnl_main.VerticalScrollbarSize = 10;
             // 
-            // mpnl_overseas
+            // mpnl_date
             // 
-            this.mpnl_overseas.Controls.Add(this.mpnl_overseas1);
-            this.mpnl_overseas.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mpnl_overseas.HorizontalScrollbarBarColor = true;
-            this.mpnl_overseas.HorizontalScrollbarHighlightOnWheel = false;
-            this.mpnl_overseas.HorizontalScrollbarSize = 10;
-            this.mpnl_overseas.Location = new System.Drawing.Point(0, 361);
-            this.mpnl_overseas.Name = "mpnl_overseas";
-            this.mpnl_overseas.Size = new System.Drawing.Size(1305, 361);
-            this.mpnl_overseas.TabIndex = 3;
-            this.mpnl_overseas.VerticalScrollbarBarColor = true;
-            this.mpnl_overseas.VerticalScrollbarHighlightOnWheel = false;
-            this.mpnl_overseas.VerticalScrollbarSize = 10;
+            this.mpnl_date.Controls.Add(this.mlb_date);
+            this.mpnl_date.Dock = System.Windows.Forms.DockStyle.Top;
+            this.mpnl_date.HorizontalScrollbarBarColor = true;
+            this.mpnl_date.HorizontalScrollbarHighlightOnWheel = false;
+            this.mpnl_date.HorizontalScrollbarSize = 10;
+            this.mpnl_date.Location = new System.Drawing.Point(0, 0);
+            this.mpnl_date.Name = "mpnl_date";
+            this.mpnl_date.Size = new System.Drawing.Size(1305, 30);
+            this.mpnl_date.TabIndex = 7;
+            this.mpnl_date.VerticalScrollbarBarColor = true;
+            this.mpnl_date.VerticalScrollbarHighlightOnWheel = false;
+            this.mpnl_date.VerticalScrollbarSize = 10;
             // 
-            // mpnl_overseas1
+            // mlb_date
             // 
-            this.mpnl_overseas1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.mpnl_overseas1.HorizontalScrollbarBarColor = true;
-            this.mpnl_overseas1.HorizontalScrollbarHighlightOnWheel = false;
-            this.mpnl_overseas1.HorizontalScrollbarSize = 10;
-            this.mpnl_overseas1.Location = new System.Drawing.Point(0, 0);
-            this.mpnl_overseas1.Name = "mpnl_overseas1";
-            this.mpnl_overseas1.Size = new System.Drawing.Size(1305, 100);
-            this.mpnl_overseas1.TabIndex = 3;
-            this.mpnl_overseas1.VerticalScrollbarBarColor = true;
-            this.mpnl_overseas1.VerticalScrollbarHighlightOnWheel = false;
-            this.mpnl_overseas1.VerticalScrollbarSize = 10;
+            this.mlb_date.AutoSize = true;
+            this.mlb_date.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.mlb_date.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.mlb_date.Location = new System.Drawing.Point(3, 2);
+            this.mlb_date.Name = "mlb_date";
+            this.mlb_date.Size = new System.Drawing.Size(78, 25);
+            this.mlb_date.TabIndex = 2;
+            this.mlb_date.Text = "Today : ";
             // 
-            // mpnl_home
+            // mpnl_left
             // 
-            this.mpnl_home.Controls.Add(this.mpnl_home1);
-            this.mpnl_home.Dock = System.Windows.Forms.DockStyle.Top;
-            this.mpnl_home.HorizontalScrollbarBarColor = true;
-            this.mpnl_home.HorizontalScrollbarHighlightOnWheel = false;
-            this.mpnl_home.HorizontalScrollbarSize = 10;
-            this.mpnl_home.Location = new System.Drawing.Point(0, 0);
-            this.mpnl_home.Name = "mpnl_home";
-            this.mpnl_home.Size = new System.Drawing.Size(1305, 361);
-            this.mpnl_home.TabIndex = 2;
-            this.mpnl_home.VerticalScrollbarBarColor = true;
-            this.mpnl_home.VerticalScrollbarHighlightOnWheel = false;
-            this.mpnl_home.VerticalScrollbarSize = 10;
+            this.mpnl_left.Dock = System.Windows.Forms.DockStyle.Left;
+            this.mpnl_left.HorizontalScrollbarBarColor = true;
+            this.mpnl_left.HorizontalScrollbarHighlightOnWheel = false;
+            this.mpnl_left.HorizontalScrollbarSize = 10;
+            this.mpnl_left.Location = new System.Drawing.Point(0, 30);
+            this.mpnl_left.Name = "mpnl_left";
+            this.mpnl_left.Size = new System.Drawing.Size(652, 692);
+            this.mpnl_left.TabIndex = 8;
+            this.mpnl_left.VerticalScrollbarBarColor = true;
+            this.mpnl_left.VerticalScrollbarHighlightOnWheel = false;
+            this.mpnl_left.VerticalScrollbarSize = 10;
             // 
-            // mpnl_home1
-            // 
-            this.mpnl_home1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.mpnl_home1.HorizontalScrollbarBarColor = true;
-            this.mpnl_home1.HorizontalScrollbarHighlightOnWheel = false;
-            this.mpnl_home1.HorizontalScrollbarSize = 10;
-            this.mpnl_home1.Location = new System.Drawing.Point(0, 0);
-            this.mpnl_home1.Name = "mpnl_home1";
-            this.mpnl_home1.Size = new System.Drawing.Size(1305, 100);
-            this.mpnl_home1.TabIndex = 2;
-            this.mpnl_home1.VerticalScrollbarBarColor = true;
-            this.mpnl_home1.VerticalScrollbarHighlightOnWheel = false;
-            this.mpnl_home1.VerticalScrollbarSize = 10;
+            // mpnl_right
+            //  
+            this.mpnl_right.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mpnl_right.HorizontalScrollbarBarColor = true;
+            this.mpnl_right.HorizontalScrollbarHighlightOnWheel = false;
+            this.mpnl_right.HorizontalScrollbarSize = 10;
+            this.mpnl_right.Location = new System.Drawing.Point(652, 30);
+            this.mpnl_right.Name = "mpnl_right";
+            this.mpnl_right.Size = new System.Drawing.Size(653, 692);
+            this.mpnl_right.TabIndex = 9;
+            this.mpnl_right.VerticalScrollbarBarColor = true;
+            this.mpnl_right.VerticalScrollbarHighlightOnWheel = false;
+            this.mpnl_right.VerticalScrollbarSize = 10; 
             // 
             // MetroHome
             // 
@@ -136,8 +133,9 @@
             this.Name = "MetroHome";
             this.Size = new System.Drawing.Size(1305, 737);
             this.mpnl_main.ResumeLayout(false);
-            this.mpnl_overseas.ResumeLayout(false);
-            this.mpnl_home.ResumeLayout(false);
+            this.mpnl_date.ResumeLayout(false);
+            this.mpnl_date.PerformLayout();
+            this.mpnl_right.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -146,9 +144,9 @@
 
         private MetroFramework.Controls.MetroPanel mpnl_temp;
         private MetroFramework.Controls.MetroPanel mpnl_main;
-        private MetroFramework.Controls.MetroPanel mpnl_overseas;
-        private MetroFramework.Controls.MetroPanel mpnl_home;
-        private MetroFramework.Controls.MetroPanel mpnl_overseas1;
-        private MetroFramework.Controls.MetroPanel mpnl_home1;
+        private MetroFramework.Controls.MetroPanel mpnl_date;
+        private MetroFramework.Controls.MetroLabel mlb_date;
+        private MetroFramework.Controls.MetroPanel mpnl_left;
+        private MetroFramework.Controls.MetroPanel mpnl_right; 
     }
 }

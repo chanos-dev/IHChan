@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IHChan.Attributes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 namespace IHChan.Environment
 {
     [Flags]
-    enum Sido
+    public enum Sido
     {
         합계 = 1,
         서울 = 2,
@@ -28,5 +29,19 @@ namespace IHChan.Environment
         경남 = 65536,
         제주 = 131072,
         검역 = 262144,
+    }
+
+    public enum CovidType
+    {
+        [PropertyKRName("확진자")]
+        DefCnt,
+        [PropertyKRName("격리해제")]
+        IsolClear,
+        [PropertyKRName("사망자")]
+        Death,
+        [PropertyKRName("격리 중")]
+        IsolIng,
+        [PropertyKRName("발생률")]
+        Rate,
     }
 }

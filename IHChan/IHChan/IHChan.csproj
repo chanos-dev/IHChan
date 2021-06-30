@@ -81,6 +81,7 @@
     <Compile Include="APIs\Define.cs" />
     <Compile Include="APIs\RequestAPI.cs" />
     <Compile Include="Attributes\CovidLocationAttribute.cs" />
+    <Compile Include="Attributes\PropertyKRNameAttribute.cs" />
     <Compile Include="Converter\CovidConverter.cs" />
     <Compile Include="Converter\XmlConverter.cs" />
     <Compile Include="Environment\ColorSet.cs" />
@@ -108,11 +109,11 @@
     <Compile Include="UserControl\BaseMetroUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControl\DashBoard.cs">
+    <Compile Include="UserControl\DashBoardDetail.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UserControl\DashBoard.Designer.cs">
-      <DependentUpon>DashBoard.cs</DependentUpon>
+    <Compile Include="UserControl\DashBoardDetail.Designer.cs">
+      <DependentUpon>DashBoardDetail.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControl\CircleGraph.cs">
       <SubType>UserControl</SubType>
@@ -144,6 +145,12 @@
     <Compile Include="UserControl\MetroSetting.Designer.cs">
       <DependentUpon>MetroSetting.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\DashBoard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl\DashBoard.Designer.cs">
+      <DependentUpon>DashBoard.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\UserControlDefine.cs" />
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -160,6 +167,9 @@
     </Compile>
     <EmbeddedResource Include="UserControl\DashBoard.resx">
       <DependentUpon>DashBoard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl\DashBoardDetail.resx">
+      <DependentUpon>DashBoardDetail.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControl\CircleGraph.resx">
       <DependentUpon>CircleGraph.cs</DependentUpon>
@@ -206,6 +216,10 @@
     <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Images\cure.png" />
+    <Content Include="Images\mankinds.png" />
+    <None Include="Images\rip.png" />
+    <Content Include="Images\shield.png" />
     <Content Include="World\World.xml">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
