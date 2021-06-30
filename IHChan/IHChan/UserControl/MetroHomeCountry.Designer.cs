@@ -31,8 +31,8 @@
             this.mpnl_temp = new MetroFramework.Controls.MetroPanel();
             this.mpnl_main = new MetroFramework.Controls.MetroPanel();
             this.mpnl_bottom = new MetroFramework.Controls.MetroPanel();
-            this.db_location = new IHChan.UserControl.DashBoard();
-            this.db_total = new IHChan.UserControl.DashBoard();
+            this.db_location = new IHChan.UserControl.DashBoardDetail();
+            this.db_total = new IHChan.UserControl.DashBoardDetail();
             this.mcb_location = new MetroFramework.Controls.MetroComboBox();
             this.mlb_location = new MetroFramework.Controls.MetroLabel();
             this.mlb_isolclearcnt = new MetroFramework.Controls.MetroLabel();
@@ -316,7 +316,7 @@
         private MetroFramework.Controls.MetroLabel mlb_isollngcnt;
         private MetroFramework.Controls.MetroComboBox mcb_location;
         private MetroFramework.Controls.MetroLabel mlb_location;
-        private DashBoard db_location;
-        private DashBoard db_total;
+        private DashBoardDetail db_location;
+        private DashBoardDetail db_total;
     }
 }
