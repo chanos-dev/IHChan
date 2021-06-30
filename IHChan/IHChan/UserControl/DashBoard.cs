@@ -9,7 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MetroFramework.Controls;
 using IHChan.Environment;
-using MetroFramework;
+using MetroFramework; 
+using System.Reflection;
+using IHChan.Attributes;
 
 namespace IHChan.UserControl
 {
@@ -53,7 +55,7 @@ namespace IHChan.UserControl
         public CovidType Type
         {
             set
-            {
+            { 
                 _title = value.ToString();
 
                 InitializeControl(value);
@@ -109,6 +111,12 @@ namespace IHChan.UserControl
                     mpnl_logo.BackgroundImage = Properties.Resources.cure;
                     break;
             }
+
+            var attr = typeof(CovidType).GetMember(type.ToString()).FirstOrDefault().GetCustomAttribute<PropertyKRNameAttribute>();
+
+            if (attr != null)
+                _title = attr.Name;
+
         }
     #endregion
     }
