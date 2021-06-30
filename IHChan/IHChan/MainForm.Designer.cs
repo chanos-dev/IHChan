@@ -224,9 +224,9 @@
             this.mpnl_main.HorizontalScrollbarBarColor = true;
             this.mpnl_main.HorizontalScrollbarHighlightOnWheel = false;
             this.mpnl_main.HorizontalScrollbarSize = 10;
-            this.mpnl_main.Location = new System.Drawing.Point(20, 115);
+            this.mpnl_main.Location = new System.Drawing.Point(20, 120);
             this.mpnl_main.Name = "mpnl_main";
-            this.mpnl_main.Size = new System.Drawing.Size(1305, 747);
+            this.mpnl_main.Size = new System.Drawing.Size(1305, 742);
             this.mpnl_main.TabIndex = 12;
             this.mpnl_main.VerticalScrollbarBarColor = true;
             this.mpnl_main.VerticalScrollbarHighlightOnWheel = false;
@@ -239,7 +239,7 @@
             this.mpnl_mainstick.HorizontalScrollbarBarColor = true;
             this.mpnl_mainstick.HorizontalScrollbarHighlightOnWheel = false;
             this.mpnl_mainstick.HorizontalScrollbarSize = 10;
-            this.mpnl_mainstick.Location = new System.Drawing.Point(20, 110);
+            this.mpnl_mainstick.Location = new System.Drawing.Point(20, 115);
             this.mpnl_mainstick.Name = "mpnl_mainstick";
             this.mpnl_mainstick.Size = new System.Drawing.Size(1305, 5);
             this.mpnl_mainstick.TabIndex = 13;
@@ -263,7 +263,7 @@
             this.mpnl_temp.HorizontalScrollbarBarColor = true;
             this.mpnl_temp.HorizontalScrollbarHighlightOnWheel = false;
             this.mpnl_temp.HorizontalScrollbarSize = 10;
-            this.mpnl_temp.Location = new System.Drawing.Point(20, 115);
+            this.mpnl_temp.Location = new System.Drawing.Point(20, 110);
             this.mpnl_temp.Name = "mpnl_temp";
             this.mpnl_temp.Size = new System.Drawing.Size(1305, 5);
             this.mpnl_temp.TabIndex = 14;
