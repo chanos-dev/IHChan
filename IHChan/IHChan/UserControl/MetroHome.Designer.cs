@@ -44,10 +44,16 @@
             this.mlb_homecountry = new MetroFramework.Controls.MetroLabel();
             this.db_homedef = new IHChan.UserControl.DashBoard();
             this.mpnl_left = new MetroFramework.Controls.MetroPanel();
+            this.dbv_secondsido = new IHChan.UserControl.DashBoardVaccine();
+            this.dbv_firstsido = new IHChan.UserControl.DashBoardVaccine();
+            this.dbv_second = new IHChan.UserControl.DashBoardVaccine();
+            this.dbv_first = new IHChan.UserControl.DashBoardVaccine();
             this.mpnl_vaccine = new MetroFramework.Controls.MetroPanel();
             this.mlb_vaccine = new MetroFramework.Controls.MetroLabel();
             this.mpnl_date = new MetroFramework.Controls.MetroPanel();
             this.mlb_date = new MetroFramework.Controls.MetroLabel();
+            this.mcb_location = new MetroFramework.Controls.MetroComboBox();
+            this.mlb_location = new MetroFramework.Controls.MetroLabel();
             this.mpnl_main.SuspendLayout();
             this.mpnl_right.SuspendLayout();
             this.mpnl_left.SuspendLayout();
@@ -238,6 +244,12 @@
             // 
             // mpnl_left
             // 
+            this.mpnl_left.Controls.Add(this.mlb_location);
+            this.mpnl_left.Controls.Add(this.mcb_location);
+            this.mpnl_left.Controls.Add(this.dbv_secondsido);
+            this.mpnl_left.Controls.Add(this.dbv_firstsido);
+            this.mpnl_left.Controls.Add(this.dbv_second);
+            this.mpnl_left.Controls.Add(this.dbv_first);
             this.mpnl_left.Controls.Add(this.mpnl_vaccine);
             this.mpnl_left.Dock = System.Windows.Forms.DockStyle.Left;
             this.mpnl_left.HorizontalScrollbarBarColor = true;
@@ -250,6 +262,50 @@
             this.mpnl_left.VerticalScrollbarBarColor = true;
             this.mpnl_left.VerticalScrollbarHighlightOnWheel = false;
             this.mpnl_left.VerticalScrollbarSize = 10;
+            // 
+            // dbv_secondsido
+            // 
+            this.dbv_secondsido.FirstValue = "- 명";
+            this.dbv_secondsido.Location = new System.Drawing.Point(345, 374);
+            this.dbv_secondsido.Name = "dbv_secondsido";
+            this.dbv_secondsido.Rate = "0.0%";
+            this.dbv_secondsido.SecondValue = "- 명";
+            this.dbv_secondsido.Size = new System.Drawing.Size(295, 137);
+            this.dbv_secondsido.TabIndex = 12;
+            this.dbv_secondsido.UseSelectable = true;
+            // 
+            // dbv_firstsido
+            // 
+            this.dbv_firstsido.FirstValue = "- 명";
+            this.dbv_firstsido.Location = new System.Drawing.Point(5, 374);
+            this.dbv_firstsido.Name = "dbv_firstsido";
+            this.dbv_firstsido.Rate = "0.0%";
+            this.dbv_firstsido.SecondValue = "- 명";
+            this.dbv_firstsido.Size = new System.Drawing.Size(295, 137);
+            this.dbv_firstsido.TabIndex = 11;
+            this.dbv_firstsido.UseSelectable = true;
+            // 
+            // dbv_second
+            // 
+            this.dbv_second.FirstValue = "- 명";
+            this.dbv_second.Location = new System.Drawing.Point(345, 113);
+            this.dbv_second.Name = "dbv_second";
+            this.dbv_second.Rate = "0.0%";
+            this.dbv_second.SecondValue = "- 명";
+            this.dbv_second.Size = new System.Drawing.Size(295, 137);
+            this.dbv_second.TabIndex = 10;
+            this.dbv_second.UseSelectable = true;
+            // 
+            // dbv_first
+            // 
+            this.dbv_first.FirstValue = "- 명";
+            this.dbv_first.Location = new System.Drawing.Point(5, 113);
+            this.dbv_first.Name = "dbv_first";
+            this.dbv_first.Rate = "0.0%";
+            this.dbv_first.SecondValue = "- 명";
+            this.dbv_first.Size = new System.Drawing.Size(295, 137);
+            this.dbv_first.TabIndex = 9;
+            this.dbv_first.UseSelectable = true;
             // 
             // mpnl_vaccine
             // 
@@ -270,9 +326,10 @@
             // 
             this.mlb_vaccine.AutoSize = true;
             this.mlb_vaccine.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.mlb_vaccine.FontWeight = MetroFramework.MetroLabelWeight.Bold;
             this.mlb_vaccine.Location = new System.Drawing.Point(3, 2);
             this.mlb_vaccine.Name = "mlb_vaccine";
-            this.mlb_vaccine.Size = new System.Drawing.Size(297, 25);
+            this.mlb_vaccine.Size = new System.Drawing.Size(316, 25);
             this.mlb_vaccine.TabIndex = 2;
             this.mlb_vaccine.Text = "국내현황 2021.06.30. 00:00 집계 기준";
             // 
@@ -302,6 +359,29 @@
             this.mlb_date.TabIndex = 2;
             this.mlb_date.Text = "Today : ";
             // 
+            // mcb_location
+            // 
+            this.mcb_location.FontSize = MetroFramework.MetroComboBoxSize.Tall;
+            this.mcb_location.FontWeight = MetroFramework.MetroComboBoxWeight.Light;
+            this.mcb_location.FormattingEnabled = true;
+            this.mcb_location.ItemHeight = 29;
+            this.mcb_location.Location = new System.Drawing.Point(68, 342);
+            this.mcb_location.Name = "mcb_location";
+            this.mcb_location.Size = new System.Drawing.Size(94, 35);
+            this.mcb_location.TabIndex = 20;
+            this.mcb_location.UseSelectable = true;
+            // 
+            // mlb_location
+            // 
+            this.mlb_location.AutoSize = true;
+            this.mlb_location.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.mlb_location.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.mlb_location.Location = new System.Drawing.Point(14, 346);
+            this.mlb_location.Name = "mlb_location";
+            this.mlb_location.Size = new System.Drawing.Size(48, 25);
+            this.mlb_location.TabIndex = 21;
+            this.mlb_location.Text = "지역";
+            // 
             // MetroHome
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -314,6 +394,7 @@
             this.mpnl_right.ResumeLayout(false);
             this.mpnl_right.PerformLayout();
             this.mpnl_left.ResumeLayout(false);
+            this.mpnl_left.PerformLayout();
             this.mpnl_vaccine.ResumeLayout(false);
             this.mpnl_vaccine.PerformLayout();
             this.mpnl_date.ResumeLayout(false);
@@ -344,5 +425,11 @@
         private DashBoard db_overseadef;
         private MetroFramework.Controls.MetroPanel mpnl_home;
         private MetroFramework.Controls.MetroPanel mpnl_oversea;
+        private DashBoardVaccine dbv_second;
+        private DashBoardVaccine dbv_first;
+        private DashBoardVaccine dbv_secondsido;
+        private DashBoardVaccine dbv_firstsido;
+        private MetroFramework.Controls.MetroLabel mlb_location;
+        private MetroFramework.Controls.MetroComboBox mcb_location;
     }
 }

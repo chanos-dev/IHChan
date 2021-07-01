@@ -39,6 +39,19 @@ namespace IHChan.UserControl
             db_overseaisolclear.Type = CovidType.IsolClear;
             db_overseadeath.Type = CovidType.Death;
             db_overseaisoling.Type = CovidType.IsolIng;
+
+            dbv_first.Type = VaccineType.First | VaccineType.All;
+            dbv_second.Type = VaccineType.Second | VaccineType.All;
+
+            dbv_firstsido.Type = VaccineType.First;
+            dbv_secondsido.Type = VaccineType.Second;
+
+            mcb_location.Items.AddRange(Enum.GetNames(typeof(Sido)));
+
+            // delete sido.검역
+            mcb_location.Items.RemoveAt(mcb_location.Items.Count-1);
+
+            mcb_location.SelectedIndex = 1;
         }
 
         private void InitializeControl()
