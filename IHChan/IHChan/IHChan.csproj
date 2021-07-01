@@ -151,6 +151,12 @@
     <Compile Include="UserControl\DashBoard.Designer.cs">
       <DependentUpon>DashBoard.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\DashBoardVaccine.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl\DashBoardVaccine.Designer.cs">
+      <DependentUpon>DashBoardVaccine.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\UserControlDefine.cs" />
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -173,6 +179,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControl\CircleGraph.resx">
       <DependentUpon>CircleGraph.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl\DashBoardVaccine.resx">
+      <DependentUpon>DashBoardVaccine.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControl\MetroOverseas.resx">
       <DependentUpon>MetroOverseas.cs</DependentUpon>
@@ -222,6 +231,8 @@
     <None Include="Images\rip.png" />
     <None Include="Images\oversea.png" />
     <Content Include="Images\shield.png" />
+    <None Include="Images\vaccine.png" />
+    <None Include="Images\vaccine2.png" />
     <Content Include="World\World.xml">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

@@ -42,13 +42,7 @@ namespace IHChan.UserControl
         [Category("DashBoard Properties")]
         public string Title
         {
-            get => _title;
-            //set
-            //{
-            //    _title = value;
-            //    mlb_title.Text = _title;
-            //    this.Refresh();
-            //}
+            get => _title; 
         }
 
         [Category("DashBoard Properties")]
