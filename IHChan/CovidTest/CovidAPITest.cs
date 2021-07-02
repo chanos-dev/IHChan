@@ -1,5 +1,6 @@
 ﻿using System;
 using IHChan.APIs;
+using IHChan.Environment;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace CovidTest
@@ -14,7 +15,6 @@ namespace CovidTest
         { 
             //covid.GetHomeCountryCovidState($"{DateTime.Now:d}", $"{DateTime.Now:d}");
             var results = covid.GetHomeCountryCovidState("2021-05-12", "20210513");
-            
         }
 
         [TestMethod]
@@ -27,6 +27,13 @@ namespace CovidTest
         public void GetOverseasCovidState()
         {
             var results = covid.GetOverseasCovidState("2021-05-12", "20210513");
+        }
+
+        [TestMethod]
+        public void GetVaccine()
+        {
+            var resultsAll = covid.GetVaccine(VaccineType.All);
+            var resultsSido = covid.GetVaccine(VaccineType.Sido);
         }
     }
 }

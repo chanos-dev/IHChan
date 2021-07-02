@@ -85,6 +85,6 @@ namespace IHChan.APIs
             };
 
             return RequestAPI.APICaller<List<InformationOfCovidOverseasJson>>(this, Method.GET);
-        }
+        } 
     }
 }
