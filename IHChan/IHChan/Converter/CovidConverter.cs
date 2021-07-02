@@ -46,7 +46,7 @@ namespace IHChan.Converter
                     temp = temp[p];
                 }
 
-                if ($"{temp.Values().FirstOrDefault()}" != "00")
+                if (temp != null && $"{temp.Values().FirstOrDefault()}" != "00")
                     return null;
 
                 foreach (var p in parentItems)

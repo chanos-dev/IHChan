@@ -1,4 +1,5 @@
-﻿using IHChan.Model;
+﻿using IHChan.Environment;
+using IHChan.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,12 +11,14 @@ namespace IHChan.APIs
     public class CovidController
     {
         private CovidAPI CovidAPI { get; set; }
+        private VaccineAPI VaccineAPI { get; set; }
 
         public static CovidController Instance { get; }
 
         protected CovidController()
         {
             CovidAPI = new CovidAPI();
+            VaccineAPI = new VaccineAPI();
         }
 
         static CovidController()
@@ -68,6 +71,12 @@ namespace IHChan.APIs
 
             return CovidAPI.GetOverseasCovidState(start, end);
         }
+
+        /// <summary>
+        /// 예방접종 1,2차 현황
+        /// </summary>
+        /// <param name="vaccineType">all, sido</param>
+        public List<Vaccine> GetVaccine(VaccineType vaccineType) => VaccineAPI.GetVaccine(vaccineType);
 
         private string CheckSameDate(string start, string end)
         {

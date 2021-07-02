@@ -80,6 +80,7 @@
     <Compile Include="APIs\CovidController.cs" />
     <Compile Include="APIs\Define.cs" />
     <Compile Include="APIs\RequestAPI.cs" />
+    <Compile Include="APIs\VaccineAPI.cs" />
     <Compile Include="Attributes\CovidLocationAttribute.cs" />
     <Compile Include="Attributes\PropertyKRNameAttribute.cs" />
     <Compile Include="Converter\CovidConverter.cs" />
@@ -102,6 +103,7 @@
     <Compile Include="Model\InformationOfCovidHomeCountryJson.cs" />
     <Compile Include="Model\InformationOfCovidOverseasJson.cs" />
     <Compile Include="Model\InformationOfCovidSidoJson.cs" />
+    <Compile Include="Model\Vaccine.cs" />
     <Compile Include="Options\Option.cs" />
     <Compile Include="Options\YamlController.cs" />
     <Compile Include="Program.cs" />

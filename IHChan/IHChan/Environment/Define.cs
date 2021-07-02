@@ -72,5 +72,7 @@ namespace IHChan.Environment
 
         [PropertyKRName("전국")]
         All = 4,
+
+        Sido = 8,
     }
 }

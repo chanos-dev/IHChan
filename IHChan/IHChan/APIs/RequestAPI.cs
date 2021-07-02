@@ -19,6 +19,7 @@ namespace IHChan.APIs
                 using (HttpClient client = new HttpClient())
                 {
                     client.DefaultRequestHeaders.Add("Accept", "application/xml");
+                    client.DefaultRequestHeaders.Add("User-Agent", "covid");
 
                     var response = client.GetAsync(api.RequestURL).Result;
                     response.EnsureSuccessStatusCode();
@@ -30,7 +31,7 @@ namespace IHChan.APIs
                     return JsonConvert.DeserializeObject<T>(result, new CovidConverter<T>());
                 }
             }
-            catch
+            catch (Exception ex)
             {
                 return null;
             } 

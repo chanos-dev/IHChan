@@ -20,7 +20,22 @@ namespace Poc
         {
             InitializeComponent();
 
-            InitializeMap();
+            //InitializeMap();
+            InitializeKoreaMap();
+        }
+
+        private void InitializeKoreaMap()
+        {
+            var values = new Dictionary<string, double>();
+
+            //values["4194"] = 1290000; 
+
+
+            geoMap1.HeatMap = values;
+
+            geoMap1.Source = "World/Korea.xml";
+            this.Controls.Add(geoMap1);
+            geoMap1.Dock = DockStyle.Fill;
         }
 
         private void InitializeMap()

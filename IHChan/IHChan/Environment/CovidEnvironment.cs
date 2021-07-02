@@ -10,9 +10,14 @@ namespace IHChan.Environment
     internal class CovidEnvironment
     {
         /// <summary>
-        /// Base URL
+        /// 공공데이터 센터 Base URL
         /// </summary>
         internal static string BASE_URL => @"http://openapi.data.go.kr";
+
+        /// <summary>
+        /// 질병관리본부 Base URL
+        /// </summary>
+        internal static string VACCIN_URL => @"https://nip.kdca.go.kr";
 
         /// <summary>
         /// Response Json Node
