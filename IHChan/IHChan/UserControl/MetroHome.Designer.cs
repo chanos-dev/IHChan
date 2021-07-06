@@ -44,6 +44,8 @@
             this.mlb_homecountry = new MetroFramework.Controls.MetroLabel();
             this.db_homedef = new IHChan.UserControl.DashBoard();
             this.mpnl_left = new MetroFramework.Controls.MetroPanel();
+            this.mlb_location = new MetroFramework.Controls.MetroLabel();
+            this.mcb_location = new MetroFramework.Controls.MetroComboBox();
             this.dbv_secondsido = new IHChan.UserControl.DashBoardVaccine();
             this.dbv_firstsido = new IHChan.UserControl.DashBoardVaccine();
             this.dbv_second = new IHChan.UserControl.DashBoardVaccine();
@@ -52,8 +54,6 @@
             this.mlb_vaccine = new MetroFramework.Controls.MetroLabel();
             this.mpnl_date = new MetroFramework.Controls.MetroPanel();
             this.mlb_date = new MetroFramework.Controls.MetroLabel();
-            this.mcb_location = new MetroFramework.Controls.MetroComboBox();
-            this.mlb_location = new MetroFramework.Controls.MetroLabel();
             this.mpnl_main.SuspendLayout();
             this.mpnl_right.SuspendLayout();
             this.mpnl_left.SuspendLayout();
@@ -263,6 +263,30 @@
             this.mpnl_left.VerticalScrollbarHighlightOnWheel = false;
             this.mpnl_left.VerticalScrollbarSize = 10;
             // 
+            // mlb_location
+            // 
+            this.mlb_location.AutoSize = true;
+            this.mlb_location.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.mlb_location.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.mlb_location.Location = new System.Drawing.Point(14, 346);
+            this.mlb_location.Name = "mlb_location";
+            this.mlb_location.Size = new System.Drawing.Size(48, 25);
+            this.mlb_location.TabIndex = 21;
+            this.mlb_location.Text = "지역";
+            // 
+            // mcb_location
+            // 
+            this.mcb_location.FontSize = MetroFramework.MetroComboBoxSize.Tall;
+            this.mcb_location.FontWeight = MetroFramework.MetroComboBoxWeight.Light;
+            this.mcb_location.FormattingEnabled = true;
+            this.mcb_location.ItemHeight = 29;
+            this.mcb_location.Location = new System.Drawing.Point(68, 342);
+            this.mcb_location.Name = "mcb_location";
+            this.mcb_location.Size = new System.Drawing.Size(94, 35);
+            this.mcb_location.TabIndex = 20;
+            this.mcb_location.UseSelectable = true;
+            this.mcb_location.SelectedIndexChanged += new System.EventHandler(this.mcb_location_SelectedIndexChanged);
+            // 
             // dbv_secondsido
             // 
             this.dbv_secondsido.FirstValue = "- 명";
@@ -358,29 +382,6 @@
             this.mlb_date.Size = new System.Drawing.Size(78, 25);
             this.mlb_date.TabIndex = 2;
             this.mlb_date.Text = "Today : ";
-            // 
-            // mcb_location
-            // 
-            this.mcb_location.FontSize = MetroFramework.MetroComboBoxSize.Tall;
-            this.mcb_location.FontWeight = MetroFramework.MetroComboBoxWeight.Light;
-            this.mcb_location.FormattingEnabled = true;
-            this.mcb_location.ItemHeight = 29;
-            this.mcb_location.Location = new System.Drawing.Point(68, 342);
-            this.mcb_location.Name = "mcb_location";
-            this.mcb_location.Size = new System.Drawing.Size(94, 35);
-            this.mcb_location.TabIndex = 20;
-            this.mcb_location.UseSelectable = true;
-            // 
-            // mlb_location
-            // 
-            this.mlb_location.AutoSize = true;
-            this.mlb_location.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.mlb_location.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.mlb_location.Location = new System.Drawing.Point(14, 346);
-            this.mlb_location.Name = "mlb_location";
-            this.mlb_location.Size = new System.Drawing.Size(48, 25);
-            this.mlb_location.TabIndex = 21;
-            this.mlb_location.Text = "지역";
             // 
             // MetroHome
             // 

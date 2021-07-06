@@ -18,6 +18,7 @@ namespace IHChan.APIs
             {
                 using (HttpClient client = new HttpClient())
                 {
+                    // todo - refactoring
                     client.DefaultRequestHeaders.Add("Accept", "application/xml");
                     client.DefaultRequestHeaders.Add("User-Agent", "covid");
 
