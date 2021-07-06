@@ -29,7 +29,7 @@ namespace IHChan.Environment
         /// <summary>
         /// 2021-07-02 기준 대한민국 인구 수 5,182만 1,669명
         /// </summary>
-        internal static int KOREAN_POPULATION => 51821669;
+        internal static string KOREAN_POPULATION => "51821669";
 
         #region COVID_URL 
         [CovidLocation(Sido.합계 | Sido.검역)]

@@ -83,6 +83,7 @@
     <Compile Include="APIs\VaccineAPI.cs" />
     <Compile Include="Attributes\CovidLocationAttribute.cs" />
     <Compile Include="Attributes\PropertyKRNameAttribute.cs" />
+    <Compile Include="Common\EnumHelper.cs" />
     <Compile Include="Converter\CovidConverter.cs" />
     <Compile Include="Converter\XmlConverter.cs" />
     <Compile Include="Environment\ColorSet.cs" />

@@ -10,6 +10,10 @@ using System.Windows.Forms;
 using MetroFramework.Controls;
 using MetroFramework.Interfaces;
 using IHChan.Environment;
+using IHChan.Model;
+using IHChan.APIs;
+using IHChan.Extentions;
+using IHChan.Common;
 
 namespace IHChan.UserControl
 {
@@ -17,16 +21,18 @@ namespace IHChan.UserControl
     {
         private string TodayDate => $"{DateTime.Now:d}";
 
+        private Dictionary<VaccineType, List<Vaccine>> Vaccines { get; set; }
+
         private BackgroundWorker Worker { get; set; }
 
         public MetroHome() : base()
         {
             InitializeComponent();
-            InitializeBaseControl(this);
+            InitializeBaseControl(this); 
+             
             InitializeControl();
-
             InitializeDashboard();
-        }
+        }  
 
         private void InitializeDashboard()
         {
@@ -43,22 +49,79 @@ namespace IHChan.UserControl
             dbv_first.Type = VaccineType.First | VaccineType.All;
             dbv_second.Type = VaccineType.Second | VaccineType.All;
 
+            // need to add sido name
             dbv_firstsido.Type = VaccineType.First;
             dbv_secondsido.Type = VaccineType.Second;
 
             mcb_location.Items.AddRange(Enum.GetNames(typeof(Sido)));
-
-            // delete sido.검역
-            mcb_location.Items.RemoveAt(mcb_location.Items.Count-1);
-
-            mcb_location.SelectedIndex = 1;
+            // delete sido.합계, sido.검역
+            mcb_location.Items.RemoveAt(0);
+            mcb_location.Items.RemoveAt(mcb_location.Items.Count-1); 
         }
 
         private void InitializeControl()
         {
+            /// control
             mlb_date.Text = $"Today : {TodayDate}";
-
             mlb_vaccine.Text = $"국내현황 {TodayDate}. 00:00 집계 기준";
+
+            Vaccines = new Dictionary<VaccineType, List<Vaccine>>();
+
+            Worker = new BackgroundWorker();
+            Worker.DoWork += Worker_DoWork;
+            Worker.RunWorkerCompleted += Worker_RunWorkerCompleted;
+
+            Worker.RunWorkerAsync();
         }
+
+        private void Worker_DoWork(object sender, DoWorkEventArgs e)
+        {
+            Vaccines[VaccineType.All] = CovidController.Instance.GetVaccine(VaccineType.All);
+            Vaccines[VaccineType.Sido] = CovidController.Instance.GetVaccine(VaccineType.Sido);
+        }
+
+        private void Worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            mcb_location.SelectedIndex = 0;
+
+            SetAll();
+            SetSido();
+        }
+
+        private void SetAll()
+        { 
+            // total dashboard
+            var total = Vaccines[VaccineType.All].Where(va => va.Tpcd.Contains("전체건수")).FirstOrDefault();
+            var day = Vaccines[VaccineType.All].Where(va => va.Tpcd.Contains("당일실적")).FirstOrDefault();
+
+            dbv_first.FirstValue = $"{total.FirstCnt:#,##0} 명";
+            dbv_first.SecondValue = $"{day.FirstCnt:#,##0} 명";
+            dbv_first.Rate = GetVaccineRate($"{total.FirstCnt}", CovidEnvironment.KOREAN_POPULATION);
+
+            dbv_second.FirstValue = $"{total.SecondCnt:#,##0} 명";
+            dbv_second.SecondValue = $"{day.SecondCnt:#,##0} 명";
+            dbv_second.Rate = GetVaccineRate($"{total.SecondCnt}", CovidEnvironment.KOREAN_POPULATION);
+        }
+
+        private void SetSido()
+        {  
+            // sido dashboard
+            var sido = EnumHelper.GetSidoKRName(mcb_location.Text);
+
+            var sidoTotal = Vaccines[VaccineType.Sido].Where(va => va.SidoNm == sido).FirstOrDefault();
+            var sidoDay = Vaccines[VaccineType.Sido].Where(va => va.SidoNm == sido).FirstOrDefault();
+
+            dbv_firstsido.FirstValue = $"{sidoTotal.FirstTot:#,##0} 명";
+            dbv_firstsido.SecondValue = $"{sidoDay.FirstCnt:#,##0} 명";
+            dbv_firstsido.Rate = GetVaccineRate($"{sidoTotal.FirstTot}", CovidEnvironment.KOREAN_POPULATION);
+
+            dbv_secondsido.FirstValue = $"{sidoTotal.SecondTot:#,##0} 명";
+            dbv_secondsido.SecondValue = $"{sidoDay.SecondCnt:#,##0} 명";
+            dbv_secondsido.Rate = GetVaccineRate($"{sidoTotal.SecondTot}", CovidEnvironment.KOREAN_POPULATION);
+        }
+
+        private string GetVaccineRate(string numerator, string denominator) => $"{Math.Round((numerator.ConvertToDouble() / denominator.ConvertToDouble()) * 100, 1)}%";
+
+        private void mcb_location_SelectedIndexChanged(object sender, EventArgs e) => SetSido();
     }
 }

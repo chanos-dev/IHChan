@@ -28,13 +28,13 @@ namespace IHChan.Model
         /// 1차 접종 신규 sido
         /// </summary>
         [JsonProperty("firstCnt")]
-        public string FirstCnt { get; set; }
+        public int FirstCnt { get; set; }
 
         /// <summary>
         /// 1차 접종 토탈 only sido
         /// </summary>
         [JsonProperty("firstTot")]
-        public string FirstTot { get; set; }
+        public int FirstTot { get; set; }
 
 
         /// <summary>
@@ -42,13 +42,13 @@ namespace IHChan.Model
         /// 2차 접종 신규 sido
         /// </summary>
         [JsonProperty("secondCnt")]
-        public string SecondCnt { get; set; }
+        public int SecondCnt { get; set; }
 
         /// <summary>
         /// 2차 접종 토탈 only sido
         /// </summary>
         [JsonProperty("secondTot")]
-        public string SecondTot { get; set; }
+        public int SecondTot { get; set; }
 
     }
 }
