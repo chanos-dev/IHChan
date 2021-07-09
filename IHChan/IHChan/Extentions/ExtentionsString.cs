@@ -23,5 +23,15 @@ namespace IHChan.Extentions
 
             return -1;
         }
+
+        public static string AddComma(this string str)
+        {
+            if (int.TryParse(str, out int result))
+            {
+                return $"{result:#,##0}";
+            }
+
+            return str;
+        }
     }
 }
