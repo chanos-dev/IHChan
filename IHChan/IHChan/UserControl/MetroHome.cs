@@ -23,6 +23,10 @@ namespace IHChan.UserControl
 
         private Dictionary<VaccineType, List<Vaccine>> Vaccines { get; set; }
 
+        private InformationOfCovidSidoJson HomeCountryCovid { get; set; }
+
+        private InformationOfCovidOverseasJson OverseasCovid { get; set; }
+
         private BackgroundWorker Worker { get; set; }
 
         public MetroHome() : base()
@@ -66,6 +70,7 @@ namespace IHChan.UserControl
             mlb_vaccine.Text = $"국내현황 {TodayDate}. 00:00 집계 기준";
 
             Vaccines = new Dictionary<VaccineType, List<Vaccine>>();
+            OverseasCovid = new InformationOfCovidOverseasJson();
 
             Worker = new BackgroundWorker();
             Worker.DoWork += Worker_DoWork;
@@ -76,19 +81,30 @@ namespace IHChan.UserControl
 
         private void Worker_DoWork(object sender, DoWorkEventArgs e)
         {
+            // vaccine
             Vaccines[VaccineType.All] = CovidController.Instance.GetVaccine(VaccineType.All);
             Vaccines[VaccineType.Sido] = CovidController.Instance.GetVaccine(VaccineType.Sido);
+
+            // covid
+            HomeCountryCovid = CovidController.Instance.GetSidoCovidState(TodayDate, TodayDate)?.Where(sido => sido.Gubun == $"{Sido.합계}").FirstOrDefault();
+            var overseas = CovidController.Instance.GetOverseasCovidState(TodayDate, TodayDate).Where(sea => $"{sea.CreateDt:d}" == TodayDate);
+
+            OverseasCovid.NatDefCnt = overseas.Sum(sea => sea.NatDefCnt);            
+            OverseasCovid.NatDeathCnt = overseas.Sum(sea => sea.NatDeathCnt);
         }
 
         private void Worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
             mcb_location.SelectedIndex = 0;
 
-            SetAll();
-            SetSido();
+            SetVaccineAll();
+            SetVaccineSido();
+
+            SetHomeCountry();
+        
         }
 
-        private void SetAll()
+        private void SetVaccineAll()
         { 
             // total dashboard
             var total = Vaccines[VaccineType.All].Where(va => va.Tpcd.Contains("전체건수")).FirstOrDefault();
@@ -103,7 +119,7 @@ namespace IHChan.UserControl
             dbv_second.Rate = GetVaccineRate($"{total.SecondCnt}", CovidEnvironment.KOREAN_POPULATION);
         }
 
-        private void SetSido()
+        private void SetVaccineSido()
         {  
             // sido dashboard
             var sido = EnumHelper.GetSidoKRName(mcb_location.Text);
@@ -120,8 +136,23 @@ namespace IHChan.UserControl
             dbv_secondsido.Rate = GetVaccineRate($"{sidoTotal.SecondTot}", CovidEnvironment.KOREAN_POPULATION);
         }
 
+        private void SetHomeCountry()
+        {
+            if (HomeCountryCovid is null)
+                return;
+
+            db_homedef.Value = $"{HomeCountryCovid.DefCnt.AddComma()} 명";
+            db_homeisolclear.Value = $"{HomeCountryCovid.IsolClearCnt.AddComma()} 명";
+            db_homedeath.Value = $"{HomeCountryCovid.DeathCnt.AddComma()} 명";
+            db_homeisoling.Value = $"{HomeCountryCovid.IsolIngCnt.AddComma()} 명";
+
+
+            db_overseadef.Value = $"{OverseasCovid.NatDefCnt.ToString().AddComma()} 명";
+            db_overseadeath.Value = $"{OverseasCovid.NatDeathCnt.ToString().AddComma()} 명";
+        }
+
         private string GetVaccineRate(string numerator, string denominator) => $"{Math.Round((numerator.ConvertToDouble() / denominator.ConvertToDouble()) * 100, 1)}%";
 
-        private void mcb_location_SelectedIndexChanged(object sender, EventArgs e) => SetSido();
+        private void mcb_location_SelectedIndexChanged(object sender, EventArgs e) => SetVaccineSido();
     }
 }

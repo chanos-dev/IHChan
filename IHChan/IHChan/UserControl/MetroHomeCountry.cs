@@ -67,14 +67,23 @@ namespace IHChan.UserControl
                 SidosData = sidos.OrderBy(sido => sido.DefCnt).ToList();
 
                 // set total data
-                var total = SidosData.Where(sido =>
+                var totals = SidosData.Where(sido =>
                 {
-                    return sido.Gubun == nameof(Sido.합계) &&
-                           $"{sido.CreateDt:d}" == SelectedDate;
-                }).FirstOrDefault();
+                    return sido.Gubun == nameof(Sido.합계);
+                });
 
-                if (total != null)
-                    TotalCovidContent.InitializeData(total, Type.Current);
+                foreach (var total in totals)
+                {
+                    if ($"{total.CreateDt:d}" == SelectedDate)
+                    {
+                        TotalCovidContent.InitializeData(total, Type.Current);
+                    }
+                    else
+                    {
+                        TotalCovidContent.InitializeData(total, Type.Previous);
+                    }
+                }
+                
 
                 SetContentOnDashBoard();
             }
